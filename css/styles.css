@@ -288,96 +288,15 @@ a {
 }
 
 .sanbud-section {
-    padding: 7rem 0; }
-    .sanbud-section .sanbud-person {
-      text-align: center;
-      text-decoration: none;
-      display: block;
-      position: relative;
-      padding-bottom: 50px;
-      cursor: pointer; }
-      .sanbud-section .sanbud-person .sanbud-person-img {
-        margin-bottom: 30px;
-        position: relative;
-        top: 0;
-        -webkit-transition: .3s all ease;
-        -o-transition: .3s all ease;
-        transition: .3s all ease;
-        border-radius: 50%;
-        width: 15rem;
+    padding: 7rem 0 0 0;}
+    .sanbud-map img {
+        width: 100%;
     }
-      .sanbud-section .sanbud-person h3 {
-        font-weight: 600;
-        font-size: 16px; }
-      .sanbud-section .sanbud-person:before {
-        bottom: 0;
-        left: 0;
-        right: 0;
-        position: absolute;
-        content: "";
-        background: #dce5e4;
-        height: 0%;
-        z-index: -1;
-        border-radius: 10px;
-        -webkit-transition: .3s all ease;
-        -o-transition: .3s all ease;
-        transition: .3s all ease; }
-      .sanbud-section .sanbud-person:hover .sanbud-person-img {
-        top: -25px; }
-      .sanbud-section .sanbud-person:hover .icon-cross {
-        bottom: 0;
-        opacity: 1;
-        visibility: visible; }
-      .sanbud-section .sanbud-person:hover:before {
-        height: 70%; }
 
-.sanbud-people {
-    padding: 7rem 0; }
-    .sanbud-people .sanbud-person {
-        text-align: center;
-        text-decoration: none;
-        display: block;
-        position: relative;
-        padding-bottom: 50px;
-        cursor: pointer; }
-        .sanbud-people .sanbud-person .sanbud-person-img {
-            margin-bottom: 30px;
-            position: relative;
-            top: 0;
-            -webkit-transition: .3s all ease;
-            -o-transition: .3s all ease;
-            transition: .3s all ease;
-            border-radius: 50%;
-            width: 15rem;}
-        .sanbud-people .sanbud-person h3 {
-            font-weight: 600;
-            font-size: 16px; }
-        .sanbud-people .sanbud-person:before {
-            bottom: 0;
-            left: 0;
-            right: 0;
-            position: absolute;
-            content: "";
-            background: #dce5e4;
-            height: 0%;
-            z-index: -1;
-            border-radius: 10px;
-            -webkit-transition: .3s all ease;
-            -o-transition: .3s all ease;
-            transition: .3s all ease; }
-        .sanbud-people .sanbud-person:hover .sanbud-person-img {
-            top: -25px; }
-        .sanbud-people .sanbud-person:hover .icon-cross {
-            bottom: 0;
-            opacity: 1;
-            visibility: visible; }
-        .sanbud-people .sanbud-person:hover:before {
-            height: 70%; }  
-
-
-
+.contact {
+    padding-bottom: 2rem;}
     .contact .email, .contact .phone {
-      margin-top: 40px;
+        margin-top: 40px;
     }
     .contact a {
         text-decoration: none;
@@ -413,7 +332,7 @@ a {
 
 
 .footer-section {
-    padding: 80px 0;
+    padding: 10rem 0 3rem 0;
     background: #eff2f1; }
     .footer-section .relative {
       position: relative; }

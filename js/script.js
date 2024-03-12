@@ -21,3 +21,10 @@ window.addEventListener('scroll', () => {
         SanbudNavBrand.classList.remove('border-bottom');
     }
 });
+
+const navLinks = document.querySelectorAll('.nav-item')
+const menuToggle = document.getElementById('sanbudNav')
+const bsCollapse = bootstrap.Collapse.getOrCreateInstance(menuToggle, {toggle: false})
+navLinks.forEach((l) => {
+    l.addEventListener('click', () => { bsCollapse.toggle() })
+})
