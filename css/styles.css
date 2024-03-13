@@ -210,6 +210,7 @@ a {
       position: relative; }
       .intro .intro-img-wrap img {
         position: relative;
+        overflow: hidden;
         top: 0px;
         right: 0px;
         z-index: 2;
@@ -289,14 +290,37 @@ a {
 
 .sanbud-section {
     padding: 7rem 0 0 0;}
-    .sanbud-map img {
+    .sanbud-section .sanbud-map img {
         width: 100%;
     }
+    .sanbud-section .about-img-fluid {
+        position: relative;
+        mask: url(/img/fluid-mask-2.png) center/contain no-repeat;
+        overflow: hidden;}
+        @media (min-width: 0px) {
+        .sanbud-section .about-img-fluid {
+            max-width: 500px;
+            left:-50px;
+            mask: url(/img/fluid-mask-3.png) center/contain no-repeat;}
+        } 
+        @media (min-width: 767px) {
+            .sanbud-section .about-img-fluid {
+                max-width: 700px;
+                left:20px;
+                top: 50px;
+                right: 0px;
+                }
+        } 
+        @media (min-width: 1600px) {
+            .sanbud-section .about-img-fluid {
+                max-width: 850px;
+                left:20px;
+                top: 50px;
+                right: 0px;
+                }
+            }  
 
 /* SANBUD PLAN */
-#sanbud-plan #border {
-    fill: black;
-}
 #sanbud-plan .area:hover {
     fill: #f9bf29;
 }
