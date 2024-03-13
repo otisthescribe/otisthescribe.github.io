@@ -293,6 +293,14 @@ a {
         width: 100%;
     }
 
+/* SANBUD PLAN */
+#sanbud-plan #border {
+    fill: black;
+}
+#sanbud-plan .area:hover {
+    fill: #f9bf29;
+}
+
 .contact {
     padding-bottom: 2rem;}
     .contact .email, .contact .phone {
