@@ -294,7 +294,7 @@ a {
     .sanbud-section .about-img-fluid {
         position: relative;
         mask: url(/img/fluid-mask-2.png) center/contain no-repeat;
-        overflow: hidden;}
+        overflow-x: hidden;}
         @media (min-width: 0px) {
         .sanbud-section .about-img-fluid {
             max-width: 500px;
