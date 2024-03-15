@@ -45,8 +45,6 @@ a {
     transition: all 0.3s;
 }
 
-
-
 .custom-navbar {
     background: #3b5d50 !important;
     padding-top: 20px;
@@ -289,7 +287,6 @@ a {
 }
 
 .sanbud-section {
-    overflow-x: hidden;
     padding: 7rem 0 0 0;}
     .sanbud-section .sanbud-map img {
         width: 100%;
@@ -322,9 +319,10 @@ a {
             }  
 
 /* SANBUD PLAN */
-#sanbud-plan .area:hover {
+#Hoverable path:hover {
     fill: #f9bf29;
 }
+
 
 .contact {
     padding-bottom: 2rem;}
@@ -363,10 +361,9 @@ a {
     width: 100%;
 }
 
-
 .footer-section {
     padding: 10rem 0 3rem 0;
-    background: #eff2f1; }
+    background: #eff2f1;}
     .footer-section .relative {
       position: relative; }
     .footer-section a {
