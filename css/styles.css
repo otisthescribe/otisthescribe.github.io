@@ -286,15 +286,19 @@ a {
     color: #2f2f2f; 
 }
 
+#oferta {
+    overflow-x: hidden;
+}
+
 .sanbud-section {
     padding: 7rem 0 0 0;}
     .sanbud-section .sanbud-map img {
         width: 100%;
     }
+
     .sanbud-section .about-img-fluid {
         position: relative;
-        mask: url(/img/fluid-mask-2.png) center/contain no-repeat;
-        overflow-x: hidden;}
+        mask: url(/img/fluid-mask-2.png) center/contain no-repeat;}
         @media (min-width: 0px) {
         .sanbud-section .about-img-fluid {
             max-width: 500px;
