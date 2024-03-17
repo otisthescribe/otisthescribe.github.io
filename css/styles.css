@@ -290,6 +290,16 @@ a {
     overflow-x: hidden;
 }
 
+#lot-tooltip {
+    position: absolute; 
+    display: none;
+    background: fixed;
+    background-color: #f8b810;
+    padding: 2rem;
+    color: white;
+    border-radius: 1.5rem;
+}
+
 .sanbud-section {
     padding: 7rem 0 0 0;}
     .sanbud-section .sanbud-map img {

@@ -1,5 +1,3 @@
-import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
-
 const SanbudNav = document.getElementById("SanbudNav");
 const SanbudNavBrand = document.getElementById("SanbudNavBrand");
 
@@ -30,3 +28,4 @@ const bsCollapse = bootstrap.Collapse.getOrCreateInstance(menuToggle, {toggle: f
 navLinks.forEach((l) => {
     l.addEventListener('click', () => { bsCollapse.toggle() })
 })
+
