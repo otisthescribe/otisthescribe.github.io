@@ -53,9 +53,15 @@ const sanbud_lots = {
       "Availability": "Wynajęty",
       "Area": "600",
     },
-    "LOT-10": {
-      "Title": "BUDYNEK 4",
-      "Description": "Plac tralala",
+    "LOT-10-A": {
+      "Title": "BUDYNEK 4A",
+      "Description": "Główny budynek - siedziba firmy Sanbud",
+      "Availability": "Zajęty na stałę",
+      "Area": "600",
+    },
+    "LOT-10-B": {
+      "Title": "BUDYNEK 4B",
+      "Description": "Druga część glównego budynku - część sklepowa.",
       "Availability": "Wolny",
       "Area": "600",
     },
