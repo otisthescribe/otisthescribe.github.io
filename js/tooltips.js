@@ -1,105 +1,101 @@
 const sanbud_lots = {
     "LOT-1": {
       "Title": "PLAC 1",
-      "Description": "Super plac o jak na razie najdłuższym opisie",
-      "Availability": "Wynajęty",
-      "Area": "600",
+      "Description": "Plac utwardzony betonowymi płytami.",
+      "Availability": "Wydzierżawiony",
+      "Area": "2514",
     },
     "LOT-2": {
       "Title": "PLAC 2",
-      "Description": "Plac tralala",
+      "Description": "Plac pomiędzy ogrodzeniem a budynkiem \"Titanic\", w bezpośrednim sąsiedztwie bramy wjazdowej od ulicy Targowej.",
       "Availability": "Wolny",
-      "Area": "600",
+      "Area": "826",
     },
     "LOT-3": {
-      "Title": "BUDYNEK 1",
-      "Description": "Budynek obecnie poddawany jest pracom remontowym.",
+      "Title": "BUDYNEK BIUROWY \"TITANIC\"",
+      "Description": "W trakcie inwestycji.",
       "Availability": "Czasowo niedostępny",
-      "Area": "600",
     },
     "LOT-4": {
       "Title": "PLAC 3",
-      "Description": "Plac tralala",
+      "Description": "Plac z indywidualnym ogrodzeniem i własną bramą wjazdową.",
       "Availability": "Wolny",
-      "Area": "600",
+      "Area": "845",
     },
     "LOT-5": {
       "Title": "PLAC 4",
-      "Description": "Plac tralala",
-      "Availability": "Wynajęty",
-      "Area": "600",
+      "Description": "Plac w bezpośrednim sąsiedztwie budynku przemysłowo-usługowego.",
+      "Availability": "Wydzierżawiony",
+      "Area": "608",
     },
     "LOT-6": {
-      "Title": "BUDYNEK 2",
-      "Description": "Plac tralala",
+      "Title": "BUDYNEK PRZEMYSŁOWO-USŁUGOWY",
+      "Description": "Budynek z wydzieloną częścią biurową, produkcyjną i magazynową.",
       "Availability": "Wynajęty",
-      "Area": "600",
+      "Area": "269",
     },
     "LOT-7": {
       "Title": "PLAC 5",
-      "Description": "Plac tralala",
-      "Availability": "Wynajęty",
-      "Area": "600",
+      "Description": "Plac utwardzony betonowymi płytami.",
+      "Availability": "Wydzierżawiony",
+      "Area": "926",
     },
     "LOT-8": {
       "Title": "PLAC 6",
-      "Description": "Plac tralala",
+      "Description": "Plac uposażony w wagę. W jego skład wchodzi parking do części sklepowej budynku głównego.",
       "Availability": "Wolny",
-      "Area": "600",
+      "Area": "561",
     },
     "LOT-9": {
-      "Title": "BUDYNEK 3",
-      "Description": "Plac tralala",
-      "Availability": "Wynajęty",
-      "Area": "600",
+      "Title": "BUDYNEK GŁÓWNY",
+      "Description": "Budynek podzielony na dwie części.",
     },
     "LOT-10-A": {
-      "Title": "BUDYNEK 4A",
-      "Description": "Główny budynek - siedziba firmy Sanbud",
-      "Availability": "Zajęty na stałę",
-      "Area": "600",
+      "Title": "BUDYNEK GŁÓWNY: CZĘŚĆ BIUROWA",
+      "Description": "Przestrzeń biurowa wraz z biurem firmy Sanbud.",
+      "Availability": "Wydzierżawiony",
     },
     "LOT-10-B": {
-      "Title": "BUDYNEK 4B",
-      "Description": "Druga część glównego budynku - część sklepowa.",
+      "Title": "BUDYNEK GŁÓWNY: CZĘŚĆ SKLEPOWA",
+      "Description": "Przestrzeń przeznaczona do prowadzenia sprzedaży. W jej skład wchodzi również zaplecze z biurem oraz częścią sanitarną. Powierzchnia obiektu wynosi 250 m2 (powierzchnia usługowa oraz biuro) + 25 m2 (toaleta, prysznic, część socjalna).",
       "Availability": "Wolny",
-      "Area": "600",
+      "Area": "275",
     },
     "LOT-11": {
       "Title": "PLAC 7",
-      "Description": "Plac tralala",
+      "Description": "Duży plac z bezpośrednim dostępem do bramy wjazdowej od ulicy Kujawskiej.",
       "Availability": "Wolny",
-      "Area": "600",
+      "Area": "1548",
     },
     "LOT-12": {
       "Title": "PLAC 8",
-      "Description": "Plac tralala",
-      "Availability": "Wynajęty",
-      "Area": "600",
+      "Description": "Plac przysługujący najemcy hali magazynowej.",
+      "Availability": "Wydzierżawiony",
+      "Area": "190",
     },
     "LOT-13": {
-      "Title": "BUDYNEK 5",
-      "Description": "Plac tralala",
-      "Availability": "Wynajęty",
-      "Area": "600",
+      "Title": "BUDYNEK HANDLOWO-USŁUGOWY",
+      "Description": "Budynek przeznaczony do prowadzenia działalności gospodarczej opartej na handlu.",
+      "Availability": "Wydzierżawiony",
+      "Area": "412",
     },
     "LOT-14": {
       "Title": "PLAC 9",
-      "Description": "Plac tralala",
-      "Availability": "Wynajęty",
-      "Area": "600",
+      "Description": "Plac parkingowy przy hali magazynowej.",
+      "Availability": "Wydzierżawiony",
+      "Area": "353",
     },
     "LOT-15": {
-      "Title": "BUDYNEK 6",
-      "Description": "Budynek",
-      "Availability": "Wynajęty",
-      "Area": "600",
+      "Title": "HALA MAGAZYNOWA",
+      "Description": "Wyposażona w trzy bramy wjazdowe, posadzkę żywiczną. Hala jest pokryta blachą.",
+      "Availability": "Wydzierżawiona",
+      "Area": "412",
     },
     "LOT-16": {
       "Title": "PLAC 10",
-      "Description": "Plac tralala",
+      "Description": "Plac przy bramie wjazdowej od strony ulicy Kujawskiej.",
       "Availability": "Wolny",
-      "Area": "600",
+      "Area": "533",
     },
     "ROAD": {
         "Title": "DROGA WEWNĘTRZNA",
@@ -107,7 +103,7 @@ const sanbud_lots = {
     },
     "LOT-4-FENCE": {
         "Title": "OGRODZENIE",
-        "Description": "PLAC 3 jest ogrodzony metalowym ogrodzeniem z bramą wjazdową.",
+        "Description": "Ogrodzenie otaczające PLAC 3.",
     }
 };
   
@@ -161,7 +157,7 @@ function showTooltip(event, id) {
 
     // POSITION AND SHOW TOOLTIP
     tooltip.style.display = "block";
-    tooltip.style.left = event.pageX + 10 + 'px';
+    tooltip.style.left = event.pageX - 10 + 'px';
     tooltip.style.top = event.pageY + 10 + 'px';
 }
   
