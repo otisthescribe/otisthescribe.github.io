@@ -110,6 +110,7 @@ const sanbud_lots = {
 const hoverable = document.getElementById("Hoverable");
 const paths = hoverable.getElementsByTagName("path");
 
+// Configure tooltip on hover for each element
 for (const path of paths) {
     const id = path.getAttribute("id");
     path.addEventListener("mousemove", (event) => {
@@ -118,6 +119,7 @@ for (const path of paths) {
     path.addEventListener("mouseout", hideTooltip);
 }
 
+// Show tooltip above the plan
 function showTooltip(event, id) {
     let tooltip = document.getElementById("tooltip");
 
@@ -159,6 +161,7 @@ function showTooltip(event, id) {
     tooltip.style.top = event.pageY + 10 + 'px';
 }
 
+// Hide tooltip on mouse out
 function hideTooltip() {
     var tooltip = document.getElementById("tooltip");
     tooltip.style.display = "none";

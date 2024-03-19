@@ -1,6 +1,7 @@
 const SanbudNav = document.getElementById("SanbudNav");
 const SanbudNavBrand = document.getElementById("SanbudNavBrand");
 
+// Add event listener to react if a user scroll more than 500px
 window.addEventListener('scroll', () => {
     if (window.scrollY > 500) {
         SanbudNav.classList.add('navbar-light');
@@ -21,6 +22,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Collapse toggle when user clicks on a link in navbar
 const navLinks = document.querySelectorAll('.nav-item')
 const menuToggle = document.getElementById('sanbudNav')
 const bsCollapse = bootstrap.Collapse.getOrCreateInstance(menuToggle, {
