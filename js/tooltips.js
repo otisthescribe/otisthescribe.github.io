@@ -60,12 +60,14 @@ const sanbud_lots = {
         "Description": "Przestrzeń przeznaczona do prowadzenia sprzedaży. W jej skład wchodzi również zaplecze z biurem oraz częścią sanitarną. Powierzchnia obiektu wynosi 250 m2 (powierzchnia usługowa oraz biuro) + 25 m2 (toaleta, prysznic, część socjalna).",
         "Availability": "Wolny",
         "Area": "275",
+        "Link": "https://www.olx.pl/d/oferta/wynajme-lokal-uslugowy-w-sanoku-dabrowce-CID3-IDWlscF.html?fbclid=IwAR0N_CdyA8SMBKwey4GpYLhRsxsv_-OPv5iRei1fthr76yiq2hcaV6wwYsE"
     },
     "LOT-11": {
         "Title": "PLAC 7",
         "Description": "Duży plac z bezpośrednim dostępem do bramy wjazdowej od ulicy Kujawskiej.",
         "Availability": "Wolny",
         "Area": "1548",
+        "Link": "https://www.olx.pl/d/oferta/wynajme-plac-w-sanoku-dabrowce-CID3-IDWlrEH.html?fbclid=IwAR1kAmEcy3nchEwF128CIcN1oUvBPyOjk2RBnSFsYOYSpqDliVRGK0yOO3o"
     },
     "LOT-12": {
         "Title": "PLAC 8",
@@ -113,10 +115,29 @@ const paths = hoverable.getElementsByTagName("path");
 // Configure tooltip on hover for each element
 for (const path of paths) {
     const id = path.getAttribute("id");
-    path.addEventListener("mousemove", (event) => {
-        showTooltip(event, id);
-    });
-    path.addEventListener("mouseout", hideTooltip);
+    // CONFIGURE ACTION ON HOVER
+    if(window.matchMedia("(pointer: coarse)").matches) {
+        // TOUCHSCREEN DEVICE - ONLY ONCLICK ACTION
+
+        // CONFIGURE ACTION ON CLICK
+        path.addEventListener("click", (event) => {
+            sidePanel(id);
+        });
+    }
+    else {
+        // DESKTOP DEVICE - ALL ACTIONS
+
+        // CONFIGURE ACTION ON HOVER
+        path.addEventListener("mousemove", (event) => {
+            showTooltip(event, id);
+        });
+        path.addEventListener("mouseout", hideTooltip);
+        // CONFIGURE ACTION ON CLICK
+        path.addEventListener("click", (event) => {
+            sidePanel(id);
+        });
+    }
+
 }
 
 // Show tooltip above the plan
@@ -165,4 +186,70 @@ function showTooltip(event, id) {
 function hideTooltip() {
     var tooltip = document.getElementById("tooltip");
     tooltip.style.display = "none";
+}
+
+function sidePanel(id) {
+    let panel = document.getElementById("oferta-opis");
+    let plan = document.getElementById("oferta-plan");
+
+    // FIND HTML ELEMENTS
+    let title = panel.querySelector("#panel-title");
+    let description = panel.querySelector("#panel-description");
+    let availability_span = panel.querySelector("#panel-availability-span");
+    let area_span = panel.querySelector("#panel-area-span");
+    let availability = panel.querySelector("#panel-availability");
+    let area = panel.querySelector("#panel-area");
+    let link = panel.querySelector("#panel-link");
+    let link_a = panel.querySelector("#panel-link-a");
+
+    // FILL MAIN INFO
+    let lot_title = sanbud_lots[id]["Title"];
+    let lot_description = sanbud_lots[id]["Description"];
+
+    // SHOW OR HIDE SIDE PANEL
+    if (!(panel.classList.contains("d-none")) && (title.innerHTML == lot_title)) {
+        // IF VISIBLE AND THE SAME = HIDE
+        panel.classList.remove("col-md-3")
+        panel.classList.add("col-md-0")
+        panel.classList.add("d-none")
+        plan.classList.remove("col-md-9")
+        plan.classList.add("col-md-12")
+
+    }
+    else {
+        // OTHERWISE SHOW
+        panel.classList.add("col-md-3")
+        panel.classList.remove("col-md-0")
+        panel.classList.remove("d-none")
+        plan.classList.add("col-md-9")
+        plan.classList.remove("col-md-12")
+    }
+
+    title.innerHTML = lot_title;
+    description.innerHTML = lot_description;
+
+    // FILL OPTIONAL INFO
+    if (sanbud_lots[id].hasOwnProperty('Availability')) {
+        let lot_availability = sanbud_lots[id]["Availability"];
+        availability.style.display = "block";
+        availability_span.innerHTML = lot_availability;
+    } else {
+        availability.style.display = "none";
+    }
+
+    if (sanbud_lots[id].hasOwnProperty('Area')) {
+        let lot_area = sanbud_lots[id]["Area"];
+        area.style.display = "block";
+        area_span.innerHTML = lot_area;
+    } else {
+        area.style.display = "none";
+    }
+
+    if (sanbud_lots[id].hasOwnProperty('Link')) {
+        let lot_link = sanbud_lots[id]["Link"];
+        link.style.display = "block";
+        link_a.setAttribute("href", lot_link);
+    } else {
+        link.style.display = "none";
+    }
 }

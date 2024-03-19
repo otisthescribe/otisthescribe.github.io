@@ -129,21 +129,22 @@
                 <div class="row mb-5">
                     <h2 class="section-title">Oferta</h2>
                     <p>Zapoznaj się z powierzchniami, które mamy obecnie do zaoferowania. Kliknij w interesującą Cię powierzchnię i zobacz zdjęcia.</p>
-                    <div>
-                        <div id="tooltip">
-                            <h5 id="tooltip-title"></h5>
-                            <p id="tooltip-description"></p>
-                            <p id="tooltip-availability">
-                                <span class="tooltip-cherry">Dostępność: </span>
-                                <span id="tooltip-availability-span"></span>
-                            </p>
-                            <p id="tooltip-area">
-                                <span class="tooltip-cherry">Powierzchnia: </span>
-                                <span id="tooltip-area-span"></span>
-                                <span>m<sup>2</sup></span>
-                            </p>
-                        </div>
-                        <svg version="1.1" id="Sanbud" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    <div id="tooltip">
+                        <h5 id="tooltip-title"></h5>
+                        <p id="tooltip-description"></p>
+                        <p id="tooltip-availability">
+                            <span class="tooltip-cherry">Dostępność: </span>
+                            <span id="tooltip-availability-span"></span>
+                        </p>
+                        <p id="tooltip-area">
+                            <span class="tooltip-cherry">Powierzchnia: </span>
+                            <span id="tooltip-area-span"></span>
+                            <span>m<sup>2</sup></span>
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12" id="oferta-plan">
+                            <svg version="1.1" id="Sanbud" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 776 432" style="enable-background:new 0 0 776 432;" xml:space="preserve" width="100%">
                             <style type="text/css">
                                 .st0{fill:none;}
@@ -374,7 +375,26 @@
                                     c0,6.8,0.2,13.4-0.1,20c-0.3,7.3-1.4,14.5-1.8,21.7c-0.8,15.1-1.3,30.1-2.1,45.2c-0.9,17.5-2,35-3,52.6c-0.6,10.7-1.3,21.5-2,32.2
                                     c-1,17.5-2,35-3.1,52.6C687.8,335.4,686.7,337.2,686,339.5L686,339.5z"/>
                             </g>
-                        </svg>
+                            </svg>
+                        </div>
+                        <div class="col-md-0 d-none mt-5" id="oferta-opis">
+                            <h5 id="panel-title"></h5>
+                            <p id="panel-description"></p>
+                            <p id="panel-availability">
+                                <span class="tooltip-cherry">Dostępność: </span>
+                                <span id="panel-availability-span"></span>
+                            </p>
+                            <p id="panel-area">
+                                <span class="tooltip-cherry">Powierzchnia: </span>
+                                <span id="panel-area-span"></span>
+                                <span>m<sup>2</sup></span>
+                            </p>
+                            <p id="panel-link">
+                                <span class="tooltip-cherry">Link do OLX: </span>
+                                <a id="panel-link-a">Klik!</a>
+                            </p>
+                            <img id="panel-photo">
+                        </div>
                     </div>
                 </div>
             </div>
