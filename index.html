@@ -7,9 +7,6 @@
     <meta name="author" content="Grzegorz Kmita"/>
     <title>Sanbud</title>
     <link rel="icon" href="icons/sanbud-logo.svg">
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- Bootstrap ICONS-->
@@ -43,7 +40,7 @@
     </nav>
 
     <!-- INTRO -->
-    <div class="intro">
+    <div class="intro ">
         <div class="container">
             <div class="justify-content-between row">
                 <div class="col-lg-6">
@@ -57,46 +54,46 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="intro-img-wrap">
-                        <img src="img/sanok_skansen.jpg" class="img-fluid"/>
+                        <img alt="Zdjęcie przedstawiające stary dom oraz duży wiatrak na tle lasu. Zdjęcie zrobione na terenie skansenu w Sanoku." src="img/sanok_skansen.jpg" class="img-fluid"/>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <section id="okno">
-        <div class="sanbud-section">
+    <section class="sanbud-section" id="okno">
+        <div class="mx-2 mx-md-0">
             <div class="container">
-                <div class="row mb-5" >
-                    <div class="col-md-6 px-md-4" style="text-align: justify">
+                <div class="row mb-5">
+                    <div class="col-md-6 pr-md-4" style="text-align: justify">
                         <h2 class="section-title">O stronie</h2>
                         <p >
                             Strona powstała w ramach projektu z przedmiotu Architektury i Technologie Systemów Internetowych na Politechnice Warszawskiej. Od początku pomysłem na tę stronę było połączenie koniecznego z pożytecznym. Koniecznym było wykonanie projektu, aby zaliczyć przedmiot, a korzystnym - zrobienie strony dla firmy mojego chłopaka.
                         </p>
                         <p class="text-justify">
-                            Założenia podczas planowania strony były bardzo proste. Ma być prosta i czytelna, ponieważ jej głównym celem jest reklama i pozyskanie/zainteresowanie potencjalnych klientów. Pasek nawigacyjny jest przejrzysty i responsywny podobnie jak pozostałe elementy na stronie. W celu zachowania prostoty, zdecydowałem się na stworzenie wyłącznie jednej strony, natomiast ciągłej. Kliknięcie na którąkolwiek zakładkę na pasku nawigacyjnym, przeniesie użytkownika do odpowiedniej sekcji na stronie.
+                            Założenia podczas planowania strony były bardzo proste. Ma być prosta i czytelna, ponieważ jej głównym celem jest reklama i pozyskanie potencjalnych klientów. Pasek nawigacyjny jest przejrzysty i responsywny podobnie jak pozostałe elementy na stronie. W celu zachowania prostoty, zdecydowałem się na stworzenie wyłącznie jednej strony, natomiast ciągłej. Kliknięcie na którąkolwiek zakładkę na pasku nawigacyjnym, przeniesie użytkownika do odpowiedniej sekcji na stronie.
                         </p>
                         <p class="text-justify">
-                            Strona spełnia założenia projektowe, ponieważ jest wykonana przy użyciu HTML5, ma dość złożone formatowanie przy użyciu CSS oraz nie wykorzystuje elementów, które mogłyby funkcjonować niepoprawnie w przypadku otworzenia jej na starszych przeglądarkach. Strona jest dostępna dla niepełnosprawych poprzez wykorzystanie przejrzystej struktury, panelu nawigacyjnego, nazw sekcji, dobrze dobranych kolorów i alternatywnych opisów przy zdjęciach.
+                            Strona spełnia założenia projektowe, ponieważ jest wykonana przy użyciu HTML5, ma nietrywialne formatowanie przy użyciu CSS oraz może być bez problemu wyświetlana na starszych przeglądarkach. Strona jest dostępna dla niepełnosprawych poprzez wykorzystanie przejrzystej struktury, panelu nawigacyjnego, nazw sekcji, dobrze dobranych kolorów z odpowiednim kontrastem i alternatywnych opisów przy zdjęciach. Strona wykorzystuje kilka skryptów działających po stronie klienta, między innymi w celu obsługi zmian wyglądu paska nawigacyjnego i wyświetlania opisów działek w sekcji Oferta.
                         </p>
                     </div>
-                    <div class="col-md-6 px-md-4">
+                    <div class="col-md-6 pl-md-4">
                         <h2 class="section-title">Użyte technologie</h2>
                         <p style="text-align: justify">Strona została zaprojektowana tak, aby była stroną statyczną. Powodem takiej decyzji była chęć hostowania strony wyłącznie za pomocą GitHub Pages, które jest rozwiązaniem darmowym.</p>
                         <div class="row">
                             <div class="col-lg">
-                                <h5>Development</h5>
+                                <h5>Wykorzystane technologie</h5>
                                 <ul>
                                     <li class="stack"><span class="tech-stack">HTML5</span><br><span class="tech-stack-description">Szkielet strony</span></li>
-                                    <li class="stack"><span class="tech-stack">CSS</span></br><span class="tech-stack-description">Własne style na stronie</span></li>
-                                    <li class="stack"><span class="tech-stack">JavaScript</span></br><span class="tech-stack-description">Pasek nawigacyjny oraz interaktywny plan</span></li>
-                                    <li class="stack"><span class="tech-stack">Bootstrap 5.3.3</span></br><span class="tech-stack-description">Gotowe klasy stylów CSS</span></li>
+                                    <li class="stack"><span class="tech-stack">CSS</span><br><span class="tech-stack-description">Własne style na stronie</span></li>
+                                    <li class="stack"><span class="tech-stack">JavaScript</span><br><span class="tech-stack-description">Pasek nawigacyjny oraz interaktywny plan</span></li>
+                                    <li class="stack"><span class="tech-stack">Bootstrap 5.3.3</span><br><span class="tech-stack-description">Gotowe klasy stylów CSS</span></li>
                                 </ul>
                             </div>
                             <div class="col-lg">
-                                <h5>Deployment</h5>
+                                <h5>Hosting strony</h5>
                                 <ul>
-                                    <li class="stack"><span class="tech-stack">GitHub Pages</span></br><span class="tech-stack-description">Hosting strony</span></li>
+                                    <li class="stack"><span class="tech-stack">GitHub Pages</span><br><span class="tech-stack-description">Hosting strony</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -107,9 +104,9 @@
     </section>
 
     <!-- ABOUT SECTION -->
-    <section class="sanbud-section" id="onas">
+    <section class="sanbud-section mx-2 mx-md-0" id="onas">
         <div class="container">
-            <div class="row">
+            <div class="row mb-5">
                 <div class="col-md-12 col-lg-5 mb-5 mb-lg-0">
                     <h2 class="mb-4 section-title">O Nas</h2>
                     <p class="mb-4">Jesteśmy rodzinną, wielopokoleniową firmą z niemal 30-letnim doświadczeniem na sanockim rynku, która na przestrzeni czasu specjalizowała się w różnych dziedzinach biznesu. Dziś oferujemy Ci najlepsze miejsce na rozwój swojego biznesu w jedynym takim przemysłowo-usługowym HUB-ie w regionie.</p>
@@ -123,15 +120,15 @@
                     </p>
                 </div>
                 <div class="col-md-12 col-lg-7">
-                    <img src="img/sanbud-entrance.jpeg" class="about-img-fluid" />
+                    <img alt="Zdjęcie przedstawiające wejście do głównego budynku na terenie Sanbudu, z dużym logiem firmy na elewacji." src="img/sanbud-entrance.jpeg" class="about-img-fluid" />
                 </div>
             </div>
         </div>
     </section>
 
      <!-- LANDS SECTION -->
-     <section class="sanbud-section" id="oferta">
-        <div class="container">
+     <section class="sanbud-section mx-2 mx-md-0" id="oferta">
+        <div class="container ">
             <div class="row mb-5">
                 <h2 class="section-title">Oferta</h2>
                 <p>Zapoznaj się z powierzchniami, które mamy obecnie do zaoferowania. Kliknij w interesującą Cię powierzchnię i zobacz zdjęcia.</p>
@@ -387,20 +384,18 @@
     </section>
 
     <!-- CONTACT SECTION -->
-    <section class="sanbud-section" id="kontakt">
+    <section class="sanbud-section mx-2 mx-md-0 contact-section" id="kontakt">
         <div class="container">
             <div class="row mb-5">
                 <h2 class="section-title">Kontakt</h2>
             </div>
-            <div class="row mb-5">
+            <div class="row">
                 <div class="col-md-4 contact">
-                    <a href="maps://maps.google.com/?q=49.56629697443917,22.160014597040867" target="_blank">
-                        <div class="address">
-                            <i class="bi bi-geo-alt"></i>
-                            <h4>Adres</h4>
-                            <p>ul. Targowa 27, 38-500 Sanok</p>
-                        </div>
-                    </a>
+                    <div class="address">
+                        <i class="bi bi-geo-alt"></i>
+                        <h4>Adres</h4>
+                        <p>ul. Targowa 27, 38-500 Sanok</p>
+                    </div>
                     <a href="mailto:sanbud.sanok@gmail.com">
                         <div class="email">
                             <i class="bi bi-envelope"></i>
@@ -419,7 +414,7 @@
                 <div class="col-md-8">
                     <h4>Lokalizacja</h4>
                     <p>Sanbud znajduje się neeopodal sanockiej obwodnicy, zaledwie 3 km od centrum miasta. Miejsce jest skomunikowane zarówno lokalnie, jak i dalekobieżnie.</p>
-                    <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111882.6251178877!2d22.06465482530817!3d49.593706609891406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473c6d06ca829969%3A0x128ab6463460fcef!2sPHU%20%22SANBUD%22%20Sp.%20J.!5e0!3m2!1sen!2spl!4v1709675927410!5m2!1sen!2spl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe title="Mapa Google z zaznaczoną pinezką oznaczającą lokalizację firmy Sanbud, czyli ul. Targowa 27, 38-500 Sanok" class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111882.6251178877!2d22.06465482530817!3d49.593706609891406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473c6d06ca829969%3A0x128ab6463460fcef!2sPHU%20%22SANBUD%22%20Sp.%20J.!5e0!3m2!1sen!2spl!4v1709675927410!5m2!1sen!2spl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -432,7 +427,7 @@
                 <div class="row pt-4">
                     <div class="col-lg-6">
                         <p class="mb-2 text-center text-lg-start">Copyright © 2024. Wszystkie prawa zastrzeżone</p>
-                        <p class="mb-2 text-center text-lg-start">Zaprojektowane z miłością przez <a href="https://github.com/otisthescribe" target="_blank">otisthescribe</a></p>
+                        <p class="mb-2 text-center text-lg-start">Zaprojektowane z miłością przez <a href="https://github.com/otisthescribe">otisthescribe</a></p>
                     </div>
                 </div>
             </div>

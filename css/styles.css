@@ -10,10 +10,9 @@ body {
     font-family: "Inter", sans-serif;
     font-weight: 400;
     line-height: 28px;
-    color: #6a6a6a;
+    color: #555555;
     font-size: 16px;
     background-color: #eff2f1;
-    overflow-x: hidden;
     position: relative; 
 }
 
@@ -61,13 +60,13 @@ a {
         box-shadow: none;
         outline: none; }
     @media (min-width: 992px) {
-    .custom-navbar .custom-navbar-nav li {
-    margin-left: 15px;
-    margin-right: 15px; } }
+        .custom-navbar .custom-navbar-nav li {
+            margin-left: 15px;
+            margin-right: 15px; } }
     .custom-navbar .custom-navbar-nav li a {
         font-weight: 500;
         color: #ffffff !important;
-        opacity: .5;
+        opacity: .7;
         -webkit-transition: .3s all ease;
         -o-transition: .3s all ease;
         transition: .3s all ease;
@@ -132,7 +131,7 @@ a {
     .custom-navbar-scrolled  .custom-navbar-nav li a {
         font-weight: 500;
         color: #000000 !important;
-        opacity: .5;
+        opacity: .7;
         -webkit-transition: .3s all ease;
         -o-transition: .3s all ease;
         transition: .3s all ease;
@@ -181,8 +180,7 @@ a {
     background: #3b5d50;
     padding: calc(4rem - 30px) 0 0rem 0; 
     margin-top: 80px;
-}
-    
+    overflow: hidden;}
     @media (min-width: 768px) {
       .intro {
         padding: calc(4rem - 30px) 0 4rem 0; } }
@@ -203,13 +201,13 @@ a {
         .intro h1 {
           font-size: 54px; } }
     .intro p {
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 0.7);
       margin-bottom: 30px; }
     .intro .intro-img-wrap {
       position: relative; }
       .intro .intro-img-wrap img {
         position: relative;
-        top: 0px;
+        top: -10px;
         right: 0px;
         z-index: 2;
         max-width: 500px;
@@ -235,6 +233,7 @@ a {
             max-width: 650px;
         } 
         }
+
 .stack {
     padding: 5px;}
     .stack .tech-stack {
@@ -286,10 +285,6 @@ a {
     color: #2f2f2f; 
 }
 
-#onas {
-    overflow-x: hidden;
-}
-
 #tooltip {
     position: absolute; 
     display: none;
@@ -312,17 +307,15 @@ a {
 }
 
 .sanbud-section {
-    padding: 7rem 0 0 0;}
+    padding-top: 7rem;}
     .sanbud-section .sanbud-map img {
-        width: 100%;
-    }
-
+        width: 100%;}
     .sanbud-section .about-img-fluid {
         position: relative;
         mask: url(/img/fluid-mask-2.png) center/contain no-repeat;}
         @media (min-width: 0px) {
         .sanbud-section .about-img-fluid {
-            max-width: 500px;
+            max-width: 450px;
             left:-50px;
             mask: url(/img/fluid-mask-3.png) center/contain no-repeat;}
         } 
@@ -330,10 +323,18 @@ a {
             .sanbud-section .about-img-fluid {
                 max-width: 700px;
                 left:20px;
-                top: 50px;
+                top: 0;
                 right: 0px;
                 }
-        } 
+        }
+        @media (min-width: 992px) {
+            .sanbud-section .about-img-fluid {
+                max-width: 700px;
+                left:20px;
+                top: 100px;
+                right: 0px;
+                }
+            }  
         @media (min-width: 1600px) {
             .sanbud-section .about-img-fluid {
                 max-width: 850px;
@@ -341,13 +342,16 @@ a {
                 top: 50px;
                 right: 0px;
                 }
-            }  
+            } 
+
+#onas {
+    overflow: hidden;
+}
 
 /* SANBUD PLAN */
 #Hoverable path:hover {
     fill: #f9bf29;
 }
-
 
 .contact {
     padding-bottom: 2rem;}
@@ -376,9 +380,12 @@ a {
     .contact p {
         padding: 0 0 0 60px;
         font-size: 14px;}
-    .contact .email:hover i, .contact .address:hover i, .contact .phone:hover i {
+    .contact .email:hover i, .contact .phone:hover i {
         background: #f9bf29;
         color: black;
+    }
+    .contact .address {
+        color: #2f2f2f;
     }
 
 .google-map {
@@ -398,7 +405,7 @@ a {
       -o-transition: .3s all ease;
       transition: .3s all ease; }
       .footer-section a:hover {
-        color: rgba(47, 47, 47, 0.5); }
+        color: rgba(47, 47, 47, 0.8); }
     .footer-section .border-top {
       border-color: #dce5e4; }
       .footer-section .border-top.copyright {
