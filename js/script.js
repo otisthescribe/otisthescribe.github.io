@@ -10,8 +10,7 @@ window.addEventListener('scroll', () => {
         SanbudNav.classList.add('custom-navbar-scrolled');
         SanbudNav.classList.remove('custom-navbar');
         SanbudNavBrand.classList.add('border-bottom');
-    }
-    else {
+    } else {
         SanbudNav.classList.remove('navbar-light');
         SanbudNav.classList.add('navbar-dark');
         SanbudNav.classList.remove('bg-light');
@@ -24,8 +23,11 @@ window.addEventListener('scroll', () => {
 
 const navLinks = document.querySelectorAll('.nav-item')
 const menuToggle = document.getElementById('sanbudNav')
-const bsCollapse = bootstrap.Collapse.getOrCreateInstance(menuToggle, {toggle: false})
-navLinks.forEach((l) => {
-    l.addEventListener('click', () => { bsCollapse.toggle() })
+const bsCollapse = bootstrap.Collapse.getOrCreateInstance(menuToggle, {
+    toggle: false
 })
-
+navLinks.forEach((l) => {
+    l.addEventListener('click', () => {
+        bsCollapse.toggle()
+    })
+})
