@@ -18,10 +18,9 @@ const professionalPhrases = [
 // Personal phrases - things I love!
 const personalPhrases = [
     "I'm into ceramics.",
-    "Garlic makes everything better.",
     "IKEA is my happy place.",
     "I drink too much coffee.",
-    "Obsessed with green. 💚",
+    "Obsessed with green.",
     "Hand cream enthusiast.",
     "I love lying on grass.",
     "Lemon ice cream >>>>>>>",
@@ -242,3 +241,4 @@ function updateActiveNavLink() {
 
 window.addEventListener('scroll', updateActiveNavLink);
 updateActiveNavLink();
+

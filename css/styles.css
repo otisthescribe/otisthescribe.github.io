@@ -540,7 +540,7 @@ section {
    ======================================== */
 
 #about .section-container {
-    max-width: 900px;
+    max-width: 1000px;
 }
 
 .about-grid {
@@ -562,7 +562,6 @@ section {
     overflow: visible;
     background: none;
     border: none;
-    aspect-ratio: 1;
 }
 
 .about-image-container::before {
@@ -583,31 +582,18 @@ section {
     left: 15px;
 }
 
-.about-image-inner {
+img.about-image-inner {
     width: 100%;
-    height: 100%;
-    background: var(--bg-secondary);
+    height: auto;
+    object-fit: cover;
+    object-position: center top;
     border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 5rem;
-    position: relative;
-    overflow: hidden;
-    transition: var(--transition-theme);
-}
-
-.about-image-inner::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--accent-primary);
-    opacity: 0.15;
+    filter: grayscale(0%) contrast(1);
     transition: var(--transition);
 }
 
-.about-image-container:hover .about-image-inner::after {
-    opacity: 0;
+.about-image-container:hover img.about-image-inner {
+    filter: grayscale(0%) contrast(1.05);
 }
 
 .about-image::after {
@@ -728,11 +714,6 @@ section {
     background: none;
     -webkit-background-clip: unset;
     -webkit-text-fill-color: unset;
-}
-
-.experience-company::after {
-    content: ' @ ';
-    color: var(--text-heading);
 }
 
 .experience-company-name {
@@ -967,8 +948,10 @@ section {
 }
 
 .talk-image {
-    height: 160px;
+    height: 200px;
     background: var(--gradient-accent);
+    background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -978,7 +961,15 @@ section {
 }
 
 .talk-image::before {
-    display: none;
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
+    transition: var(--transition);
+}
+
+.talk-card:hover .talk-image::before {
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
 }
 
 .talk-content {
@@ -1279,6 +1270,10 @@ footer .heart {
 }
 
 @media (max-width: 900px) {
+    .hero-content {
+        max-width: 100%;
+    }
+    
     .about-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
