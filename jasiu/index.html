@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cześć Jasiu 💙</title>
+    <meta name="description" content="Mały zakątek internetu, tylko dla Jasia.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=2">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <style>
+        /* =====================================================================
+           Jasiu landing page — Blue palette override
+           Palette: Baltic Blue · Cerulean · Alabaster · Yale Blue · Sky Blue Light
+           ===================================================================== */
+
+        [data-theme="dark"] {
+            --bg-primary: #0a1f2b;
+            --bg-secondary: #16425b;
+            --bg-tertiary: #1e5577;
+            --accent-primary: #81c3d7;
+            --accent-secondary: #3a7ca5;
+            --accent-tertiary: #2f6690;
+            --text-heading: #ecf2f6;
+            --text-primary: #c5d8e0;
+            --text-secondary: #94adb8;
+            --text-muted: #6d8590;
+            --border: rgba(129, 195, 215, 0.15);
+            --border-hover: rgba(129, 195, 215, 0.4);
+            --shadow-nav: 0 10px 30px -10px rgba(10, 31, 43, 0.7);
+            --shadow-card: 0 10px 30px -15px rgba(0, 0, 0, 0.3);
+            --glow: 0 0 20px rgba(129, 195, 215, 0.3);
+        }
+
+        [data-theme="light"] {
+            --bg-primary: #f3f6f1;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #e2eaeb;
+            --accent-primary: #2f6690;
+            --accent-secondary: #16425b;
+            --accent-tertiary: #3a7ca5;
+            --text-heading: #0d2230;
+            --text-primary: #1e3a4b;
+            --text-secondary: #3d5664;
+            --text-muted: #6c8390;
+            --border: rgba(47, 102, 144, 0.15);
+            --border-hover: rgba(47, 102, 144, 0.4);
+            --shadow-nav: 0 10px 30px -10px rgba(13, 34, 48, 0.08);
+            --shadow-card: 0 10px 30px -15px rgba(13, 34, 48, 0.12);
+            --glow: 0 0 20px rgba(47, 102, 144, 0.15);
+        }
+
+        :root {
+            --gradient-primary: linear-gradient(135deg, #2f6690, #3a7ca5, #81c3d7);
+            --gradient-accent: linear-gradient(135deg, #3a7ca5, #81c3d7);
+        }
+
+        /* =====================================================================
+           Layout tweaks for the Jasiu hero
+           ===================================================================== */
+
+        .jasiu-hero {
+            min-height: auto;
+            padding: 180px 40px 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .jasiu-hero .hero-badge {
+            justify-content: center;
+        }
+
+        .jasiu-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            color: var(--text-heading);
+        }
+
+        /* Override main stylesheet: keep .name inline (no forced line break) and no gradient */
+        .jasiu-hero h1 .name {
+            display: inline;
+            background: none;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            background-clip: unset;
+            color: var(--accent-primary);
+        }
+
+        .jasiu-hero p.hero-description {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* Hide the auto "01." numbering on nav links (used on main portfolio only) */
+        .jasiu-nav .nav-links a::before {
+            content: none;
+        }
+
+        /* =====================================================================
+           Card grid
+           ===================================================================== */
+
+        .jasiu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .jasiu-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .jasiu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .jasiu-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-card);
+        }
+
+        .jasiu-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .jasiu-card-icon {
+            font-size: 2.5rem;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .jasiu-card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-heading);
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .jasiu-card:hover .jasiu-card-title {
+            color: var(--accent-primary);
+        }
+
+        .jasiu-card-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .jasiu-card-meta {
+            margin-top: 1.25rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .jasiu-card-meta .arrow {
+            transition: transform 0.25s ease;
+        }
+
+        .jasiu-card:hover .jasiu-card-meta .arrow {
+            transform: translateX(4px);
+            color: var(--accent-primary);
+        }
+
+        /* =====================================================================
+           Group heading (e.g. "Granada", future groups...)
+           ===================================================================== */
+
+        .jasiu-group {
+            margin-top: 3rem;
+        }
+
+        .jasiu-group:first-of-type {
+            margin-top: 0;
+        }
+
+        .jasiu-group-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .jasiu-group-title {
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            white-space: nowrap;
+        }
+
+        .jasiu-group-line {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* =====================================================================
+           Mobile breakpoints
+           ===================================================================== */
+
+        @media (max-width: 768px) {
+            .jasiu-hero {
+                padding: 120px 24px 60px;
+            }
+
+            .jasiu-hero h1 {
+                font-size: clamp(2rem, 9vw, 3rem);
+                margin-bottom: 1rem;
+            }
+
+            .jasiu-hero p.hero-description {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+
+            .jasiu-group {
+                margin-top: 2.5rem;
+            }
+
+            .jasiu-group-header {
+                margin-bottom: 1.25rem;
+            }
+
+            .jasiu-group-title {
+                font-size: 0.8rem;
+                letter-spacing: 0.12em;
+            }
+
+            .jasiu-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .jasiu-card {
+                padding: 1.5rem;
+            }
+
+            .jasiu-card-icon {
+                font-size: 2rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .jasiu-card-title {
+                font-size: 1.1rem;
+            }
+
+            footer {
+                padding: 30px 20px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .jasiu-hero {
+                padding: 100px 18px 48px;
+            }
+
+            .jasiu-card {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="navbar" class="jasiu-nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">J</a>
+        </div>
+    </nav>
+
+    <section class="hero jasiu-hero">
+        <div class="hero-content">
+            <p class="hero-badge">Mały zakątek internetu</p>
+            <h1>
+                Cześć, <span class="name">Jasiu</span>!
+            </h1>
+            <p class="hero-description">
+                Tutaj znajdziesz wszystko, co dla Ciebie przygotowałem. Kliknij kartę poniżej,
+                żeby otworzyć stronę. Dodaj tę stronę do zakładek i wracaj, kiedy tylko zechcesz. 💙
+            </p>
+        </div>
+    </section>
+
+    <section id="pages">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Twoje strony</h2>
+            </div>
+
+            <!--
+                =====================================================================
+                JAK DODAĆ NOWĄ STRONĘ
+                =====================================================================
+                1. Wrzuć pliki strony do nowego folderu wewnątrz /jasiu/
+                     np. jasiu/granada/nowy-temat/index.html
+                2. Skopiuj jeden z bloków <a class="jasiu-card"> poniżej i zaktualizuj:
+                       - href     -> ścieżka do folderu (np. "granada/nowy-temat/")
+                       - icon     -> dowolne emoji
+                       - title    -> krótka nazwa
+                       - desc     -> jednolinijkowy opis
+                       - meta     -> rok, uczelnia, data (opcjonalnie)
+                3. Commit & push. GitHub Pages opublikuje stronę w ciągu ~1 minuty.
+                =====================================================================
+            -->
+            <div class="jasiu-group">
+                <div class="jasiu-group-header">
+                    <span class="jasiu-group-title">🇪🇸 Granada</span>
+                    <span class="jasiu-group-line"></span>
+                </div>
+
+                <div class="jasiu-grid">
+
+                    <a href="granada/urinaria-infecciosas/" class="jasiu-card reveal">
+                        <div class="jasiu-card-icon">🩺</div>
+                        <div class="jasiu-card-title">Patología Urinaria y Enf. Infecciosas</div>
+                        <p class="jasiu-card-description">
+                            Urologia, nefrologia i choroby zakaźne — kompletne notatki
+                            z ponad 200 rozwiązanymi pytaniami.
+                        </p>
+                        <div class="jasiu-card-meta">
+                            <span>4. rok · UGR</span>
+                            <span class="arrow">→</span>
+                        </div>
+                    </a>
+
+                    <a href="granada/osteoarticular-sistemicas/" class="jasiu-card reveal">
+                        <div class="jasiu-card-icon">📚</div>
+                        <div class="jasiu-card-title">Patología Osteoarticular y Enf. Sistémicas</div>
+                        <p class="jasiu-card-description">
+                            Choroby układowe, reumatologia i traumatologia — kompletne
+                            notatki z ponad 200 rozwiązanymi pytaniami.
+                        </p>
+                        <div class="jasiu-card-meta">
+                            <span>5. rok · UGR</span>
+                            <span class="arrow">→</span>
+                        </div>
+                    </a>
+
+                    <!--
+                        Szablon karty — skopiuj, wklej i edytuj:
+
+                    <a href="ŚCIEŻKA/" class="jasiu-card reveal">
+                        <div class="jasiu-card-icon">📄</div>
+                        <div class="jasiu-card-title">Tytuł strony</div>
+                        <p class="jasiu-card-description">
+                            Krótki opis tego, co jest w środku.
+                        </p>
+                        <div class="jasiu-card-meta">
+                            <span>otwórz stronę</span>
+                            <span class="arrow">→</span>
+                        </div>
+                    </a>
+                    -->
+
+                </div>
+            </div>
+
+            <!--
+                Aby dodać kolejną grupę (np. inna uczelnia, inny temat), skopiuj
+                cały blok <div class="jasiu-group"> ... </div> powyżej i zmień tytuł.
+            -->
+        </div>
+    </section>
+
+    <footer>
+        <p>
+            Zrobione z 💙 dla Jasia
+        </p>
+    </footer>
+
+    <button class="theme-toggle" id="theme-toggle" aria-label="Zmień motyw">
+        <svg class="sun-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="5" />
+            <path
+                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+    </button>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
