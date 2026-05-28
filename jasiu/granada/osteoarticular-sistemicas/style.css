@@ -550,6 +550,29 @@ footer{
   opacity:.6;
 }
 
+/* ===== Official question bank (Wuolah / UGR) ===== */
+h3.qbank-title{
+  margin-top:2rem;
+  padding-top:1rem;
+  border-top:2px dashed var(--border);
+  font-size:1.05rem;
+  color:var(--primary-dark);
+}
+details.qa.qbank summary{
+  font-size:13.5px;
+  line-height:1.35;
+}
+details.qa.qbank .qbank-opts{
+  margin:10px 0 12px;
+  padding-left:1.2rem;
+}
+details.qa.qbank .qbank-opts li{
+  margin:4px 0;
+}
+details.qa.qbank .answer strong{
+  color:var(--primary-dark);
+}
+
 /* Anchor offset for fixed header */
 :target{
   animation:flash 1.2s ease;
