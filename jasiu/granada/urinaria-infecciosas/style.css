@@ -181,5 +181,24 @@ footer{text-align:center;padding:30px 16px;color:var(--muted);font-size:13px;bor
 .toc-search{position:relative;margin-bottom:10px}
 .toc-search input{width:100%;padding:8px 10px 8px 30px;border:1px solid var(--border);border-radius:8px;font-size:13px}
 .toc-search::before{content:"🔍";position:absolute;left:8px;top:50%;transform:translateY(-50%);font-size:12px;opacity:.6}
+
+/* ===== Banco Wuolah ===== */
+h3.qbank-title{
+  margin-top:2rem;
+  padding-top:1rem;
+  border-top:2px dashed var(--border);
+  font-size:1.05rem;
+  color:var(--primary-dark);
+}
+details.qa.qbank summary{font-size:13.5px;line-height:1.35}
+details.qa.qbank .qbank-opts{
+  list-style:none;
+  margin:10px 0 12px;
+  padding-left:0;
+}
+details.qa.qbank .qbank-opts li{margin:4px 0;padding-left:0}
+details.qa.qbank .qbank-opts li.correct{font-weight:700;color:var(--navy)}
+details.qa.qbank .answer strong{color:var(--primary-dark)}
+
 :target{animation:flash 1.2s ease}
 @keyframes flash{0%{background:#fef3c7}100%{background:transparent}}
