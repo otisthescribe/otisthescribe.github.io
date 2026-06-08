@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skrypt — Farmacología Clínica</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <h1>💊 Farmacología Clínica</h1>
+  <div class="subtitle">Cram de 1 día · Apuntes UGR (desde cero) · 5º Grado en Medicina</div>
+  <div class="hero-meta">
+    <span class="chip">🎓 Para: Jan Fedak</span>
+    <span class="chip">⏱️ Plan ≈10 h</span>
+    <span class="chip">📅 Convocatoria 2026</span>
+    <span class="chip">📖 T1–T14 Teoría</span>
+    <span class="chip">🔬 S1–S2 Seminarios</span>
+    <span class="chip">❓ 40 preg. (27+13)</span>
+    <span class="chip">📎 Wuolah = backup</span>
+    <span class="chip">⚠️ PEM −0,33/fallo</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="sidebar" id="toc">
+<h3>Índice general</h3>
+<div class="toc-search"><input id="tocSearch" type="text" placeholder="Buscar tema..." aria-label="Buscar tema"></div>
+<ol id="tocList">
+<li class="group-title">Plan</li>
+<li><a href="#plan">📅 Plan 1 día (≈10 h)</a></li>
+<li class="group-title">Bloque teórico</li>
+<li><a href="#t1">T1. Introducción y MBE</a></li>
+<li><a href="#t2">T2. Desarrollo clínico</a></li>
+<li><a href="#t3">T3. Farmacovigilancia</a></li>
+<li><a href="#t4">T4. Genéricos</a></li>
+<li><a href="#t5">T5. Biológicos</a></li>
+<li><a href="#t6">T6. Biosimilares</a></li>
+<li><a href="#t7">T7. Fuera de ficha</a></li>
+<li><a href="#t8">T8. Farmacoeconomía</a></li>
+<li><a href="#t9">T9. Farmacogenética</a></li>
+<li><a href="#t10">T10. Embarazo · niño</a></li>
+<li><a href="#t11">T11. Geriatría</a></li>
+<li><a href="#t12">T12. Insuf. renal</a></li>
+<li><a href="#t13">T13. Insuf. hepática</a></li>
+<li><a href="#t14">T14. Obesidad</a></li>
+<li class="group-title">Prácticas</li>
+<li><a href="#sem1">S1. mAb monitorización</a></li>
+<li><a href="#sem2">S2. Bases de datos PGx</a></li>
+<li class="group-title">Examen</li>
+<li><a href="#pem">❓ Banco PEM (27+13)</a></li>
+<li><a href="#wuolah">📎 Backup Wuolah (opcional)</a></li>
+<li><a href="#final">⭐ Consejos finales</a></li>
+</ol>
+</nav>
+
+<main>
+
+<div class="bloque-banner" id="bloque-t">
+  <h2>📚 BLOQUE TEÓRICO</h2>
+  <div class="b-sub">14 temas · 1 día de estudio · Texto explicativo basado en apuntes UGR 2025–2026</div>
+</div>
+
+<section class="card" id="plan">
+<h2 class="section-title"><span class="num">📅</span>Plan de estudio — 1 día (≈10 h)</h2>
+<p class="lead">Tienes <strong>un solo día</strong> para prepararte: este plan reparte ~10 horas de estudio intensivo. El texto es descriptivo (para entender de cero), pero el ritmo es de <strong>cram</strong>: lee con el reloj, no te atasques en detalles secundarios. Fuentes principales: <strong>PDF del curso UGR</strong> (cada tema las indica). Wuolah solo al final si sobra tiempo. PEM: 70% de la nota, <strong>−0,33</strong> por fallo; <strong>en blanco no penaliza</strong>.</p>
+
+<div class="box box-clave">
+<div class="box-title"><span class="icon">📖</span>Cómo usar este skrypt en 1 día</div>
+<ol>
+<li><strong>Sigue el horario de abajo.</strong> Si un tema se alarga, recorta ejemplos secundarios y quédate con definiciones, tablas y cajas resaltadas.</li>
+<li><strong>Repaso por tema</strong> (T1·1/2 … S2·1/1): al final de cada sección. <strong>Repaso transversal</strong> (PEM·1/13 … PEM·13/13): bloque de las 18:30.</li>
+<li><strong>Prioridad UGR:</strong> si dudas entre este skrypt y un PDF del profesor, manda el PDF.</li>
+<li><strong>Wuolah:</strong> solo si terminas PEM antes de las 21:00; si no, omítelo.</li>
+</ol>
+</div>
+<div class="table-wrap"><table>
+<tr><th>Hora</th><th>Bloque</th><th>Qué hacer</th></tr>
+<tr><td>08:00–09:30</td><td>T1–T3</td><td>MBE, fases clínicas, farmacovigilancia (RAM A–E, Tarjeta Amarilla). <em>Máxima prioridad.</em></td></tr>
+<tr><td>09:30–10:00</td><td>—</td><td>Pausa + repaso mental T1–T3 (tablas y definiciones)</td></tr>
+<tr><td>10:00–11:30</td><td>T4–T7</td><td>Genéricos, biológicos, biosimilares, off-label/compasivo</td></tr>
+<tr><td>11:30–13:00</td><td>T8–T9</td><td>Farmacoeconomía + farmacogenética (DPYD, CYP2D6, AEMPS)</td></tr>
+<tr><td>13:00–14:00</td><td>—</td><td>Comida</td></tr>
+<tr><td>14:00–15:30</td><td>T10–T11</td><td>Embarazo, lactancia, pediatría + anciano</td></tr>
+<tr><td>15:30–17:00</td><td>T12–T14</td><td>IRC, hepática, obesidad — tablas de ajuste</td></tr>
+<tr><td>17:00–18:30</td><td>S1–S2</td><td>Seminarios: mAb + bases de datos PGx</td></tr>
+<tr><td>18:30–20:00</td><td>PEM</td><td>27 repaso por tema + 13 transversal (PEM·1–13) + repasar fallos</td></tr>
+<tr><td>20:00–20:30</td><td>Backup</td><td>Wuolah <em>solo si sobra tiempo</em></td></tr>
+<tr><td>20:30–21:00</td><td>Cierre</td><td>Checklist final + dormir ≥7 h</td></tr>
+</table></div><div class="box box-mnemo">
+<div class="box-title"><span class="icon">🧠</span>Estrategia PEM (examen 70%)</div>
+<p>Si dudas entre dos opciones y no puedes descartar ninguna con seguridad, <strong>deja en blanco</strong>. Desconfía de «siempre», «nunca», «único». Lo que más cae: fases I–IV, RAM A–E, genéricos 80–125%, IRC (CrCl &lt;50, &gt;40% renal), PGx (codeína/CYP2D6, 5-FU/DPYD).</p>
+</div>
+
+</section><section class="card" id="t1">
+<h2 class="section-title"><span class="num">T1</span>Introducción · Medicina basada en la evidencia · Uso racional</h2>
+<p class="lead">Antes de hablar de fármacos concretos, el curso sienta las bases: cómo definimos si un medicamento «funciona», cómo buscamos pruebas científicas y cómo debemos prescribir. Si dominas este tema, entenderás el vocabulario del resto de la asignatura.</p>
+<p class="source-ref"><strong>Fuentes del curso (UGR):</strong> FC-TEMA 1.pdf</p>
+
+<h3>1.1 ¿Qué estudia la farmacología clínica?</h3>
+<p>La <strong>farmacología clínica</strong> es la disciplina que investiga qué les ocurre a los fármacos en las personas: cómo actúan, qué beneficios producen, qué riesgos comportan y cómo debemos usarlos de forma racional. No es lo mismo que farmacología básica (que estudia mecanismos en modelos) ni que la mera prescripción habitual: aquí el foco es el <em>uso seguro y eficaz en el paciente real</em>.</p>
+<p>Los objetivos del servicio de farmacología clínica en un hospital incluyen, entre otros: analizar la relación beneficio-riesgo de los medicamentos, ayudar a monitorizar fármacos de margen terapéutico estrecho (por ejemplo <strong>litio</strong> o <strong>digitálicos</strong>, donde pequeños cambios de concentración plasmática pueden ser tóxicos) y asesorar en el diseño de ensayos clínicos.</p>
+
+<h3>1.2 Eficacia, efectividad, eficiencia y seguridad — no son sinónimos</h3>
+<p>Estos cuatro términos aparecen en casi todos los exámenes. Conviene aprenderlos con una imagen sencilla:</p>
+<ul>
+<li><strong>Eficacia</strong> — grado de beneficio en condiciones <em>ideales</em> (ensayo clínico controlado). Definición literal del <em>FC-TEMA 1</em>.</li>
+<li><strong>Efectividad</strong> — grado de beneficio en una <em>situación real</em> de práctica clínica (paciente polimedicado, comorbilidades, adherencia imperfecta).</li>
+<li><strong>Eficiencia</strong> — relación entre el beneficio obtenido y el <em>coste</em> (dinero, recursos, tiempo). Un fármaco puede ser eficaz pero ineficiente si cuesta diez veces más que otro con el mismo resultado.</li>
+<li><strong>Seguridad</strong> — no significa «sin riesgo», sino que el conjunto de reacciones adversas, interacciones y contraindicaciones es aceptable frente al beneficio esperado.</li>
+</ul>
+<p>El <em>FC-TEMA 1</em> plantea el caso de una mujer de 80 años, polimedicada, con mareos y caída. Un nuevo antihipertensivo reduce el ictus un 25% relativo (p=0,03), pero con riesgo basal 4% el <strong>número necesario a tratar (NNT)</strong> es 100: hay que tratar a 100 pacientes como ella un año para evitar un ictus. Además hay 10% de efectos adversos, 3% de hipotensión sintomática y un coste de 120 €/mes — la pregunta del profesor es: ¿lo prescribirías?</p>
+
+<h3>1.3 Uso racional del medicamento (OMS, 1985)</h3>
+<p>La OMS define el <strong>uso racional</strong> como que cada paciente reciba la medicación <em>adecuada</em> a su enfermedad, en la <em>dosis correcta</em>, durante el <em>tiempo necesario</em> y al <em>menor coste posible</em> para él y para la sociedad. Prescribir «por costumbre» o duplicar fármacos del mismo grupo es irracional aunque no sea ilegal.</p>
+
+<h3>1.4 Medicina basada en la evidencia (MBE)</h3>
+<p>La MBE (Sackett, Universidad McMaster, años 90) integra tres piezas: la <strong>mejor evidencia científica disponible</strong>, la <strong>experiencia clínica</strong> del médico y los <strong>valores y preferencias del paciente</strong>. No es «solo leer un artículo»: es aplicar la evidencia a un individuo concreto.</p>
+<p>Para buscar esa evidencia se usa la pregunta <strong>PICO</strong>: <strong>P</strong>aciente/Población, <strong>I</strong>ntervención, <strong>C</strong>omparador y <strong>O</strong>utcome (resultado). Ejemplo: «¿En mujeres mayores de 80 años hipertensas (P), un nuevo antihipertensivo (I) frente a no añadir fármaco (C) reduce ictus o caídas (O)?»</p>
+<p>La <strong>jerarquía de la evidencia</strong> ordena los diseños de estudio de mayor a menor fiabilidad causal: metaanálisis de ensayos aleatorizados → revisión sistemática → ensayo clínico aleatorizado → cohorte → caso-control → serie de casos → opinión de expertos. Un estudio puede ser <em>estadísticamente significativo</em> (p&lt;0,05) y sin embargo <em>clínicamente irrelevante</em> si el beneficio absoluto es minúsculo.</p>
+<h3>1.5 Preguntas de repaso</h3><details class="qa qbank" data-tag="T1"><summary><span class="q-label">T1·1/2</span> — ¿Cuál es la definición correcta de efectividad?</summary>
+<div class="qa-body">
+<p>¿Cuál es la definición correcta de efectividad?</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Beneficio en condiciones ideales de un ensayo</li>
+<li class="correct"><strong>B)</strong> Beneficio en condiciones de práctica habitual</li>
+<li class=""><strong>C)</strong> Relación beneficio/coste</li>
+<li class=""><strong>D)</strong> Ausencia de reacciones adversas</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong><p><strong>Explicación:</strong> La eficacia es en condiciones ideales; la efectividad es en la práctica real.</p></div>
+</div></details><details class="qa qbank" data-tag="T1"><summary><span class="q-label">T1·2/2</span> — En la jerarquía de la evidencia, ¿qué diseño aporta el mayor nivel?</summary>
+<div class="qa-body">
+<p>En la jerarquía de la evidencia, ¿qué diseño aporta el mayor nivel?</p>
+<ul class="qbank-opts"><li class="correct"><strong>A)</strong> Metaanálisis de ensayos clínicos aleatorizados</li>
+<li class=""><strong>B)</strong> Estudio de casos y controles</li>
+<li class=""><strong>C)</strong> Serie de casos</li>
+<li class=""><strong>D)</strong> Opinión de expertos</li></ul>
+<div class="answer"><strong>Respuesta correcta: A.</strong><p><strong>Explicación:</strong> El metaanálisis de ECA está en la cúspide de la pirámide.</p></div>
+</div></details>
+
+</section><section class="card" id="t2">
+<h2 class="section-title"><span class="num">T2</span>Desarrollo clínico de medicamentos</h2>
+<p class="lead">¿Cómo pasa un principio activo de laboratorio a la farmacia? Este tema describe las fases del ensayo clínico, quién participa en cada una y qué limitaciones tienen. Es uno de los más preguntados en PEM.</p>
+<p class="source-ref"><strong>Fuentes del curso (UGR):</strong> FC_TEMA 2_2526.pdf</p>
+
+<h3>2.1 El largo camino de un medicamento: el embudo del desarrollo</h3>
+<p>De unos <strong>250 compuestos</strong> que entran en investigación preclínica, solo una fracción llega a ensayos en humanos; al final del proceso suele quedar <strong>un único medicamento</strong> comercializable tras <strong>10–15 años</strong> de trabajo. Este «embudo» explica por qué los fármacos nuevos son caros: la mayoría de candidatos fracasa por toxicidad o falta de eficacia.</p>
+
+<h3>2.2 Fase 0 y preclínica (animales)</h3>
+<p>En la <strong>preclínica</strong> (<em>FC_TEMA 2_2526</em>) se evalúa toxicidad aguda y crónica, efectos sobre la reproducción, teratogenicidad y carcinogénesis en animales, antes de pasar a humanos.</p>
+
+<h3>2.3 Fase I — primera administración en humanos</h3>
+<p>La <strong>fase I</strong> incluye típicamente <strong>20–80 voluntarios sanos</strong> (remunerados). El objetivo principal es la <strong>seguridad</strong> y la farmacocinética: cómo absorbe, distribuye, metaboliza y elimina el organismo el fármaco, y cuál es la <strong>dosis máxima tolerada</strong>. Las dosis se suben de forma <em>escalonada</em>, no se dan dosis altas a varios sujetos a la vez sin observación previa.</p>
+<p><strong>Excepción importante:</strong> los <strong>antineoplásicos</strong> suelen probarse en fase I directamente en <strong>pacientes oncológicos</strong>, no en sanos, porque son demasiado tóxicos para voluntarios sanos.</p>
+<p>El <strong>caso Bial (Francia, 2016)</strong> con el fármaco BIA 10-2474 ilustra qué ocurre cuando se viola ese principio: al pasar a dosis múltiples simultáneas, un voluntario murió por muerte cerebral y otros cuatro sufrieron daño neurológico grave pese a que los animales y las dosis bajas parecían seguras.</p>
+
+<h3>2.4 Fase II — primeros pacientes enfermos</h3>
+<p>Entran <strong>200–500 pacientes</strong> con la enfermedad diana, pero con criterios de inclusión muy estrictos. Se busca la <strong>dosis</strong> y la <strong>pauta</strong> iniciales y se obtienen primeras señales de eficacia. Se distingue fase IIa (ventana terapéutica, dosis) de IIb (pauta según vida media).</p>
+
+<h3>2.5 Fase III — el ensayo pivotal para el registro</h3>
+<p>Aquí se realizan los grandes <strong>ensayos aleatorizados</strong> (a menudo varios cientos o miles de pacientes, hasta ~3000) comparando el fármaco con el tratamiento estándar o placebo. El seguimiento dura meses o años (típicamente <strong>6 meses a 2 años</strong>). Es la fase cuyos resultados presenta la empresa a la agencia reguladora (AEMPS/EMA) para obtener la <strong>autorización de comercialización</strong>. Importante: un p valor significativo no basta; debe demostrarse relevancia clínica.</p>
+
+<h3>2.6 Fase IV — vigilancia en la vida real</h3>
+<p>Una vez comercializado el medicamento, la <strong>fase IV</strong> (estudios postautorización) detecta reacciones adversas <em>raras</em> que los ensayos previos no pudieron ver por tamaño muestral limitado. El <strong>médico prescriptor</strong> actúa como «sensor» indispensable: es quien ve al paciente real y puede notificar sospechas.</p>
+
+<h3>2.7 Ficha técnica y prospecto</h3>
+<p>La <strong>ficha técnica</strong> es el documento legal para el profesional sanitario (indicaciones, dosis, contraindicaciones, interacciones). El <strong>prospecto</strong> es la versión para el paciente, en lenguaje más accesible. Prescribir implica conocer la ficha técnica del medicamento.</p>
+<div class="table-wrap"><table>
+<tr><th>Fase</th><th>¿Quién participa?</th><th>Objetivo principal</th></tr>
+<tr><td>0 / preclínica</td><td>Animales / calidad galénica</td><td>Toxicidad y formulación</td></tr>
+<tr><td>I</td><td>Voluntarios sanos (salvo oncológicos)</td><td>Seguridad, PK, dosis máxima tolerada</td></tr>
+<tr><td>II</td><td>Pacientes enfermos (200–500)</td><td>Dosis, pauta, primera señal de eficacia</td></tr>
+<tr><td>III</td><td>Muchos pacientes enfermos (ECA)</td><td>Demostrar eficacia y seguridad para registro</td></tr>
+<tr><td>IV</td><td>Población general tratada</td><td>Detectar RAM raras; farmacovigilancia</td></tr>
+</table></div>
+<div class="box box-mnemo">
+<div class="box-title"><span class="icon">💡</span>Caso Bial — lección de examen</div>
+<p>Si te preguntan qué falló en el protocolo tras resultados seguros en animales y dosis bajas: la administración <strong>simultánea</strong> de dosis altas a varios voluntarios, sin escalado ni margen de observación entre sujetos.</p>
+</div><h3>2.8 Preguntas de repaso</h3><details class="qa qbank" data-tag="T2"><summary><span class="q-label">T2·1/2</span> — ¿En qué fase del desarrollo clínico se realizan principalmente los ensayos aleatorizados…</summary>
+<div class="qa-body">
+<p>¿En qué fase del desarrollo clínico se realizan principalmente los ensayos aleatorizados a gran escala para solicitar la autorización de comercialización?</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Fase I</li>
+<li class=""><strong>B)</strong> Fase II</li>
+<li class="correct"><strong>C)</strong> Fase III</li>
+<li class=""><strong>D)</strong> Fase IV</li></ul>
+<div class="answer"><strong>Respuesta correcta: C.</strong><p><strong>Explicación:</strong> La fase III es la «prueba de fuego» antes del registro.</p></div>
+</div></details><details class="qa qbank" data-tag="T2"><summary><span class="q-label">T2·2/2</span> — ¿Cuál es la limitación principal de los ECA para detectar RAM raras?</summary>
+<div class="qa-body">
+<p>¿Cuál es la limitación principal de los ECA para detectar RAM raras?</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Falta de aleatorización</li>
+<li class="correct"><strong>B)</strong> Tamaño muestral limitado</li>
+<li class=""><strong>C)</strong> Falta de enmascaramiento</li>
+<li class=""><strong>D)</strong> Duración excesiva</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong><p><strong>Explicación:</strong> Una RAM que ocurre en 1 de cada 10 000 pacientes no saldrá en un ensayo de 3 000 personas.</p></div>
+</div></details>
+
+</section><section class="card" id="t3">
+<h2 class="section-title"><span class="num">T3</span>Farmacovigilancia</h2>
+<p class="lead">Una vez comercializado un medicamento, la vigilancia de su seguridad no termina: es cuando empieza la farmacovigilancia. Este tema explica cómo clasificamos las reacciones adversas, cómo las notificamos y qué estudios permiten confirmar sospechas.</p>
+<p class="source-ref"><strong>Fuentes del curso (UGR):</strong> tema3.pdf, notas farmacovigilancia.pdf</p>
+
+<h3>3.1 ¿Qué es la farmacovigilancia?</h3>
+<p>La <strong>farmacovigilancia</strong> es el conjunto de actividades que permiten <em>detectar, evaluar, comprender y prevenir</em> las reacciones adversas a medicamentos (RAM). Un medicamento autorizado tiene un balance beneficio-riesgo que se conoce en el momento del registro, pero ese balance es <strong>dinámico</strong>: a medida que lo usan miles o millones de personas aparecen efectos raros que los ensayos clínicos no pudieron detectar.</p>
+<p>Es fundamental distinguir <strong>evento adverso</strong> (cualquier acontecimiento clínico desfavorable tras un fármaco, sin implicar causalidad) de <strong>RAM</strong> (evento adverso en el que existe una sospecha razonable de relación causal con el medicamento).</p>
+
+<h3>3.2 Clasificación A–E del temario</h3>
+<p>El temario clasifica las RAM en cinco tipos según su mecanismo y temporalidad. No se trata de memorizar nombres de autores, sino de entender el patrón clínico:</p>
+<div class="table-wrap"><table>
+<tr><th>Tipo</th><th>Característica</th><th>Ejemplo clínico</th></tr>
+<tr><td><strong>A</strong> (Augmented)</td><td>Predecible, relacionada con la dosis; extensión del efecto farmacológico</td><td>Hemorragia por anticoagulante a dosis alta</td></tr>
+<tr><td><strong>B</strong> (Bizarre)</td><td>Impredecible, idiosincrásica; no dosis-dependiente</td><td>Anafilaxia por penicilina</td></tr>
+<tr><td><strong>C</strong> (Chronic)</td><td>Aparece tras uso prolongado</td><td>Osteoporosis por corticoides crónicos</td></tr>
+<tr><td><strong>D</strong> (Delayed)</td><td>Se manifiesta tiempo después de la exposición</td><td>Teratogenicidad (talidomida → focomelia)</td></tr>
+<tr><td><strong>E</strong> (End of use)</td><td>Aparece al retirar el fármaco</td><td>Angina de rebote al suspender betabloqueantes</td></tr>
+</table></div>
+<p>El caso de la <strong>talidomida</strong> en los años 60 (focomelia en fetos expuestos) fue el catalizador de los sistemas modernos de vigilancia postcomercialización: demostró que un fármaco puede parecer seguro en ensayos y ser devastador en embarazadas.</p>
+
+<h3>3.3 Imputabilidad: ¿fue el fármaco?</h3>
+<p>La <strong>imputabilidad</strong> (método SEFV y otros) evalúa si un evento puede atribuirse al medicamento. Se consideran: la <em>secuencia temporal</em> (¿el evento ocurrió después de tomar el fármaco?), la <em>bibliografía</em> (¿está descrito?), el <em>dechallenge</em> (¿mejoró al retirarlo?), el <em>rechallenge</em> (¿reapareció al readministrarlo?) y las <em>causas alternativas</em>. La imputabilidad es una sospecha clínica, no una prueba definitiva.</p>
+
+<h3>3.4 Tarjeta Amarilla y notificación espontánea (NERA)</h3>
+<p>En España, la <strong>Tarjeta Amarilla</strong> es el sistema de <strong>notificación espontánea</strong> (también llamada NERA: notificación espontánea de reacciones adversas). Cualquier profesional sanitario o ciudadano puede notificar una sospecha. Es especialmente importante notificar: reacciones <strong>graves</strong>, <strong>nuevas</strong> (no descritas en ficha), en <strong>pediatría</strong>, en <strong>embarazo</strong> y con <strong>biológicos</strong>.</p>
+<p>La NERA genera <strong>señales de seguridad</strong> (alertas que merecen investigación), pero <em>no</em> permite calcular la incidencia exacta de una RAM porque existe <strong>infranotificación</strong> (se estima que menos del 10% de las RAM graves se notifican) y <strong>sesgo de notificación</strong>.</p>
+
+<h3>3.5 Estudios observacionales: cohorte vs caso-control</h3>
+<p>Para cuantificar asociaciones se usan diseños epidemiológicos. En un <strong>estudio de cohorte</strong> se parte de pacientes <em>expuestos</em> y no expuestos y se sigue quién desarrolla el evento; la medida típica es el <strong>riesgo relativo (RR)</strong>. En un <strong>estudio de caso-control</strong> se parte de quienes <em>ya tienen</em> el evento (casos) y se busca exposición previa al fármaco frente a controles; la medida es el <strong>odds ratio (OR)</strong>. El diseño caso-control es especialmente útil para RAM <strong>muy raras</strong> (como focomelia por talidomida), donde una cohorte necesitaría millones de personas.</p>
+<h3>3.6 Preguntas de repaso</h3><details class="qa qbank" data-tag="T3"><summary><span class="q-label">T3·1/3</span> — Las RAM tipo B se caracterizan por ser:</summary>
+<div class="qa-body">
+<p>Las RAM tipo B se caracterizan por ser:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Dosis-dependientes y predecibles</li>
+<li class="correct"><strong>B)</strong> Impredecibles e idiosincrásicas</li>
+<li class=""><strong>C)</strong> Frecuentes en ensayos clínicos</li>
+<li class=""><strong>D)</strong> Siempre leves</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong></div>
+</div></details><details class="qa qbank" data-tag="T3"><summary><span class="q-label">T3·2/3</span> — La Tarjeta Amarilla sirve principalmente para:</summary>
+<div class="qa-body">
+<p>La Tarjeta Amarilla sirve principalmente para:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Demostrar causalidad definitiva</li>
+<li class=""><strong>B)</strong> Sustituir un ensayo clínico</li>
+<li class="correct"><strong>C)</strong> Generar señales de seguridad</li>
+<li class=""><strong>D)</strong> Calcular la incidencia exacta de RAM</li></ul>
+<div class="answer"><strong>Respuesta correcta: C.</strong></div>
+</div></details><details class="qa qbank" data-tag="T3"><summary><span class="q-label">T3·3/3</span> — El diseño más útil para confirmar una RAM muy rara es:</summary>
+<div class="qa-body">
+<p>El diseño más útil para confirmar una RAM muy rara es:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Ensayo clínico aleatorizado</li>
+<li class=""><strong>B)</strong> Estudio transversal</li>
+<li class="correct"><strong>C)</strong> Caso-control</li>
+<li class=""><strong>D)</strong> Serie de casos</li></ul>
+<div class="answer"><strong>Respuesta correcta: C.</strong></div>
+</div></details>
+
+</section><section class="card" id="t4">
+<h2 class="section-title"><span class="num">T4</span>Genéricos y bioequivalencia</h2>
+<p class="lead">Los genéricos permiten ahorrar sin sacrificar eficacia ni seguridad, pero solo si cumplen criterios farmacocinéticos estrictos. Este tema explica qué es un EFG, cómo se demuestra la bioequivalencia y cuándo el farmacéutico no puede sustituir.</p>
+<p class="source-ref"><strong>Fuentes del curso (UGR):</strong> FC-TEMA 4.pdf</p>
+
+<h3>4.1 ¿Qué es un equivalente farmacéutico genérico (EFG)?</h3>
+<p>Un <strong>equivalente farmacéutico genérico (EFG)</strong> contiene el mismo principio activo, en la misma cantidad, con la misma forma farmacéutica (comprimido, cápsula, etc.) que el medicamento de referencia (marca). Los <strong>excipientes</strong> (colorantes, rellenos) pueden diferir, lo que importa en alergias (lactosa, gluten) pero no en la mayoría de pacientes.</p>
+<p>El genérico no es «peor»: la legislación europea exige que sea <strong>bioequivalente</strong> al original, es decir, que se comporte de forma equivalente en el organismo.</p>
+
+<h3>4.2 Exclusividad de datos y cláusula Bolar</h3>
+<p>La empresa que desarrolla un fármaco nuevo tiene <strong>exclusividad de datos</strong> durante <strong>8 años</strong> (nadie puede solicitar genérico con sus datos), más <strong>2 años</strong> de evaluación del genérico, y opcionalmente <strong>+1 año</strong> si se registra una nueva indicación con beneficio clínico significativo. En total, unos <strong>10–11 años</strong> de protección antes de que lleguen genéricos.</p>
+<p>La <strong>cláusula Bolar</strong> permite que otras empresas empiecen los estudios de bioequivalencia <em>antes</em> de que caduque la patente, para que el genérico pueda comercializarse en cuanto sea legal.</p>
+
+<h3>4.3 Bioequivalencia: AUC y Cmax (80–125%)</h3>
+<p>En lugar de repetir ensayos de eficacia clínica (caros y lentos), se demuestra bioequivalencia con un estudio farmacocinético en voluntarios sanos, habitualmente diseño <strong>cruzado 2×2</strong> (cada sujeto recibe test y referencia con un <strong>washout</strong> superior a 5 vidas medias entre periodos).</p>
+<p>Los parámetros primarios son <strong>AUC</strong> (área bajo la curva: cantidad total absorbida) y <strong>Cmax</strong> (concentración máxima: velocidad de absorción). El criterio regulatorio: el intervalo de confianza del <strong>90%</strong> del cociente geométrico Test/Referencia debe caer dentro de <strong>80–125%</strong> (tras transformación logarítmica). Conceptualmente, una variación de ±20% en absorción no suele ser clínicamente relevante.</p>
+
+<h3>4.4 Intercambiabilidad en farmacia</h3>
+<p>En España, si el médico prescribe por <strong>denominación oficial (DOE)</strong> o principio activo, el farmacéutico puede sustituir automáticamente por un genérico bioequivalente. El paciente paga menos y el SNS ahorra. Sin embargo, no todos los fármacos son sustituibles.</p>
+
+<h3>4.5 Orden SCO/2874/2007</h3>
+<p>La <strong>Orden SCO/2874/2007</strong> establece una lista de medicamentos <strong>no sustituibles</strong> sin autorización expresa del médico prescriptor. Incluye sobre todo <strong>biológicos</strong> y fármacos de <strong>margen terapéutico estrecho</strong> (donde pequeñas variaciones en concentración plasmática pueden ser peligrosas). Es una trampa frecuente de examen: no todo genérico se intercambia automáticamente.</p>
+<h3>4.6 Preguntas de repaso</h3><details class="qa qbank" data-tag="T4"><summary><span class="q-label">T4·1/2</span> — ¿Qué parámetros farmacocinéticos se comparan habitualmente en un estudio de bioequivalen…</summary>
+<div class="qa-body">
+<p>¿Qué parámetros farmacocinéticos se comparan habitualmente en un estudio de bioequivalencia?</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Solo la semivida</li>
+<li class="correct"><strong>B)</strong> AUC y Cmax</li>
+<li class=""><strong>C)</strong> Volumen de distribución y aclaramiento renal</li>
+<li class=""><strong>D)</strong> Solo la biodisponibilidad absoluta</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong></div>
+</div></details><details class="qa qbank" data-tag="T4"><summary><span class="q-label">T4·2/2</span> — El intervalo de confianza del 90% aceptado para declarar bioequivalencia suele estar ent…</summary>
+<div class="qa-body">
+<p>El intervalo de confianza del 90% aceptado para declarar bioequivalencia suele estar entre:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> 70% y 130%</li>
+<li class="correct"><strong>B)</strong> 80% y 125%</li>
+<li class=""><strong>C)</strong> 90% y 110%</li>
+<li class=""><strong>D)</strong> 95% y 105%</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong></div>
+</div></details>
+
+</section><section class="card" id="t5">
+<h2 class="section-title"><span class="num">T5</span>Terapias biológicas</h2>
+<p class="lead">Los biológicos han revolucionado enfermedades autoinmunes y oncológicas, pero su naturaleza proteica les confiere propiedades únicas — especialmente la inmunogenicidad. Este tema explica qué son, cómo actúan los mAb y por qué hay que monitorizarlos.</p>
+<p class="source-ref"><strong>Fuentes del curso (UGR):</strong> Práctica_monit AC_FC_medicina_25-26.pdf</p>
+
+<h3>5.1 ¿Qué es un medicamento biológico?</h3>
+<p>Un <strong>medicamento biológico</strong> es un fármaco cuyo principio activo se obtiene de un <em>sistema biológico</em> (células vivas, microorganismos, tejidos), no mediante síntesis química clásica. Son moléculas grandes y complejas: proteínas, anticuerpos, citocinas recombinantes. Ejemplos: insulina recombinante, eritropoyetina, infliximab.</p>
+<p>A diferencia de un genérico químico (molécula pequeña, estructura idéntica), un biológico tiene <strong>microheterogeneidad</strong>: pequeñas variaciones entre lotes son normales porque «el proceso es el producto».</p>
+
+<h3>5.2 Anticuerpos monoclonales (mAb)</h3>
+<p>Los <strong>anticuerpos monoclonales (mAb)</strong> son proteínas de inmunoglobulina diseñadas para unirse a una diana específica. En enfermedad inflamatoria intestinal (EII) son pilares del tratamiento:</p>
+<ul>
+<li><strong>Anti-TNF-α:</strong> infliximab (IV), adalimumab (SC)</li>
+<li><strong>Anti-IL-12/23:</strong> ustekinumab</li>
+<li><strong>Anti-integrina α4β7:</strong> vedolizumab (más selectivo intestinal)</li>
+</ul>
+<p>Se administran por vía <strong>intravenosa</strong> (infliximab) o <strong>subcutánea</strong> (adalimumab), con pautas de inducción y mantenimiento.</p>
+
+<h3>5.3 Inmunogenicidad</h3>
+<p>Al ser proteínas extranjas, los biológicos pueden provocar <strong>inmunogenicidad</strong>: el sistema inmune del paciente genera <strong>anticuerpos anti-fármaco (ADA)</strong>. Estos pueden ser inocuos o <strong>neutralizantes</strong>, reduciendo la eficacia del tratamiento y provocando reacciones infusionales. Por eso en la práctica clínica (seminario S1) se monitorizan niveles plasmáticos en valle (trough) y ADA.</p>
+
+<h3>5.4 Monitorización terapéutica en EII</h3>
+<p>En pacientes con EII tratados con anti-TNF, si hay enfermedad activa con niveles bajos y sin ADA, puede optimizarse dosis o intervalo. Si hay ADA positivos con niveles bajos, suele indicarse cambio de clase terapéutica. La inmunogenicidad es la razón por la que no basta con «poner el mismo fármaco»: hay que vigilar la respuesta individual.</p>
+<h3>5.5 Preguntas de repaso</h3><details class="qa qbank" data-tag="T5"><summary><span class="q-label">T5·1/1</span> — La inmunogenicidad de un fármaco biológico puede provocar:</summary>
+<div class="qa-body">
+<p>La inmunogenicidad de un fármaco biológico puede provocar:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Solo reacciones locales leves</li>
+<li class="correct"><strong>B)</strong> Formación de anticuerpos anti-fármaco y pérdida de eficacia</li>
+<li class=""><strong>C)</strong> Mayor biodisponibilidad oral</li>
+<li class=""><strong>D)</strong> Eliminación más rápida sin consecuencias clínicas</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong></div>
+</div></details>
+
+</section><section class="card" id="t6">
+<h2 class="section-title"><span class="num">T6</span>Biosimilares</h2>
+<p class="lead">Cuando caduca la patente de un biológico, no basta con copiar la molécula en un laboratorio químico. Los biosimilares son el equivalente regulado para proteínas: similares, no idénticos, con un camino de autorización propio.</p>
+<p class="source-ref"><strong>Fuentes del curso (UGR):</strong> FC-TEMA 6.pdf</p>
+
+<h3>6.1 Biológico vs fármaco químico</h3>
+<p>Un fármaco <strong>químico</strong> es pequeño (&lt;3 kDa), con estructura definida y reproducible por síntesis. Un <strong>biológico</strong> es grande, obtenido de células vivas, con variabilidad inherente. Por eso no existe un «genérico biológico» al uso: existe el <strong>biosimilar</strong>.</p>
+
+<h3>6.2 ¿Qué es un biosimilar?</h3>
+<p>Un <strong>biosimilar</strong> es una versión de un biológico de referencia ya autorizado, demostrando <strong>alta similitud</strong> (no identidad molecular) mediante un ejercicio de <strong>comparabilidad</strong> exhaustivo regulado por la EMA (guía CHMP/437/04). Los pilares son: calidad analítica, actividad biológica, farmacocinética/farmacodinamia, eficacia, seguridad e inmunogenicidad comparables.</p>
+<p>Frente al genérico (identidad química + bioequivalencia PK simple), el biosimilar requiere estudios clínicos comparativos más amplios porque la molécula no puede ser idéntica átomo a átomo.</p>
+
+<h3>6.3 Deriva biológica (drift)</h3>
+<p>El biológico de referencia de hoy no es idéntico al de hace diez años: las empresas mejoran procesos de fabricación. Esta <strong>deriva</strong> es aceptada si no hay impacto clínico. El biosimilar debe encajar dentro del margen de variabilidad natural del original.</p>
+
+<h3>6.4 Ejemplos y trazabilidad</h3>
+<p>En la práctica española y en el temario UGR aparecen biosimilares de anti-TNF como <strong>REMSIMA/ZESSLY</strong> (infliximab) y <strong>AMGEVITA/HYRIMOZ</strong> (adalimumab). La <strong>trazabilidad</strong> (registrar qué producto exacto recibe cada paciente) es obligatoria: si hay una RAM o pérdida de respuesta, hay que saber si era original o biosimilar y de qué laboratorio.</p>
+
+<h3>6.5 Sustitución vs switching (intercambio)</h3>
+<p><strong>Sustitución</strong> en farmacia: el farmacéutico entrega un biosimilar en lugar del original de referencia (según normativa autonómica y lista de sustituibles). <strong>Switching/intercambio terapéutico</strong>: decisión médica de cambiar de un biológico a otro (original ↔ biosimilar o entre biosimilares), siempre con información al paciente y seguimiento. No son lo mismo y es trampa de examen confundirlos.</p>
+<h3>6.6 Preguntas de repaso</h3><details class="qa qbank" data-tag="T6"><summary><span class="q-label">T6·1/1</span> — Un biosimilar se caracteriza por:</summary>
+<div class="qa-body">
+<p>Un biosimilar se caracteriza por:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Ser idéntico químicamente al producto de referencia</li>
+<li class="correct"><strong>B)</strong> Ser altamente similar al biológico de referencia con estudios comparativos</li>
+<li class=""><strong>C)</strong> No requerir ensayos clínicos</li>
+<li class=""><strong>D)</strong> Ser siempre intercambiable sin supervisión</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong></div>
+</div></details>
+
+</section><section class="card" id="t7">
+<h2 class="section-title"><span class="num">T7</span>Fuera de ficha · extranjeros · compasivos</h2>
+<p class="lead">No todo uso de un medicamento coincide con lo que dice su ficha técnica. Este tema distingue tres situaciones que el examen mezcla a propósito: off-label, uso compasivo e importación extranjera.</p>
+<p class="source-ref"><strong>Fuentes del curso (UGR):</strong> — (sin PDF dedicado; fragmentos en FC_TEMA 2)</p>
+
+<h3>7.1 Uso fuera de ficha (off-label)</h3>
+<p>El <strong>uso off-label</strong> significa prescribir un medicamento <strong>ya autorizado</strong> en condiciones distintas a las de su ficha técnica: otra indicación, otra dosis, otra vía o población (muy frecuente en <strong>pediatría</strong>, donde muchos fármacos no tienen indicación pediátrica registrada). Es <strong>lícito</strong> si existe necesidad médica individual, evidencia razonable y <strong>consentimiento informado</strong> del paciente.</p>
+
+<h3>7.2 Uso compasivo y acceso precoz</h3>
+<p>El <strong>uso compasivo</strong> (o acceso precoz) aplica cuando el paciente no tiene alternativas terapéuticas y necesita un fármaco que <strong>aún no está autorizado</strong> (suele estar en fases II–III de investigación). Requiere <strong>aprobación de la AEMPS</strong> y acuerdo con la empresa farmacéutica. No confundir con off-label: en compasivo el medicamento no tiene autorización de comercialización.</p>
+
+<h3>7.3 Medicamento extranjero</h3>
+<p>La <strong>importación de medicamento extranjero</strong> es un mecanismo excepcional cuando no existe alternativa terapéutica equivalente en España. También está regulado por la AEMPS.</p>
+
+<h3>7.4 Marco legal: RD 1/2015</h3>
+<p>El <strong>Real Decreto Legislativo 1/2015</strong> recoge el texto refundido de la Ley de garantías y uso racional de medicamentos. Establece el marco de autorización, calidad, farmacovigilancia y condiciones de uso compasivo.</p>
+<div class="table-wrap"><table>
+<tr><th>Situación</th><th>¿Medicamento autorizado?</th><th>Requisito clave</th></tr>
+<tr><td>Off-label</td><td>Sí (para otra indicación/dosis/población)</td><td>Justificación clínica + consentimiento informado</td></tr>
+<tr><td>Compasivo</td><td>No (en investigación)</td><td>Aprobación AEMPS + acuerdo con la empresa</td></tr>
+<tr><td>Extranjero</td><td>Variable</td><td>Importación excepcional autorizada</td></tr>
+</table></div>
+<h3>7.5 Preguntas de repaso</h3><details class="qa qbank" data-tag="T7"><summary><span class="q-label">T7·1/1</span> — El uso «off-label» de un medicamento implica:</summary>
+<div class="qa-body">
+<p>El uso «off-label» de un medicamento implica:</p>
+<ul class="qbank-opts"><li class="correct"><strong>A)</strong> Utilizarlo en condiciones no recogidas en la ficha técnica autorizada</li>
+<li class=""><strong>B)</strong> Usar siempre un genérico</li>
+<li class=""><strong>C)</strong> Importar un medicamento sin receta</li>
+<li class=""><strong>D)</strong> Administrar dosis doble de lo autorizado</li></ul>
+<div class="answer"><strong>Respuesta correcta: A.</strong></div>
+</div></details>
+
+</section><section class="card" id="t8">
+<h2 class="section-title"><span class="num">T8</span>Farmacoeconomía</h2>
+<p class="lead">¿Por qué un fármaco cuesta lo que cuesta? ¿Por qué no investigamos todas las enfermedades por igual? La farmacoeconomía pone números a esas preguntas y explica cómo los sistemas de salud deciden qué financiar.</p>
+<p class="source-ref"><strong>Fuentes del curso (UGR):</strong> Farmacoeconomía.pdf, Medicamentos para ricos y pobres (2026).pdf</p>
+
+<h3>8.1 ¿Qué es la farmacoeconomía?</h3>
+<p>La <strong>farmacoeconomía</strong> analiza la relación entre <strong>costes</strong> y <strong>resultados en salud</strong> de las intervenciones farmacológicas. Los sistemas sanitarios tienen recursos limitados: no se puede financiar todo. La farmacoeconomía ayuda a decidir qué tratamientos aportan más salud por euro invertido.</p>
+
+<h3>8.2 Desigualdad global y enfermedades olvidadas</h3>
+<p>Aproximadamente el <strong>85%</strong> del gasto farmacéutico mundial se concentra en países ricos (~15% de la población). Las <strong>enfermedades olvidadas</strong> (tropicales, parasitarias) afectan a cientos de millones de personas pero reciben históricamente menos del 2% de la inversión en I+D farmacéutica, porque afectan a poblaciones con baja capacidad de pago. No es que sean imposibles de tratar: es un problema de <strong>incentivos económicos</strong>.</p>
+
+<h3>8.3 Medicamentos huérfanos</h3>
+<p>El <strong>Orphan Drug Act</strong> (EEUU, 1983) creó incentivos fiscales y de exclusividad para fármacos de enfermedades raras. Funcionó: hoy hay cientos de medicamentos huérfanos, pero muchos tienen precios muy elevados (eculizumab, ivacaftor). El beneficio para pacientes raros es real; la crítica es el coste para sistemas de salud.</p>
+
+<h3>8.4 Tipos de análisis y AVAC/QALY</h3>
+<p>Los análisis farmacoeconómicos incluyen: coste-beneficio (monetiza la salud), <strong>coste-efectividad</strong> (coste por unidad clínica: años de vida ganados, mmHg reducidos), <strong>coste-utilidad</strong> (coste por <strong>AVAC/QALY</strong> — año de vida ajustado por calidad, que pondera estados de salud peores) e impacto presupuestario. En España, la financiación por el SNS exige evaluación de eficacia, seguridad y coste-efectividad.</p>
+
+<h3>8.5 ¿Para qué se desarrollan los fármacos? (Medicamentos para ricos y pobres)</h3>
+<p>El PDF del curso <em>Medicamentos para ricos y pobres (2026)</em> plantea explícitamente la pregunta «¿Para qué se desarrollan los nuevos fármacos?» y responde: <strong>para obtener beneficios económicos</strong>, ayudando de paso a mejorar la salud de la población tratada. No es un juicio moral del skrypt: es el marco crítico del temario. La misma presentación subraya que se desarrollan sobre todo <strong>para quienes pueden pagarlos</strong> (~15% de la población mundial concentra ~85% del gasto farmacéutico) y que las enfermedades olvidadas reciben escasa I+D porque no hay mercado rentable.</p>
+<p>El médico, ante esta realidad, debe prescribir con criterio, usar genéricos cuando proceda y mantener actitud crítica frente a la promoción comercial (<em>Farmacoeconomía.pdf</em>).</p>
+<h3>8.6 Preguntas de repaso</h3><details class="qa qbank" data-tag="T8"><summary><span class="q-label">T8·1/2</span> — El AVAC (año de vida ajustado por calidad) se utiliza principalmente en:</summary>
+<div class="qa-body">
+<p>El AVAC (año de vida ajustado por calidad) se utiliza principalmente en:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Estudios de bioequivalencia</li>
+<li class="correct"><strong>B)</strong> Análisis coste-utilidad</li>
+<li class=""><strong>C)</strong> Fase I del desarrollo</li>
+<li class=""><strong>D)</strong> Notificación de la Tarjeta Amarilla</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong></div>
+</div></details><details class="qa qbank" data-tag="T8"><summary><span class="q-label">T8·2/2</span> — Las enfermedades olvidadas reciben escasa inversión principalmente porque:</summary>
+<div class="qa-body">
+<p>Las enfermedades olvidadas reciben escasa inversión principalmente porque:</p>
+<ul class="qbank-opts"><li class="correct"><strong>A)</strong> Afectan a poblaciones con baja capacidad de pago</li>
+<li class=""><strong>B)</strong> Son imposibles de tratar</li>
+<li class=""><strong>C)</strong> No tienen impacto sanitario</li>
+<li class=""><strong>D)</strong> Están prohibidas por la OMS</li></ul>
+<div class="answer"><strong>Respuesta correcta: A.</strong></div>
+</div></details>
+
+</section><section class="card" id="t9">
+<h2 class="section-title"><span class="num">T9</span>Farmacogenética y medicina personalizada</h2>
+<p class="lead">La genética explica por qué dos pacientes con la misma dosis de codeína o 5-FU pueden tener respuestas opuestas. Este tema cubre los genes más preguntados en examen y las herramientas para aplicarlos en la práctica.</p>
+<p class="source-ref"><strong>Fuentes del curso (UGR):</strong> FC-TEMA 9-FINAL.pdf, Práctica_farmacogenética_FC_medicina_25-26.pdf</p>
+
+<h3>9.1 Farmacogenética y variabilidad interindividual</h3>
+<p>La <strong>farmacogenética</strong> estudia cómo las variantes genéticas influyen en la respuesta a fármacos. Entre el 20% y el 75% de los pacientes no responden adecuadamente a un tratamiento estándar, y las RAM causan aproximadamente el 7% de los ingresos hospitalarios. El objetivo es elegir el <strong>fármaco correcto a la dosis correcta</strong> antes de administrarlo, evitando ensayo-error.</p>
+<p>Los humanos comparten el 99,9% del ADN; el 0,1% restante incluye <strong>polimorfismos</strong> (variantes presentes en &gt;1% de la población). Un <strong>SNP</strong> (polimorfismo de nucleótido único) es un cambio de una sola base (A, T, C o G). El alelo <strong>*1</strong> suele ser el «normal» (wild-type); variantes como <strong>CYP2C19*2</strong> reducen actividad enzimática.</p>
+
+<h3>9.2 CYP2D6 y codeína</h3>
+<p>La <strong>codeína</strong> es un profármaco: necesita ser convertida en morfina por <strong>CYP2D6</strong> para analgesia. Un <strong>metabolizador ultrarrápido</strong> produce mucha morfina; si está en lactancia, la morfina pasa a la leche y puede causar <strong>depresión respiratoria del lactante</strong>. Por eso la codeína está contraindicada en lactancia en metabolizadores ultrarrápidos y en general se desaconseja.</p>
+
+<h3>9.3 DPYD y fluoropirimidinas (5-FU)</h3>
+<p>Más del <strong>80%</strong> del 5-fluorouracilo (y prodrugos como capecitabina y tegafur) se inactiva por la enzima <strong>DPYD</strong>. Un déficit genético de DPYD provoca acumulación del fármaco activo y <strong>toxicidad grave</strong> (mucositis severa, neutropenia, diarrea potencialmente mortal). El genotipado de DPYD antes de quimioterapia es recomendación creciente en guías europeas.</p>
+
+<h3>9.4 CPIC, PharmGKB y base AEMPS</h3>
+<p><strong>PharmGKB</strong> y <strong>CPIC</strong> (Clinical Pharmacogenetics Implementation Consortium) publican guías de acción clínica basadas en evidencia. La <strong>base de biomarcadores farmacogenómicos de la AEMPS</strong> recoge asociaciones con nivel de evidencia <strong>1A</strong> (la más alta, basada en ClinPGx y guías CPIC). Si un biomarcador aparece en la ficha técnica, el médico debe seguir la recomendación (ej. HLA-B*57:01 antes de abacavir; CYP2C19 antes de clopidogrel).</p>
+
+<h3>9.5 Genotipado reactivo vs anticipado</h3>
+<p>El <strong>genotipado reactivo</strong> se hace cuando ya hay un problema (RAM, falta de respuesta). El <strong>genotipado anticipado</strong> (paneles en historia clínica electrónica) es el modelo futuro: conocer las variantes antes de prescribir. El <strong>estudio Swen et al., Lancet 2023</strong> demostró que la farmacogenética guiada por recomendaciones DPWG redujo reacciones adversas evitables en hospitalización.</p>
+<h3>9.6 Preguntas de repaso</h3><details class="qa qbank" data-tag="T9"><summary><span class="q-label">T9·1/2</span> — Un metabolizador ultrarrápido de CYP2D6 que toma codeína durante la lactancia presenta r…</summary>
+<div class="qa-body">
+<p>Un metabolizador ultrarrápido de CYP2D6 que toma codeína durante la lactancia presenta riesgo de:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Hipoglucemia neonatal</li>
+<li class="correct"><strong>B)</strong> Acumulación de morfina en leche y depresión respiratoria del lactante</li>
+<li class=""><strong>C)</strong> Deformidades congénitas</li>
+<li class=""><strong>D)</strong> Ningún riesgo adicional</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong></div>
+</div></details><details class="qa qbank" data-tag="T9"><summary><span class="q-label">T9·2/2</span> — La base de datos de biomarcadores farmacogenómicos de la AEMPS incluye asociaciones con …</summary>
+<div class="qa-body">
+<p>La base de datos de biomarcadores farmacogenómicos de la AEMPS incluye asociaciones con nivel de evidencia:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Solo opinión de expertos</li>
+<li class="correct"><strong>B)</strong> 1A (ClinPGx / guías CPIC)</li>
+<li class=""><strong>C)</strong> Solo estudios en animales</li>
+<li class=""><strong>D)</strong> Sin criterios definidos</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong></div>
+</div></details>
+
+</section><section class="card" id="t10">
+<h2 class="section-title"><span class="num">T10</span>Embarazo · lactancia · pediatría</h2>
+<p class="lead">Prescribir en embarazo, lactancia o infancia exige conocer periodos críticos del desarrollo, qué fármacos no cruzan placenta y las RAM pediátricas clásicas que reaparecen en cada examen.</p>
+<p class="source-ref"><strong>Fuentes del curso (UGR):</strong> diapositivas.pdf, notas.pdf</p>
+
+<h3>10.1 Periodos críticos del desarrollo</h3>
+<p>Durante el embarazo, la susceptibilidad a fármacos varía según la edad gestacional:</p>
+<ul>
+<li><strong>Preimplantacional</strong> (días 0–14): ley del «todo o nada» — o no implanta o se pierde por completo.</li>
+<li><strong>Embionario</strong> (semanas 3–8): <strong>organogénesis</strong>; máximo riesgo de <strong>malformaciones mayores</strong>.</li>
+<li><strong>Fetal</strong> (≥9 semanas): riesgo de alteraciones funcionales y del SNC (p. ej. conducta, cognición).</li>
+</ul>
+<p>Las antiguas categorías A–X fueron sustituidas por el sistema <strong>PLLR</strong> (Pregnancy and Lactation Labeling Rule, 2015): etiquetado narrativo con datos de riesgo y lactancia en ficha técnica.</p>
+
+<h3>10.2 Paso placentario</h3>
+<p>Casi todos los fármacos de bajo peso molecular cruzan la placenta por difusión pasiva. <strong>Excepciones importantes:</strong> <strong>heparina</strong> (no fraccionada ni HBPM, por tamaño) e <strong>insulina</strong> (proteína degradada). Los <strong>mAb</strong> cruzan sobre todo en 2º y 3er trimestre vía receptor FcRn.</p>
+<p>La farmacocinética materna cambia: aumenta el filtrado glomerular (~50%), baja la albúmina, aumenta el volumen de distribución y cambia la expresión de CYP (↓1A2, ↑3A4/2D6) — puede requerir ajuste (ej. lamotrigina).</p>
+
+<h3>10.3 Lactancia</h3>
+<p>Los fármacos pasan a la leche por difusión. La <strong>Dosis Relativa Infantil (DRI)</strong> compara la dosis que recibe el lactante con la dosis pediátrica terapéutica; DRI &lt;10% se considera generalmente seguro. La <strong>codeína está contraindicada</strong> en lactancia por riesgo de morfina tóxica en metabolizadores ultrarrápidos de CYP2D6.</p>
+
+<h3>10.4 Pediatría: el niño no es un adulto pequeño</h3>
+<p>El neonato y el lactante tienen <strong>inmadurez ADME</strong>: glucuronidación hepática reducida, filtrado glomerular ~1/3 del de un lactante de 7–8 meses. Muchos fármacos se usan <strong>off-label</strong> en pediatría.</p>
+<p>RAM emblemáticas: <strong>síndrome gris del recién nacido</strong> (cloranfenicol — colapso cardiovascular), <strong>síndrome de Reye</strong> (ácido acetilsalicílico en viriasis pediátrica — hepatotoxicidad y encefalopatía), <strong>tetraciclinas</strong> (tinción dental permanente).</p>
+<h3>10.5 Preguntas de repaso</h3><details class="qa qbank" data-tag="T10"><summary><span class="q-label">T10·1/2</span> — El periodo de máximo riesgo de malformaciones mayores es:</summary>
+<div class="qa-body">
+<p>El periodo de máximo riesgo de malformaciones mayores es:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Preimplantacional (ley del todo o nada)</li>
+<li class="correct"><strong>B)</strong> Embionario (semanas 3–8, organogénesis)</li>
+<li class=""><strong>C)</strong> Periparto</li>
+<li class=""><strong>D)</strong> Lactancia</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong></div>
+</div></details><details class="qa qbank" data-tag="T10"><summary><span class="q-label">T10·2/2</span> — ¿Cuál NO cruza de forma significativa la placenta?</summary>
+<div class="qa-body">
+<p>¿Cuál NO cruza de forma significativa la placenta?</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Digoxina</li>
+<li class="correct"><strong>B)</strong> Heparina no fraccionada</li>
+<li class=""><strong>C)</strong> Benzodiacepinas</li>
+<li class=""><strong>D)</strong> AINEs</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong></div>
+</div></details>
+
+</section><section class="card" id="t11">
+<h2 class="section-title"><span class="num">T11</span>Paciente geriátrico</h2>
+<p class="lead">El paciente anciano concentra polifarmacia, cambios fisiológicos y mayor vulnerabilidad a efectos adversos. Este tema explica por qué «la misma dosis que al de 40 años» puede ser peligrosa.</p>
+<p class="source-ref"><strong>Fuentes del curso (UGR):</strong> Uso-de-farmacos-en-los-mayores.pdf, Farmacologia_anciano_resumen.pdf</p>
+
+<h3>11.1 Magnitud del problema</h3>
+<p>Más del <strong>70%</strong> de las personas mayores de 65 años toman al menos un fármaco; alrededor del <strong>20%</strong> toma más de tres. La <strong>polifarmacia</strong> (definición habitual: ≥5 fármacos) aumenta RAM, interacciones, caídas e ingresos hospitalarios. Los ancianos están <strong>infrarrepresentados</strong> en ensayos clínicos aunque consuman la mayor parte de los medicamentos.</p>
+
+<h3>11.2 Cambios farmacocinéticos</h3>
+<p>Con la edad disminuye la masa hepática y el flujo sanguíneo hepático (−25–40%), baja el filtrado glomerular, disminuye el agua corporal total (sube la concentración de fármacos hidrosolubles) y aumenta la grasa corporal (mayor volumen de distribución y vida media de fármacos lipofílicos como benzodiacepinas).</p>
+
+<h3>11.3 Cambios farmacodinámicos</h3>
+<p>Aumenta la sensibilidad a fármacos del SNC (benzodiacepinas, opioides), anticoagulantes y fármacos cardiovasculares. Curiosamente, con la misma dosis de opioide un anciano puede tener <strong>mayor alivio del dolor</strong> (mayor sensibilidad farmacodinámica).</p>
+
+<h3>11.4 Cascada de prescripción</h3>
+<p>La <strong>cascada de prescripción (prescribing cascade)</strong> ocurre cuando un efecto adverso de un fármaco se interpreta como una nueva enfermedad y se prescribe otro medicamento para tratarlo. Ejemplo clásico: amlodipino → edemas → furosemida innecesaria.</p>
+
+<h3>11.5 Deprescripción y principios prácticos</h3>
+<p>La <strong>deprescripción</strong> es la retirada planificada de medicamentos innecesarios o dañinos. Reglas: <em>start low, go slow, less is more</em>. A veces el mejor tratamiento es <strong>no prescribir</strong>. RAM frecuentes en ancianos: caídas (BZD, hipnóticos Z), delirium (anticolinérgicos), hipotensión ortostática.</p>
+<h3>11.6 Preguntas de repaso</h3><details class="qa qbank" data-tag="T11"><summary><span class="q-label">T11·1/2</span> — En el anciano, el cambio farmacocinético más relevante clínicamente suele ser:</summary>
+<div class="qa-body">
+<p>En el anciano, el cambio farmacocinético más relevante clínicamente suele ser:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Aumento de la absorción de todos los fármacos</li>
+<li class="correct"><strong>B)</strong> Disminución de la excreción renal y del metabolismo hepático</li>
+<li class=""><strong>C)</strong> Aumento del volumen de distribución de fármacos hidrosolubles</li>
+<li class=""><strong>D)</strong> Mayor producción de albúmina</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong></div>
+</div></details><details class="qa qbank" data-tag="T11"><summary><span class="q-label">T11·2/2</span> — La «cascada de prescripción» consiste en:</summary>
+<div class="qa-body">
+<p>La «cascada de prescripción» consiste en:</p>
+<ul class="qbank-opts"><li class="correct"><strong>A)</strong> Prescribir un nuevo fármaco para tratar un efecto adverso de otro</li>
+<li class=""><strong>B)</strong> Aumentar progresivamente la dosis del mismo fármaco</li>
+<li class=""><strong>C)</strong> Sustituir todos los fármacos por genéricos</li>
+<li class=""><strong>D)</strong> Retirar todos los psicofármacos</li></ul>
+<div class="answer"><strong>Respuesta correcta: A.</strong></div>
+</div></details>
+
+</section><section class="card" id="t12">
+<h2 class="section-title"><span class="num">T12</span>Insuficiencia renal</h2>
+<p class="lead">En insuficiencia renal muchos fármacos se acumulan o generan metabolitos tóxicos. Este tema explica cuándo ajustar dosis, qué fármacos evitar y cómo influye la diálisis.</p>
+<p class="source-ref"><strong>Fuentes del curso (UGR):</strong> diapositivas (1).pdf, notas (1).pdf</p>
+
+<h3>12.1 La IRC altera todo el ADME</h3>
+<p>La <strong>insuficiencia renal crónica (IRC)</strong> no es solo «filtrar menos»: modifica absorción, distribución, metabolismo, excreción y respuesta farmacodinámica. La uremia inhibe enzimas CYP y transportadores como P-gp; el metabolismo hepático no queda intacto.</p>
+
+<h3>12.2 Fracción libre y metabolitos activos</h3>
+<p>Con hipoproteinemia uremia, baja la unión a proteínas plasmáticas: aumenta la <strong>fracción libre</strong> (ej. fenitoína: pasar de 90% a 80% unida duplica la fracción libre activa). Algunos metabolitos son activos y dependen del riñón para eliminarse: morfina-6-glucurónido, normeperidina, NAPA (antiarrítmico), oxipurinol.</p>
+
+<h3>12.3 ¿Cuándo ajustar la dosis?</h3>
+<p>Según las <em>notas (1).pdf</em> del curso, debe activarse la reflexión sobre el ajuste cuando el filtrado glomerular o el aclaramiento de creatinina cae por debajo de <strong>50–60 ml/min</strong>. El ajuste de mantenimiento es necesario cuando se cumple una o varias de estas condiciones:</p>
+<ul>
+<li>Aclaramiento de creatinina <strong>&lt;50 ml/min</strong>.</li>
+<li>Fracción del fármaco activo excretada por orina <strong>&gt;40%</strong>.</li>
+<li>Margen terapéutico estrecho o toxicidad grave del fármaco o sus metabolitos activos.</li>
+</ul>
+<p>La <strong>dosis de carga</strong> depende sobre todo del volumen de distribución; la <strong>dosis de mantenimiento</strong>, del aclaramiento renal. Las tablas de ajuste son una herramienta, no sustituyen el juicio clínico.</p>
+
+<h3>12.4 Los «7 pecados» en IRC</h3>
+<p>Fármacos especialmente problemáticos: <strong>AINEs</strong> (nefrotoxicidad), <strong>metformina</strong> (acidosis láctica si FG&lt;30), <strong>aminoglucósidos</strong>, <strong>digoxina</strong> (margen estrecho), <strong>IECA/ARA-II</strong> (hiperpotasemia), <strong>dabigatrán</strong> (DOAC renal), <strong>contrastes iodados</strong>.</p>
+<div class="box box-warning">
+<div class="box-title"><span class="icon">⚠</span>Trampa de examen</div>
+<p>«Metabolizado en hígado» <strong>no</strong> garantiza seguridad en IRC: la uremia altera el metabolismo hepático y ~15% del metabolismo total depende de enzimas renales.</p>
+</div>
+<h3>12.5 Diálisis y fracción libre</h3>
+<p>Solo la <strong>fracción libre</strong> del fármaco es dializable. Fármacos muy unidos a proteínas no se eliminan bien en hemodiálisis. Un fármaco es más dializable si tiene bajo peso molecular, es hidrosoluble, bajo volumen de distribución y baja unión proteica. Administrar tras la sesión de diálisis si procede.</p>
+<p>Fórmulas: <strong>Cockcroft-Gault</strong> para ajuste de dosis; <strong>MDRD-4</strong> para estadios de ERC. No son fiables en insuficiencia renal aguda, caquexia o amputaciones.</p>
+<h3>12.6 Preguntas de repaso</h3><details class="qa qbank" data-tag="T12"><summary><span class="q-label">T12·1/2</span> — ¿Cuándo está especialmente indicado ajustar la dosis de mantenimiento?</summary>
+<div class="qa-body">
+<p>¿Cuándo está especialmente indicado ajustar la dosis de mantenimiento?</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Siempre que el paciente tenga más de 65 años</li>
+<li class="correct"><strong>B)</strong> Cuando el aclaramiento de creatinina es <50 ml/min y el fármaco se excreta >40% por riñón</li>
+<li class=""><strong>C)</strong> Solo en diálisis</li>
+<li class=""><strong>D)</strong> Nunca si el fármaco es de administración oral</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong></div>
+</div></details><details class="qa qbank" data-tag="T12"><summary><span class="q-label">T12·2/2</span> — La metformina debe evitarse o suspenderse principalmente por riesgo de:</summary>
+<div class="qa-body">
+<p>La metformina debe evitarse o suspenderse principalmente por riesgo de:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Nefrotoxicidad directa</li>
+<li class="correct"><strong>B)</strong> Acidosis láctica por acumulación</li>
+<li class=""><strong>C)</strong> Hipoglucemia grave</li>
+<li class=""><strong>D)</strong> Hiperkalemia</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong></div>
+</div></details>
+
+</section><section class="card" id="t13">
+<h2 class="section-title"><span class="num">T13</span>Insuficiencia hepática</h2>
+<p class="lead">El hígado metaboliza la mayoría de los fármacos. En cirrosis, la biodisponibilidad oral puede dispararse y el cerebro volverse exquisitamente sensible a sedantes.</p>
+<p class="source-ref"><strong>Fuentes del curso (UGR):</strong> presentación.pdf, Manejo farmacológico en insuf. hepática.pdf</p>
+
+<h3>13.1 No hay un marcador perfecto de función metabólica</h3>
+<p>La insuficiencia hepática altera el metabolismo de fármacos, pero no existe un analítico único que prediga la farmacocinética de cada medicamento. Las escalas <strong>Child-Pugh</strong> y <strong>MELD</strong> estratifican la <strong>gravedad</strong> de la enfermedad hepática, no calculan la dosis exacta de cada fármaco.</p>
+
+<h3>13.2 Efecto de primer paso y biodisponibilidad oral</h3>
+<p>En cirrosis disminuye el <strong>metabolismo de primer paso</strong> hepático y aparecen <strong>shunts portosistémicos</strong> que evitan el hígado. Resultado: <strong>aumento de la biodisponibilidad oral</strong> de fármacos de alto primer paso (propranolol, morfina, midazolam, nifedipino). Una dosis que era segura en hígado sano puede ser tóxica en cirrosis.</p>
+
+<h3>13.3 Distribución y metabolismo</h3>
+<p>Baja la albúmina → mayor fracción libre de fármacos unidos a proteínas. La ascitis aumenta el volumen de distribución de hidrosolubles (puede requerir más dosis de carga). La <strong>fase I</strong> (CYP) suele estar más afectada que la fase II (conjugación).</p>
+
+<h3>13.4 Farmacodinamia y encefalopatía</h3>
+<p>Aumenta la sensibilidad del SNC a <strong>benzodiacepinas y opioides</strong>, favoreciendo la <strong>encefalopatía hepática</strong>. Los AINEs son peligrosos (sangrado digestivo + deterioro renal). El paracetamol es seguro a dosis terapéuticas en cirrosis leve-moderada, pero tóxico en sobredosis.</p>
+
+<h3>13.5 Estrategia de prescripción</h3>
+<p><em>Start low, go slow</em>; evitar polimedicación; monitorización estrecha. En Child-Pugh C muchos fármacos están contraindicados o requieren reducción drástica de dosis.</p>
+<h3>13.6 Preguntas de repaso</h3><details class="qa qbank" data-tag="T13"><summary><span class="q-label">T13·1/2</span> — En cirrosis, la principal consecuencia farmacocinética de la reducción del efecto de pri…</summary>
+<div class="qa-body">
+<p>En cirrosis, la principal consecuencia farmacocinética de la reducción del efecto de primer paso es:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Disminución de la biodisponibilidad oral</li>
+<li class="correct"><strong>B)</strong> Aumento de la biodisponibilidad oral</li>
+<li class=""><strong>C)</strong> Aumento de la excreción biliar</li>
+<li class=""><strong>D)</strong> Ausencia de cambios</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong></div>
+</div></details><details class="qa qbank" data-tag="T13"><summary><span class="q-label">T13·2/2</span> — Las escalas Child-Pugh y MELD se utilizan para:</summary>
+<div class="qa-body">
+<p>Las escalas Child-Pugh y MELD se utilizan para:</p>
+<ul class="qbank-opts"><li class="correct"><strong>A)</strong> Estimar la gravedad de la enfermedad hepática</li>
+<li class=""><strong>B)</strong> Calcular la dosis exacta de cualquier fármaco</li>
+<li class=""><strong>C)</strong> Diagnosticar farmacovigilancia</li>
+<li class=""><strong>D)</strong> Evaluar bioequivalencia</li></ul>
+<div class="answer"><strong>Respuesta correcta: A.</strong></div>
+</div></details>
+
+</section><section class="card" id="t14">
+<h2 class="section-title"><span class="num">T14</span>Obesidad</h2>
+<p class="lead">Dosificar por peso total sin más es un error frecuente en obesidad. Este tema explica la regla de Abernethy, los descriptores de peso y las particularidades metabólicas del paciente obeso.</p>
+<p class="source-ref"><strong>Fuentes del curso (UGR):</strong> FC-TEMA 14.pdf</p>
+
+<h3>14.1 Obesidad como estado fisiopatológico</h3>
+<p>La obesidad no es solo «más peso»: es una enfermedad crónica con <strong>inflamación de bajo grado (CLGI)</strong>, aumento de citocinas y de la <strong>α1-glicoproteína ácida</strong>, que altera la fracción libre de fármacos unidos a proteínas.</p>
+
+<h3>14.2 Descriptores de peso e IMC</h3>
+<p><strong>IMC:</strong> sobrepeso 25–29,9; obesidad 30–34,9; severa 35–39,9; mórbida ≥40. Para dosificar se usan: <strong>PT</strong> (peso total), <strong>PI/IBW</strong> (peso ideal, fórmula de Devine), <strong>PM/LBW</strong> (masa magra) y <strong>PA/AjBW</strong> (peso ajustado: PI + Fc×(PT−PI)).</p>
+
+<h3>14.3 Regla de Abernethy (lipofilia / LogP)</h3>
+<p>La <strong>regla de Abernethy</strong> orienta la dosificación según lipofilia (LogP):</p>
+<div class="table-wrap"><table>
+<tr><th>Tipo de fármaco</th><th>Vd en obesidad</th><th>Peso para dosificar</th><th>Ejemplo</th></tr>
+<tr><td>Lipofílico (alto LogP)</td><td>Muy aumentado</td><td>Peso total (carga)</td><td>Diazepam, midazolam</td></tr>
+<tr><td>Hidrofílico (bajo LogP)</td><td>Expansión moderada</td><td>Peso ajustado (Fc ~0,4)</td><td>Aminoglucósidos, cimetidina</td></tr>
+</table></div>
+<p>El error típico es usar peso total para todos los fármacos: sobredosis de hidrofílicos o subdosificación de lipofílicos.</p>
+
+<h3>14.4 Metabolismo y comorbilidades</h3>
+<p>En obesidad hay <strong>inducción de CYP2E1</strong>. Comorbilidades frecuentes: DM2, HTA, SAHS, artrosis, cáncer. El tránsito intestinal puede acelerarse y el pH gástrico subir (menor absorción de fármacos básicos).</p>
+
+<h3>14.5 Vitamina D y metformina</h3>
+<p>Paradoja: la obesidad se asocia a <strong>déficit de vitamina D</strong> por secuestro en tejido adiposo. La <strong>metformina</strong> puede perder eficacia en obesos por alteraciones de la <strong>microbiota intestinal</strong> (eje microbiota-fármaco). En fármacos de margen estrecho, extremar la <strong>monitorización de niveles plasmáticos (TDM)</strong>.</p>
+<h3>14.6 Preguntas de repaso</h3><details class="qa qbank" data-tag="T14"><summary><span class="q-label">T14·1/1</span> — En obesidad, un cambio metabólico documentado es:</summary>
+<div class="qa-body">
+<p>En obesidad, un cambio metabólico documentado es:</p>
+<ul class="qbank-opts"><li class="correct"><strong>A)</strong> Inducción de CYP2E1</li>
+<li class=""><strong>B)</strong> Desaparición del metabolismo hepático</li>
+<li class=""><strong>C)</strong> Aumento de la filtración glomerular siempre</li>
+<li class=""><strong>D)</strong> Imposibilidad de absorción oral</li></ul>
+<div class="answer"><strong>Respuesta correcta: A.</strong></div>
+</div></details>
+
+</section><div class="bloque-banner" id="bloque-p"><h2>🔬 BLOQUE PRÁCTICO · SEMINARIOS</h2>
+<div class="b-sub">20% evaluación · Asistencia ≥3 sesiones · Test y/o presentación oral</div></div><section class="card" id="sem1">
+<h2 class="section-title"><span class="num">S1</span>Monitorización de anticuerpos monoclonales</h2>
+<p class="lead">El seminario traduce la teoría de biológicos (T5–T6) a la práctica clínica en EII: cómo interpretar niveles plasmáticos y anticuerpos anti-fármaco para decidir si optimizar, mantener o cambiar tratamiento.</p>
+<p class="source-ref"><strong>Fuentes del curso (UGR):</strong> Práctica_monit AC_FC_medicina_25-26.pdf</p>
+
+<h3>S1.1 Contexto clínico: enfermedad inflamatoria intestinal</h3>
+<p>El seminario práctico se centra en pacientes con <strong>enfermedad inflamatoria intestinal (EII)</strong> — enfermedad de Crohn y colitis ulcerosa — tratados con anticuerpos monoclonales anti-TNF (infliximab, adalimumab) u otros biológicos (ustekinumab, vedolizumab).</p>
+
+<h3>S1.2 Inmunogenicidad y anticuerpos anti-fármaco (ADA)</h3>
+<p>Los biológicos pueden inducir <strong>anticuerpos anti-fármaco (ADA)</strong>, algunos neutralizantes. Consecuencias: pérdida de respuesta terapéutica, necesidad de infusiones más lentas, reacciones infusionales. La inmunogenicidad es la razón principal para monitorizar niveles y ADA, no solo la clínica.</p>
+
+<h3>S1.3 Monitorización de niveles en valle (trough)</h3>
+<p>La <strong>monitorización terapéutica de fármacos (TDM)</strong> en EII mide la concentración plasmática en <strong>valle (trough)</strong>, justo antes de la siguiente dosis. Es el parámetro más utilizado para tomar decisiones:</p>
+<ul>
+<li>Valles bajos + enfermedad activa + ADA negativos → optimizar dosis o intervalo.</li>
+<li>Valles bajos + ADA positivos → considerar cambio de clase terapéutica.</li>
+<li>Valles adecuados + enfermedad activa → revisar diagnóstico o complicaciones, no solo subir dosis.</li>
+</ul>
+
+<h3>S1.4 Biosimilares en la práctica</h3>
+<p>En España se usan biosimilares de infliximab (REMSIMA, ZESSLY) y adalimumab (AMGEVITA, HYRIMOZ). La trazabilidad y el seguimiento clínico son esenciales al iniciar o cambiar entre original y biosimilar.</p>
+<h3>S1.5 Preguntas de repaso</h3><details class="qa qbank" data-tag="S1"><summary><span class="q-label">S1·1/1</span> — En la monitorización de anti-TNF en EII, el parámetro más utilizado es:</summary>
+<div class="qa-body">
+<p>En la monitorización de anti-TNF en EII, el parámetro más utilizado es:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Nivel pico inmediatamente post-infusión</li>
+<li class="correct"><strong>B)</strong> Concentración en valle (trough) antes de la siguiente dosis</li>
+<li class=""><strong>C)</strong> Solo la presencia de ADA sin niveles</li>
+<li class=""><strong>D)</strong> Hemoglobina sérica</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong></div>
+</div></details>
+
+</section><section class="card" id="sem2">
+<h2 class="section-title"><span class="num">S2</span>Bases de datos · farmacogenética práctica</h2>
+<p class="lead">Saber que existe la farmacogenética no basta: hay que saber dónde buscar la información y cuándo es obligatoria. Este seminario recorre CIMA, la base de biomarcadores AEMPS y recursos internacionales.</p>
+<p class="source-ref"><strong>Fuentes del curso (UGR):</strong> Práctica_farmacogenética_FC_medicina_25-26.pdf</p>
+
+<h3>S2.1 CIMA-AEMPS: la herramienta del día a día</h3>
+<p><strong>CIMA (AEMPS)</strong> es la base de datos oficial de medicamentos autorizados en España. Permite consultar ficha técnica, prospecto, interacciones y alertas. Es la referencia para decisiones de prescripción diaria.</p>
+
+<h3>S2.2 Dónde buscar información farmacogenética en la ficha</h3>
+<p>La información PGx aparece en secciones concretas de la ficha técnica: <strong>4.4</strong> (advertencias especiales), <strong>4.5</strong> (interacciones), <strong>5.2</strong> (propiedades farmacocinéticas); a veces también en 4.1 (indicaciones) o 4.2 (posología).</p>
+
+<h3>S2.3 Base de biomarcadores AEMPS</h3>
+<p>La <strong>base de biomarcadores farmacogenómicos de la AEMPS</strong> recoge asociaciones gen-fármaco con evidencia <strong>1A</strong>. Si un biomarcador está en la ficha técnica, el médico <strong>debe</strong> seguir la recomendación de prescripción (no es opcional). Ejemplos: HLA-B*57:01 antes de abacavir; CYP2C19 para clopidogrel.</p>
+
+<h3>S2.4 Catálogo SNS y recursos internacionales</h3>
+<p>El <strong>catálogo del SNS</strong> indica qué pruebas genéticas están financiadas (paneles DPYD, TPMT, etc.). Recursos internacionales: <strong>PharmGKB</strong>, <strong>ClinPGx</strong>, guías <strong>CPIC</strong> y recomendaciones <strong>DPWG</strong> (Países Bajos — base del estudio Swen et al., Lancet 2023).</p>
+<h3>S2.5 Preguntas de repaso</h3><details class="qa qbank" data-tag="S2"><summary><span class="q-label">S2·1/1</span> — La información farmacogenética obligatoria en ficha técnica implica:</summary>
+<div class="qa-body">
+<p>La información farmacogenética obligatoria en ficha técnica implica:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Que el médico puede ignorarla si lo prefiere</li>
+<li class="correct"><strong>B)</strong> Que debe seguirse la recomendación de prescripción según variante</li>
+<li class=""><strong>C)</strong> Que solo aplica en ensayos clínicos</li>
+<li class=""><strong>D)</strong> Que sustituye la farmacovigilancia</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong></div>
+</div></details>
+
+</section><section class="card" id="pem">
+<h2 class="section-title"><span class="num">❓</span>Banco PEM — 40 preguntas UGR</h2>
+<p class="lead">El banco completo son <strong>27 preguntas por tema</strong> (código T1·1/2, T3·2/3, S2·1/1…) más <strong>13 de repaso transversal</strong> (PEM·1/13 … PEM·13/13). Las 3 de Wuolah no cuentan para las 40.</p>
+
+<h3 class="qbank-title">Índice del banco (40 preguntas UGR)</h3>
+<p>Cada pregunta tiene un código <strong>Tema·n/total</strong> (repaso al final de cada sección) o <strong>PEM·n/13</strong> (repaso transversal, abajo). Las 3 de Wuolah son aparte (<strong>Wuolah·1/3</strong>).</p>
+<div class="table-wrap"><table class="q-index">
+<tr><th>Código</th><th>Tema</th><th>Nº</th><th>Dónde resolver</th></tr>
+<tr><td>T1·1/2 – T1·2/2</td><td>MBE</td><td>2</td><td><a href="#t1">T1</a></td></tr>
+<tr><td>T2·1/2 – T2·2/2</td><td>Desarrollo clínico</td><td>2</td><td><a href="#t2">T2</a></td></tr>
+<tr><td>T3·1/3 – T3·3/3</td><td>Farmacovigilancia</td><td>3</td><td><a href="#t3">T3</a></td></tr>
+<tr><td>T4·1/2 – T4·2/2</td><td>Genéricos</td><td>2</td><td><a href="#t4">T4</a></td></tr>
+<tr><td>T5·1/1</td><td>Biológicos</td><td>1</td><td><a href="#t5">T5</a></td></tr>
+<tr><td>T6·1/1</td><td>Biosimilares</td><td>1</td><td><a href="#t6">T6</a></td></tr>
+<tr><td>T7·1/1</td><td>Off-label / compasivo</td><td>1</td><td><a href="#t7">T7</a></td></tr>
+<tr><td>T8·1/2 – T8·2/2</td><td>Farmacoeconomía</td><td>2</td><td><a href="#t8">T8</a></td></tr>
+<tr><td>T9·1/2 – T9·2/2</td><td>Farmacogenética</td><td>2</td><td><a href="#t9">T9</a></td></tr>
+<tr><td>T10·1/2 – T10·2/2</td><td>Embarazo / pediatría</td><td>2</td><td><a href="#t10">T10</a></td></tr>
+<tr><td>T11·1/2 – T11·2/2</td><td>Geriatría</td><td>2</td><td><a href="#t11">T11</a></td></tr>
+<tr><td>T12·1/2 – T12·2/2</td><td>IRC</td><td>2</td><td><a href="#t12">T12</a></td></tr>
+<tr><td>T13·1/2 – T13·2/2</td><td>Hepática</td><td>2</td><td><a href="#t13">T13</a></td></tr>
+<tr><td>T14·1/1</td><td>Obesidad</td><td>1</td><td><a href="#t14">T14</a></td></tr>
+<tr><td>S1·1/1</td><td>Seminario mAb</td><td>1</td><td><a href="#sem1">S1</a></td></tr>
+<tr><td>S2·1/1</td><td>Seminario PGx</td><td>1</td><td><a href="#sem2">S2</a></td></tr>
+<tr><td>PEM·1/13 – PEM·13/13</td><td>Repaso transversal</td><td>13</td><td>esta sección ↓</td></tr>
+</table></div><h3 class="qbank-title">Repaso transversal (PEM·1/13 – PEM·13/13)</h3><h4>Fundamentos y farmacovigilancia (T1–T3)</h4><details class="qa qbank" data-tag="PEM"><summary><span class="q-label">PEM·1/13</span> — El balance beneficio-riesgo de un medicamento es:</summary>
+<div class="qa-body">
+<p>El balance beneficio-riesgo de un medicamento es:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Estático tras la autorización</li>
+<li class="correct"><strong>B)</strong> Dinámico y requiere reevaluación continua</li>
+<li class=""><strong>C)</strong> Irrelevante en fase IV</li>
+<li class=""><strong>D)</strong> Solo evaluado por la industria</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong><p><strong>Explicación:</strong> Tema T3: el balance se reevalúa con farmacovigilancia postcomercialización.</p></div>
+</div></details><details class="qa qbank" data-tag="PEM"><summary><span class="q-label">PEM·2/13</span> — Un ensayo clínico aleatorizado tiene:</summary>
+<div class="qa-body">
+<p>Un ensayo clínico aleatorizado tiene:</p>
+<ul class="qbank-opts"><li class="correct"><strong>A)</strong> Alta validez interna pero limitada validez externa</li>
+<li class=""><strong>B)</strong> Baja validez interna y alta externa</li>
+<li class=""><strong>C)</strong> Igual validez interna y externa</li>
+<li class=""><strong>D)</strong> Ninguna validez para farmacovigilancia</li></ul>
+<div class="answer"><strong>Respuesta correcta: A.</strong><p><strong>Explicación:</strong> Tema T1: el ECA controla variables pero la población suele ser muy seleccionada.</p></div>
+</div></details><details class="qa qbank" data-tag="PEM"><summary><span class="q-label">PEM·3/13</span> — La notificación espontánea (Tarjeta Amarilla) presenta como limitación principal:</summary>
+<div class="qa-body">
+<p>La notificación espontánea (Tarjeta Amarilla) presenta como limitación principal:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Solo puede ser realizada por pacientes</li>
+<li class="correct"><strong>B)</strong> Infranotificación y sesgo de notificación</li>
+<li class=""><strong>C)</strong> Obligatoriedad de incluir todos los medicamentos de venta libre</li>
+<li class=""><strong>D)</strong> Imposibilidad de notificar RAM graves</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong><p><strong>Explicación:</strong> Tema T3: genera señales, no incidencias exactas.</p></div>
+</div></details><details class="qa qbank" data-tag="PEM"><summary><span class="q-label">PEM·4/13</span> — En un estudio de cohorte en farmacovigilancia, la medida de asociación típica es:</summary>
+<div class="qa-body">
+<p>En un estudio de cohorte en farmacovigilancia, la medida de asociación típica es:</p>
+<ul class="qbank-opts"><li class="correct"><strong>A)</strong> Riesgo relativo (RR)</li>
+<li class=""><strong>B)</strong> Odds ratio (OR)</li>
+<li class=""><strong>C)</strong> Razón de prevalencia</li>
+<li class=""><strong>D)</strong> NNT</li></ul>
+<div class="answer"><strong>Respuesta correcta: A.</strong><p><strong>Explicación:</strong> Tema T3: el OR es típico del caso-control.</p></div>
+</div></details><h4>Desarrollo clínico y regulación (T2, T7)</h4><details class="qa qbank" data-tag="PEM"><summary><span class="q-label">PEM·5/13</span> — La fase IV del desarrollo clínico corresponde a:</summary>
+<div class="qa-body">
+<p>La fase IV del desarrollo clínico corresponde a:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Primeras dosis en humanos sanos</li>
+<li class=""><strong>B)</strong> Determinación de dosis en pocos pacientes</li>
+<li class=""><strong>C)</strong> ECA pre-registro</li>
+<li class="correct"><strong>D)</strong> Estudios postcomercialización</li></ul>
+<div class="answer"><strong>Respuesta correcta: D.</strong><p><strong>Explicación:</strong> Tema T2: vigilancia en población real; el médico es «sensor».</p></div>
+</div></details><details class="qa qbank" data-tag="PEM"><summary><span class="q-label">PEM·6/13</span> — El Real Decreto Legislativo 1/2015 regula principalmente:</summary>
+<div class="qa-body">
+<p>El Real Decreto Legislativo 1/2015 regula principalmente:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Solo ensayos con animales</li>
+<li class="correct"><strong>B)</strong> Garantías y autorización de medicamentos de uso humano</li>
+<li class=""><strong>C)</strong> Únicamente precios de genéricos</li>
+<li class=""><strong>D)</strong> Exclusivamente farmacia hospitalaria</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong><p><strong>Explicación:</strong> Tema T7: marco legal de autorización y uso racional.</p></div>
+</div></details><h4>Embarazo, lactancia y pediatría (T10)</h4><details class="qa qbank" data-tag="PEM"><summary><span class="q-label">PEM·7/13</span> — La Dosis Relativa Infantil (DRI) en lactancia se considera generalmente segura si es:</summary>
+<div class="qa-body">
+<p>La Dosis Relativa Infantil (DRI) en lactancia se considera generalmente segura si es:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Superior al 50%</li>
+<li class="correct"><strong>B)</strong> Inferior al 10%</li>
+<li class=""><strong>C)</strong> Exactamente 0%</li>
+<li class=""><strong>D)</strong> Superior al 25%</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong><p><strong>Explicación:</strong> Tema T10: DRI &lt;10% suele considerarse aceptable.</p></div>
+</div></details><details class="qa qbank" data-tag="PEM"><summary><span class="q-label">PEM·8/13</span> — El síndrome gris del recién nacido está asociado a:</summary>
+<div class="qa-body">
+<p>El síndrome gris del recién nacido está asociado a:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Paracetamol</li>
+<li class="correct"><strong>B)</strong> Cloranfenicol</li>
+<li class=""><strong>C)</strong> Amoxicilina</li>
+<li class=""><strong>D)</strong> Vitamina K</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong><p><strong>Explicación:</strong> Tema T10: inmadurez hepática en neonatos.</p></div>
+</div></details><details class="qa qbank" data-tag="PEM"><summary><span class="q-label">PEM·9/13</span> — El síndrome de Reye en pediatría se relaciona con:</summary>
+<div class="qa-body">
+<p>El síndrome de Reye en pediatría se relaciona con:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Ibuprofeno</li>
+<li class="correct"><strong>B)</strong> Ácido acetilsalicílico</li>
+<li class=""><strong>C)</strong> Metamizol</li>
+<li class=""><strong>D)</strong> Paracetamol</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong><p><strong>Explicación:</strong> Tema T10: AAS en viriasis pediátrica.</p></div>
+</div></details><h4>IRC y geriatría (T11–T12)</h4><details class="qa qbank" data-tag="PEM"><summary><span class="q-label">PEM·10/13</span> — En insuficiencia renal, la digoxina requiere especial cautela porque:</summary>
+<div class="qa-body">
+<p>En insuficiencia renal, la digoxina requiere especial cautela porque:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Se metaboliza exclusivamente en hígado</li>
+<li class="correct"><strong>B)</strong> Tiene eliminación renal y margen terapéutico estrecho</li>
+<li class=""><strong>C)</strong> No se absorbe por vía oral</li>
+<li class=""><strong>D)</strong> Siempre se dializa por completo</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong><p><strong>Explicación:</strong> Tema T12: uno de los «7 pecados» en IRC.</p></div>
+</div></details><details class="qa qbank" data-tag="PEM"><summary><span class="q-label">PEM·11/13</span> — Los IECA en ERC pueden agravar:</summary>
+<div class="qa-body">
+<p>Los IECA en ERC pueden agravar:</p>
+<ul class="qbank-opts"><li class="correct"><strong>A)</strong> Hiperpotasemia</li>
+<li class=""><strong>B)</strong> Hipoglucemia</li>
+<li class=""><strong>C)</strong> Alcalosis respiratoria</li>
+<li class=""><strong>D)</strong> Hipernatremia</li></ul>
+<div class="answer"><strong>Respuesta correcta: A.</strong><p><strong>Explicación:</strong> Tema T12: inhiben aldosterona → retención de K+.</p></div>
+</div></details><details class="qa qbank" data-tag="PEM"><summary><span class="q-label">PEM·12/13</span> — La deprescripción en geriatría consiste en:</summary>
+<div class="qa-body">
+<p>La deprescripción en geriatría consiste en:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Aumentar dosis de todos los fármacos</li>
+<li class="correct"><strong>B)</strong> Retirar medicamentos innecesarios o dañinos de forma planificada</li>
+<li class=""><strong>C)</strong> Sustituir genéricos por originales</li>
+<li class=""><strong>D)</strong> Suspender toda la medicación sin criterio</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong><p><strong>Explicación:</strong> Tema T11: «less is more» en polimedicación.</p></div>
+</div></details><h4>Estrategia de examen</h4><details class="qa qbank" data-tag="PEM"><summary><span class="q-label">PEM·13/13</span> — Ante una pregunta PEM con duda y 4 opciones plausibles, la estrategia más segura según l…</summary>
+<div class="qa-body">
+<p>Ante una pregunta PEM con duda y 4 opciones plausibles, la estrategia más segura según la penalización −0,33 es:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Responder siempre al azar</li>
+<li class="correct"><strong>B)</strong> Dejar en blanco si no se puede razonablemente descartar</li>
+<li class=""><strong>C)</strong> Marcar dos respuestas</li>
+<li class=""><strong>D)</strong> Elegir la opción más larga</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong></div>
+</div></details>
+
+</section><section class="card" id="wuolah">
+<h2 class="section-title"><span class="num">📎</span>Backup Wuolah (opcional)</h2>
+<p class="lead">Esta sección <strong>no sustituye</strong> a los PDF del curso. Son apuntes de estudiantes (<em>Los Ángeles del Aprobado</em>) que a veces recogen preguntas literales de exámenes anteriores, pero pueden contener errores o mezclar conceptos. Consulta solo si ya dominas T1–T14 y quieres un repaso extra.</p>
+
+<div class="box box-warning">
+<div class="box-title"><span class="icon">⚠</span>Aviso importante</div>
+<p>Muchos puntos de Wuolah <strong>ya están en los materiales oficiales</strong> con otra redacción (beneficios económicos → <em>Medicamentos para ricos y pobres</em>; SCO/2874/2007 → <em>FC-TEMA 4</em>; médico sensor en fase IV → <em>FC_TEMA 2</em>). No estudies Wuolah primero.</p>
+<p>Contenido que aparece sobre todo en Wuolah y <em>no</em> en los PDF del profesor: mnemotecnia «matraz/vivo», pregunta del mismo animal reutilizado, umbrales alternativos IRC (60/50%).</p>
+</div><h3 class="qbank-title">Preguntas de backup (Wuolah·1/3 – Wuolah·3/3)</h3><details class="qa qbank" data-tag="Backup"><summary><span class="q-label">Wuolah·1/3</span> — Apuntes Wuolah: ¿se puede reutilizar el mismo animal de experimentación a lo largo del t…</summary>
+<div class="qa-body">
+<p>Apuntes Wuolah: ¿se puede reutilizar el mismo animal de experimentación a lo largo del tiempo?</p>
+<ul class="qbank-opts"><li class="correct"><strong>A)</strong> Sí</li>
+<li class=""><strong>B)</strong> No, está prohibido siempre</li>
+<li class=""><strong>C)</strong> Solo en fase clínica</li>
+<li class=""><strong>D)</strong> Solo con autorización de la AEMPS</li></ul>
+<div class="answer"><strong>Respuesta correcta: A.</strong><p><strong>Explicación:</strong> Solo en Wuolah; no aparece en los PDF del profesor. Úsalo como pista de examen pasado, no como norma.</p></div>
+</div></details><details class="qa qbank" data-tag="Backup"><summary><span class="q-label">Wuolah·2/3</span> — Wuolah mezcla «compasivo (off-label)». La distinción correcta según el curso es:</summary>
+<div class="qa-body">
+<p>Wuolah mezcla «compasivo (off-label)». La distinción correcta según el curso es:</p>
+<ul class="qbank-opts"><li class=""><strong>A)</strong> Ambos requieren fármaco no autorizado</li>
+<li class="correct"><strong>B)</strong> Off-label = autorizado pero uso distinto a ficha; compasivo = no autorizado aún</li>
+<li class=""><strong>C)</strong> Off-label siempre ilegal; compasivo siempre legal</li>
+<li class=""><strong>D)</strong> Son sinónimos regulatorios</li></ul>
+<div class="answer"><strong>Respuesta correcta: B.</strong><p><strong>Explicación:</strong> Wuolah confunde términos; el temario UGR los separa (véase T7).</p></div>
+</div></details><details class="qa qbank" data-tag="Backup"><summary><span class="q-label">Wuolah·3/3</span> — Wuolah propone CICr &lt;60 y eliminación renal &gt;50% para ajustar dosis. El curso (not…</summary>
+<div class="qa-body">
+<p>Wuolah propone CICr &lt;60 y eliminación renal &gt;50% para ajustar dosis. El curso (notas IRC) usa principalmente:</p>
+<ul class="qbank-opts"><li class="correct"><strong>A)</strong> CrCl &lt;50 ml/min y excreción renal &gt;40%</li>
+<li class=""><strong>B)</strong> CrCl &gt;90 ml/min</li>
+<li class=""><strong>C)</strong> Solo en hemodiálisis</li>
+<li class=""><strong>D)</strong> Nunca si metabolismo hepático</li></ul>
+<div class="answer"><strong>Respuesta correcta: A.</strong><p><strong>Explicación:</strong> Prioriza notas (1).pdf del profesor frente a Wuolah.</p></div>
+</div></details>
+
+</section><section class="card" id="final">
+<h2 class="section-title"><span class="num">⭐</span>Consejos finales</h2>
+<p class="lead">Antes del examen, comprueba que puedes explicar con tus palabras — no solo memorizar — los conceptos de esta lista.</p>
+
+<div class="box box-tip">
+<div class="box-title"><span class="icon">✓</span>Checklist pre-examen</div>
+<ul>
+<li>RAM A–E del temario con un ejemplo cada una.</li>
+<li>Fases I–IV: población y objetivo de cada fase.</li>
+<li>Tarjeta Amarilla: qué notificar y qué NO puede hacer (calcular incidencia).</li>
+<li>Cohorte (RR) vs caso-control (OR).</li>
+<li>Genérico/bioequivalencia 80–125% AUC y Cmax.</li>
+<li>Embarazo: periodos críticos + heparina/insulina no cruzan placenta.</li>
+<li>IRC: CrCl &lt;50 + excreción &gt;40%; metformina (acidosis láctica); 7 pecados; fracción libre dializable.</li>
+<li>Hepática: ↑ biodisponibilidad oral por ↓ primer paso; Child-Pugh estratifica gravedad.</li>
+<li>PGx: CYP2D6 codeína, DPYD 5-FU, CYP2C19 clopidogrel; estudio Swen et al., Lancet 2023 (práctica PGx).</li>
+<li>Farmacoeconomía: beneficios económicos como motor de I+D (<em>Medicamentos para ricos y pobres</em>).</li>
+</ul>
+</div><p style="color:var(--muted);font-size:14px;margin-top:20px">Material basado en apuntes UGR 2025–2026 (Prof. Marta Toral, Antonio Jesús Ruiz Malagón) y documentos del curso. Wuolah solo como backup opcional. ¡Mucha suerte en el examen!</p>
+
+</section>
+
+</main>
+</div>
+
+<footer>Skrypt Farmacología Clínica · UGR · Apuntes descriptivos para estudio</footer>
+<script src="script.js"></script>
+</body>
+</html>
