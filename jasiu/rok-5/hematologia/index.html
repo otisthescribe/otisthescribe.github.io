@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Hematologia SUM — obszerny skrypt do zaliczenia (Jan Fedak)</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+.topbar { display:flex; flex-wrap:wrap; gap:.75rem 1.25rem; align-items:center; margin:0 0 1.25rem; font-family:"Avenir Next","Helvetica Neue",sans-serif; font-size:.9rem; }
+.topbar a { text-decoration:none; font-weight:600; }
+.topbar a:hover { text-decoration:underline; }
+:root {
+  --bg: #faf6ef; --ink: #1c1917; --muted: #57534e;
+  --accent: #9a3412; --exam: #fef08a; --exam-border: #ca8a04;
+  --fire: #b91c1c; --ok: #ecfccb; --ok-border: #65a30d;
+  --card: #fffdf8; --line: #e7e5e4;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  background: linear-gradient(180deg, #f3ebe0 0%, var(--bg) 120px);
+  color: var(--ink); max-width: 52rem; margin: 0 auto;
+  padding: 1.5rem 1.25rem 5rem; line-height: 1.6; font-size: 16.5px;
+}
+h1,h2,h3,h4 { font-family: "Avenir Next", "Helvetica Neue", sans-serif; line-height: 1.25; }
+h1 { font-size: 1.85rem; color: var(--accent); border-bottom: 3px solid var(--accent); padding-bottom: .4rem; }
+h2 { font-size: 1.45rem; color: var(--accent); margin-top: 2.6rem; scroll-margin-top: 1rem; }
+h3 { font-size: 1.15rem; margin-top: 1.6rem; }
+h4 { font-size: 1.02rem; margin: 1.1rem 0 .4rem; color: #44403c; }
+a { color: #9a3412; }
+.toc { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1rem 1.2rem; }
+.toc ol { margin: .4rem 0 0; padding-left: 1.2rem; }
+.toc li { margin: .25rem 0; }
+.legend { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0; }
+.legend span { font-size: .85rem; padding: .25rem .55rem; border-radius: 6px; border: 1px solid var(--line); }
+.exam {
+  background: linear-gradient(90deg, #fef08a 0%, #fde68a 100%);
+  border-left: 5px solid var(--exam-border);
+  padding: .7rem .95rem; margin: .85rem 0; border-radius: 0 8px 8px 0;
+}
+.exam::before { content: "🔥 EGZAMIN "; font-weight: 700; color: var(--fire); font-family: "Avenir Next", sans-serif; font-size: .78rem; letter-spacing: .03em; }
+.note {
+  background: #fff7ed; border-left: 4px solid #ea580c;
+  padding: .65rem .9rem; margin: .7rem 0; border-radius: 0 8px 8px 0; font-size: .95rem;
+}
+.trap {
+  background: #fee2e2; border-left: 4px solid #dc2626;
+  padding: .65rem .9rem; margin: .7rem 0; border-radius: 0 8px 8px 0;
+}
+.trap::before { content: "⚠️ PUŁAPKA "; font-weight: 700; color: #991b1b; font-size: .78rem; font-family: "Avenir Next", sans-serif; }
+.qa {
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+  padding: .9rem 1.05rem; margin: 1rem 0 1.2rem; box-shadow: 0 1px 0 rgba(0,0,0,.03);
+}
+.qa .q { font-weight: 650; margin-bottom: .45rem; }
+.qa .a { background: var(--ok); border: 1px solid var(--ok-border); border-radius: 6px; padding: .55rem .7rem; margin: .45rem 0; }
+.qa .a::before { content: "ODPOWIEDŹ: "; font-weight: 700; color: #3f6212; font-size: .78rem; font-family: "Avenir Next", sans-serif; }
+.qa .why { color: var(--muted); font-size: .95rem; margin-top: .4rem; }
+.qa .why::before { content: "Wyjaśnienie: "; font-weight: 650; color: #44403c; }
+.tag { display: inline-block; font-size: .72rem; font-weight: 700; font-family: "Avenir Next", sans-serif;
+  background: #fecaca; color: #7f1d1d; padding: .1rem .4rem; border-radius: 999px; margin-right: .35rem; vertical-align: middle; }
+.tag.med { background: #fed7aa; color: #9a3412; }
+.tag.low { background: #e7e5e4; color: #44403c; }
+table.grid { width: 100%; border-collapse: collapse; font-size: .92rem; margin: .8rem 0 1rem; }
+table.grid th, table.grid td { border: 1px solid var(--line); padding: .4rem .5rem; vertical-align: top; }
+table.grid th { background: #e7e5e4; text-align: left; }
+table.grid tr.hot td { background: #fef9c3; }
+ul.compact li { margin: .25rem 0; }
+.navch { font-size: .85rem; color: var(--muted); margin: -.5rem 0 1rem; }
+.footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .9rem; color: var(--muted); }
+@media print {
+  body { background: #fff; max-width: none; font-size: 11pt; }
+  .qa { break-inside: avoid; }
+  .exam { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <a href="../../">← Strony Jasia</a>
+  <a href="pytania-poprawy.html">Dodatek: pytania z poprawek →</a>
+</nav>
+<h1>Hematologia SUM — obszerny skrypt do zaliczenia</h1>
+<p><strong>Jan Fedak</strong> · V rok medycyny · SUM Katowice · materiał prywatny do nauki</p>
+<p>Struktura jak w oficjalnym skrypcie katedry (10 rozdziałów). Treść to <strong>oryginalne opracowanie egzaminacyjne</strong> (synteza + bazy pytań), a nie kopia podręcznika. Żółte bloki = rzeczy, o które pytają najczęściej.</p>
+
+<div class="legend">
+  <span style="background:#fef08a">🔥 EGZAMIN — wkuwaj</span>
+  <span style="background:#fecaca">🔥🔥🔥 pada bardzo często</span>
+  <span style="background:#fed7aa">🔥🔥 pada często</span>
+  <span style="background:#ecfccb">zielone = gotowa odpowiedź</span>
+  <span style="background:#fee2e2">⚠️ pułapka egzaminacyjna</span>
+</div>
+
+<nav class="toc">
+<strong>Spis treści</strong>
+<ol>
+<li><a href="#ch1">Niedokrwistości</a></li>
+<li><a href="#ch2">MDS i białaczki ostre</a></li>
+<li><a href="#ch3">MPN Ph+ (CML)</a></li>
+<li><a href="#ch4">MPN Ph− (PV, ET, PMF…)</a></li>
+<li><a href="#ch5">Chłoniaki złośliwe</a></li>
+<li><a href="#ch6">Białaczki z dojrzałych limfocytów</a></li>
+<li><a href="#ch7">Dyskrazje plazmocytów</a></li>
+<li><a href="#ch8">Zaburzenia hemostazy</a></li>
+<li><a href="#ch9">HLA i dobór dawcy</a></li>
+<li><a href="#ch10">Przeszczepienie komórek krwiotwórczych</a></li>
+</ol>
+<p style="margin:.8rem 0 0"><a href="#top25">→ TOP szybka ściąga</a> · <a href="#plan">→ Plan nauki</a> · <a href="DODATEK_pytania_poprawy.html">→ Dodatek: poprawy/grupy</a></p>
+</nav>
+
+<h2 id="top25">TOP — ściąga przed wejściówką</h2>
+<table class="grid">
+<tr><th>#</th><th>Temat</th><th>Odpowiedź w 1–2 linijkach</th></tr>
+<tr class="hot"><td>1</td><td>Objawy B</td><td>Gorączka &gt;38°C, poty nocne, ↓ masy ciała &gt;10%/6 mies. <strong>Bez</strong> świądu i zmęczenia.</td></tr>
+<tr class="hot"><td>2</td><td>CRAB</td><td>Ca &gt;2,75 mmol/l · nerki (krea &gt;2 mg/dl lub ClCr &lt;40) · Anemia · Bone (osteoliza)</td></tr>
+<tr class="hot"><td>3</td><td>SLiM</td><td>≥60% plazmocytów · ratio FLC ≥100 · ≥1 zmiana ogniskowa &gt;5 mm (MRI/PET)</td></tr>
+<tr class="hot"><td>4</td><td>↑APTT izolowane</td><td>Anomalia Hagemana (XII) → test korekcji → <strong>można operować</strong></td></tr>
+<tr class="hot"><td>5</td><td>AML</td><td>≥20% blastów LUB mięsak mieloidalny LUB określone aberracje; 19% ≠ AML</td></tr>
+<tr class="hot"><td>6</td><td>APL</td><td>t(15;17) PML-RARA · DIC · ATRA ± ATO · dobre rokowanie</td></tr>
+<tr class="hot"><td>7</td><td>CML</td><td>Ph t(9;22)/BCR-ABL1 · TKI (imatynib) · fazy: przewlekła→akceleracja→kryza</td></tr>
+<tr class="hot"><td>8</td><td>Hemoliza</td><td>↑LDH ↑bili ↑retikulocyty ↑urobilinogen · <strong>↓haptoglobina</strong></td></tr>
+<tr class="hot"><td>9</td><td>IDA</td><td>↓Fe ↓ferrytyna <strong>↑TIBC</strong> ↓MCV</td></tr>
+<tr class="hot"><td>10</td><td>DIC</td><td>↓PLT ↓fibrynogen ↑D-dimery ↑PT/APTT · często APL/sepsa</td></tr>
+<tr class="hot"><td>11</td><td>Nadpłytkowość wtórna</td><td>Zakażenie, uraz, splenektomia, nowotwór, niedobór Fe, zapalenia, GKS</td></tr>
+<tr class="hot"><td>12</td><td>Małopłytkowość / KKP</td><td>Definicja zwykle &lt;150 G/l · KKP bez skazy &lt;10 G/l · neurochirurgia &gt;100</td></tr>
+<tr class="hot"><td>13</td><td>ITP 1. linia</td><td>GKS (np. deksametazon 40 mg × 4 dni)</td></tr>
+<tr class="hot"><td>14</td><td>Indolentne NHL</td><td>Grudkowy, strefy brzeżnej, małe limf. B, Waldenström</td></tr>
+<tr class="hot"><td>15</td><td>Ann Arbor</td><td>I lokalna · II ta sama strona przepony · III obie/śledziona · IV szpik/narządy</td></tr>
+<tr><td>16</td><td>HL</td><td>RS + komórki Hodgkina · szyja/nadobojcze/śródpiersie · PET-TK</td></tr>
+<tr><td>17</td><td>PV</td><td>JAK2 V617F · upusty do Ht &lt;45% + ASA ± HU</td></tr>
+<tr><td>18</td><td>ET</td><td>PLT &gt;450 · może nabyty vWD · bezobjawowy często obserwacja</td></tr>
+<tr><td>19</td><td>PMF</td><td>Splenomegalia · leukoerytroblastoza · dakrocyty · allo = wyleczenie</td></tr>
+<tr><td>20</td><td>MDS</td><td>Nieefektywna hematopoeza + cytopenie + bogaty szpik · allo = jedyne wyleczenie</td></tr>
+<tr><td>21</td><td>CLL</td><td>≥5 G/l limfocytów · Gumprecht · często watch&amp;wait</td></tr>
+<tr><td>22</td><td>Szpiczak</td><td>IgG najczęstszy · nieuleczalny standardem · MGUS→SMM→MM · autoHSCT</td></tr>
+<tr><td>23</td><td>Hemofilia A/B</td><td>A=VIII, B=IX · ↑APTT · reszta N</td></tr>
+<tr><td>24</td><td>vWD</td><td>Najczęstsza wrodzona skaza · typ 1 najczęstszy · typ 3 najcięższy</td></tr>
+<tr><td>25</td><td>HSCT</td><td>Auto: MM, HL, NHL · Allo: AML/ALL HR, MDS, aplazja, PMF · GvHD po allo</td></tr>
+</table>
+
+<h2 id="plan">Plan nauki (~10 dni)</h2>
+<ol class="compact">
+<li><strong>Dni 1–2:</strong> rozdz. 8 (hemostaza) + rozdz. 1 (niedokrwistości) — najwięcej „łatwych punktów”</li>
+<li><strong>Dni 3–4:</strong> rozdz. 2 (AML/ALL/APL/MDS) + rozdz. 3 (CML)</li>
+<li><strong>Dzień 5:</strong> rozdz. 4 (PV/ET/PMF)</li>
+<li><strong>Dni 6–7:</strong> rozdz. 5–6 (chłoniaki + CLL)</li>
+<li><strong>Dzień 8:</strong> rozdz. 7 (szpiczak)</li>
+<li><strong>Dzień 9:</strong> rozdz. 9–10 (HLA/HSCT) + powtórka TOP</li>
+<li><strong>Dzień 10:</strong> same Q&amp;A na czas (zakrywaj odpowiedzi)</li>
+</ol>
+
+<h2 id="ch1">1. Niedokrwistości</h2>
+<p class="navch">Podrozdziały jak w skrypcie: definicja → diagnostyka → IDA → ACD → hemolityczne → aplastyczne → megaloblastyczne → leczenie</p>
+
+<h3>1.1. Definicja i klasyfikacje — notatki</h3>
+<p>Niedokrwistość to obniżenie stężenia hemoglobiny (i zwykle liczby erytrocytów) poniżej normy dla płci, wieku i stanu fizjologicznego (np. ciąża). To <em>objaw</em>, nie rozpoznanie — zawsze szukasz przyczyny.</p>
+<div class="exam">
+<strong>Stopnie Hb (z baz studenckich):</strong> łagodna &gt;10 g/dl · umiarkowana 8–10 · ciężka ok. 6,5–7,9 · <strong>zagrożenie życia &lt;6,5 g/dl</strong>.
+</div>
+<p><strong>Klasyfikacja patogenetyczna (3 koszyki):</strong></p>
+<ul class="compact">
+<li>zaburzona produkcja (niedobory Fe/B12/kwasu foliowego/EPO, aplazja, MDS),</li>
+<li>utrata krwi (ostra/przewlekła),</li>
+<li>przyspieszony rozpad (hemoliza wewnątrz-/zewnątrzkrwinkowa, hipersplenizm).</li>
+</ul>
+<p><strong>Klasyfikacja według MCV:</strong></p>
+<table class="grid">
+<tr><th>Typ</th><th>MCV</th><th>Przykłady</th></tr>
+<tr><td>Normocytowa</td><td>N (~82–92 fl)</td><td>ostra utrata, ACD często, aplazja, hemoliza wczesna</td></tr>
+<tr class="hot"><td>Mikrocytowa</td><td>↓</td><td><strong>IDA</strong>, talasemie, ołów, czasem ACD</td></tr>
+<tr class="hot"><td>Makrocytowa</td><td>↑</td><td><strong>B12/kwas foliowy</strong>, MDS, alkohol/leki, retikulocytoza</td></tr>
+</table>
+<div class="exam">
+Normy orientacyjne z materiałów katedry: <strong>MCV 82–92</strong> · MCHC 32–36 · MCH 27–31. Na zaliczeniu częściej pytają o <em>kierunek zmian</em> niż o dokładną liczbę.
+</div>
+
+<h3>1.2–1.4. Diagnostyka, IDA, ACD</h3>
+<p>Start: morfologia + retikulocyty + rozmaz + Fe/ferrytyna/TIBC (± sTfR) + B12/kwas foliowy + CRP + ocena krwawienia/hemolizy.</p>
+<table class="grid">
+<tr><th>Parametr</th><th>IDA</th><th>ACD (chorób przewlekłych)</th></tr>
+<tr class="hot"><td>Żelazo (Fe)</td><td>↓</td><td>↓</td></tr>
+<tr class="hot"><td>Ferrytyna</td><td>↓ (najlepszy pojedynczy marker niedoboru)</td><td>N / ↑</td></tr>
+<tr class="hot"><td>TIBC</td><td><strong>↑</strong></td><td><strong>↓ / N</strong></td></tr>
+<tr><td>MCV</td><td>↓</td><td>najczęściej N (rzadziej ↓)</td></tr>
+<tr><td>PLT</td><td>często N/↑ (reaktywne)</td><td>zależnie od choroby</td></tr>
+</table>
+<div class="trap">
+Nie lecz „na ślepo” preparatem Fe bez ustalenia przyczyny niedoboru (krwawienie z PP, ginekologia, celiakia…). Po gastrektomii myśl też o B12, nie tylko o Fe.
+</div>
+
+<h3>1.5. Hemolityczne</h3>
+<p>Hemoliza = skrócony czas życia erytrocytów. Markery wynikają z rozpadu Hb i wzmożonej odnowy.</p>
+<div class="exam">
+<strong>Parametry hemolizy (wkuć strzałki):</strong> ↑ LDH · ↑ bilirubina (głównie niezwiązana) · ↑ retikulocyty · ↑ urobilinogen w moczu · <strong>↓ haptoglobina</strong>. Przy infekcji/przewlekłej hemolizie haptoglobina bywa myląca (ostre białko zapalne).
+</div>
+<p>Podział: wrodzone (błona, enzymy np. G6PD, hemoglobinopatie) vs nabyte (AIHA, PNH, mechaniczna, toksyczna). <strong>1. linia AIHA:</strong> glikokortykosteroidy.</p>
+
+<h3>1.6–1.7. Aplastyczne i megaloblastyczne</h3>
+<p><strong>Aplazja:</strong> ubogi szpik + cytopenie ≥2 linii. Postacie wrodzone (np. Blackfan-Diamond, Fanconi) i nabyte (idiopatyczna, leki, wirusy, autoimmuno).</p>
+<div class="exam">
+<strong>Ciężka aplazja — kryteria w stylu Camitta (umieć ideę):</strong> komórkowość szpiku wyraźnie obniżona (często &lt;25–30%) + co najmniej 2 z: bardzo niska neutropenia, małopłytkowość (~&lt;20 G/l), niska retikulocytoza. Leczenie młodych: immunosupresja / <strong>alloHSCT</strong>.
+</div>
+<p><strong>Megaloblastyczne:</strong> niedobór B12/kwasu foliowego → ↑MCV, hipersegmentacja granulocytów, niska retikulocytoza, odnowa megaloblastyczna w szpiku. B12: dodatkowo neurologia (parestezje, sznury tylne).</p>
+
+<h3>1.8. Leczenie — zasady egzaminacyjne</h3>
+<ul class="compact">
+<li>ciężka/zagrażająca życiu → rozważ KKCz (wskazanie kliniczne, nie sama liczba),</li>
+<li>IDA → Fe doustne po ustaleniu przyczyny; IV przy nietolerancji/złej absorpcji,</li>
+<li>B12 → parenteralnie przy objawach neuro / ciężkim niedoborze,</li>
+<li>nie zaczynaj B12 „na MCV” bez potwierdzenia niedoboru.</li>
+</ul>
+
+<h3>Pytania z bazy — rozdział 1</h3>
+<div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Wskaż jak zmieniają się Fe, ferrytyna, TIBC i MCV w niedokrwistości z niedoboru żelaza. <em style="color:#78716c;font-size:.85rem">[Węglarz / Matlak / grupy 25-26]</em></div>
+<div class="a">Fe ↓ · ferrytyna ↓ · TIBC ↑ · MCV ↓ (+ często transferyna ↑).</div>
+<div class="why">To klasyczna czwórka. Ferrytyna spada najwcześniej (zapasy). TIBC rośnie, bo organizm produkuje więcej transferyny „łowiącej” żelazo. W ACD Fe też spada, ale ferrytyna jest N/↑, a TIBC ↓ — to najczęstsza pułapka.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Wymień 4–5 parametrów niedokrwistości hemolitycznej i kierunek zmian. <em style="color:#78716c;font-size:.85rem">[Wiele grup / Zielińska]</em></div>
+<div class="a">↑LDH, ↑bilirubina, ↑retikulocyty, ↑urobilinogen; ↓haptoglobina. Często też ↑Fe w osoczu.</div>
+<div class="why">Rozpad erytrocytów uwalnia LDH i Hb → bilirubina; szpik kompensuje retikulocytozą; haptoglobina wiąże wolną Hb i jest zużywana (↓). Nie wpisuj samej ↓Hb jako „marker hemolizy” — to niespecyficzne.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Haptoglobina w hemolizie — wzrasta czy maleje? <em style="color:#78716c;font-size:.85rem">[Węglarz]</em></div>
+<div class="a">Maleje (↓).</div>
+<div class="why">Zużycie przy wiązaniu wolnej hemoglobiny. Wyjątek: ostre białko fazy — przy silnym stanie zapalnym może nie spaść mimo hemolizy.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Jakie jest leczenie I linii w niedokrwistości immunohemolitycznej? <em style="color:#78716c;font-size:.85rem">[Zielińska / Koclęga]</em></div>
+<div class="a">Glikokortykosteroidy.</div>
+<div class="why">AIHA: sterydy hamują niszczenie erytrocytów. II linia: rytuksymab, immunosupresja, czasem splenektomia — zależnie od typu.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Podaj kryteria ciężkiej aplazji szpiku. <em style="color:#78716c;font-size:.85rem">[Koclęga / Zielińska]</em></div>
+<div class="a">Ubogi szpik (niska komórkowość) + ≥2 ciężkie cytopenie (m.in. bardzo niska ANC, PLT ~&lt;20 G/l, niska retikulocytoza) — kryteria Camitta/w stylu ciężkiej AA.</div>
+<div class="why">Egzamin chce odróżnienia „aplastyczna jest” od „ciężka aplastyczna”. Pancytopenia + pusty szpik ≠ automatycznie ciężka — liczą się progi.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Wymień ≥4 choroby/stany z pancytopenią. <em style="color:#78716c;font-size:.85rem">[Matlak / Zielińska]</em></div>
+<div class="a">Ostre białaczki, MDS, aplazja szpiku, chemioterapia/radioterapia; także hipersplenizm, ciężki niedobór B12, PNH, nacieczenie szpiku.</div>
+<div class="why">Pytanie „listowe”. Podawaj mechanizmy z różnych koszyków (produkcja / niszczenie / sequestracja), nie 4 synonimy białaczki.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>3 przyczyny niskiego MCV i 3 przyczyny wysokiego MCV. <em style="color:#78716c;font-size:.85rem">[Kopińska / Zielińska]</em></div>
+<div class="a">Niskie: IDA, talasemia, ACD (rzadziej)/ołów. Wysokie: B12/kwas foliowy, MDS, alkohol lub leki (HU, AZT…), też retikulocytoza.</div>
+<div class="why">MCV to szybki filtr diagnostyczny. MDS lubi makrocytozę — łącz z rozdz. 2.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Objawy niedoboru witaminy B12. <em style="color:#78716c;font-size:.85rem">[Wiśniewska-Piąty / Wieczorkiewicz]</em></div>
+<div class="a">Osłabienie/zmęczenie, parestezje, zaburzenia sznurów tylnych (ataksja, zaburzenia czucia głębokiego); może być język wygładzony, żółtaczka hemolityczna lekka.</div>
+<div class="why">Sama makrocytoza nie wystarczy — neurologia = B12, nie kwas foliowy (kwas foliowy neurologii nie robi).</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Przy jakiej Hb mówimy o zagrożeniu życia? Co zrobisz u kobiety z obfitymi miesiączkami i Hb 7,8 + mikrocytozą? <em style="color:#78716c;font-size:.85rem">[Zielińska / Kopińska]</em></div>
+<div class="a">Zagrożenie życia zwykle &lt;6,5 g/dl. Przy Hb 7,8 + mikrocytoza: typowa IDA z utratą — oznacz Fe/ferrytynę/TIBC, włącz Fe, skieruj do ginekologa, szukaj innych krwawień.</div>
+<div class="why">Nie zaczynaj od „podejrzenia białaczki”, jeśli reszta linii jest OK i jest oczywista utrata. Transfuzja zależy od objawów, nie od samej liczby.</div>
+</div><div class="qa">
+<div class="q"><span class="tag low">🔥</span>Najczęstsza niedokrwistość? Najczęstsza wrodzona hemolityczna w populacji? <em style="color:#78716c;font-size:.85rem">[Zielińska]</em></div>
+<div class="a">Najczęstsza niedokrwistość: z niedoboru żelaza. Wrodzona hemolityczna (często w bazach): niedobór G6PD.</div>
+<div class="why">G6PD bywa mylone z sferocytozą — sferocytoza częstsza w Europie Płn., G6PD globalnie bardzo częsty.</div>
+</div>
+<h2 id="ch2">2. Zespoły mielodysplastyczne i białaczki ostre</h2>
+<p class="navch">2.1 MDS · 2.2 Białaczki ostre (AML/ALL/APL)</p>
+
+<h3>2.1. MDS — notatki</h3>
+<p>MDS = klonalne nowotwory komórek macierzystych z <strong>nieefektywną hematopoezą</strong>: szpik często bogatokomórkowy, a we krwi cytopenie (paradoks). Ryzyko transformacji do AML.</p>
+<div class="exam">
+<strong>Triada MDS na ustne:</strong> (1) nieefektywna hematopoeza, (2) cytopenia obwodowa, (3) bogatokomórkowy szpik + ryzyko → AML.<br>
+<strong>Blasty MDS-EB-2:</strong> 10–19%. Od <strong>≥20%</strong> mówimy o AML (z wyjątkami aberracji).<br>
+<strong>IPSS:</strong> % blastów + kariotyp + liczba cytopenii.<br>
+<strong>del(5q):</strong> często starsze kobiety, makrocytoza, nadpłytkowość → <strong>lenalidomid</strong>.<br>
+<strong>Jedyne potencjalne wyleczenie:</strong> alloHSCT.
+</div>
+<p>Leczenie wg ryzyka: wspomagające (transfuzje, chelatacja Fe), EPO, lenalidomid (5q−), hipometylujące (azacytydyna, decytabina), czasem immunosupresja w hypoplastycznych MDS, CHT „AML-like” w wysokim ryzyku.</p>
+
+<h3>2.2. Białaczki ostre — notatki</h3>
+<div class="exam">
+<strong>AML — rozpoznanie:</strong> ≥20% blastów w szpiku i/lub krwi <strong>ALBO</strong> mięsak mieloidalny <strong>ALBO</strong> powtarzalne aberracje (np. t(8;21), inv(16), t(15;17)) — wtedy bywa AML mimo &lt;20% blastów.<br>
+<strong>19% blastów bez aberracji ≠ AML</strong> (pułapka Armatys).
+</div>
+<table class="grid">
+<tr><th></th><th>AML</th><th>ALL</th></tr>
+<tr><td>Wiek typowy</td><td>częściej dorośli/starsi</td><td><strong>najczęstsza u dzieci</strong></td></tr>
+<tr><td>Nacieki</td><td>dziąsła, skóra, mięsak</td><td>OUN, jądra, śródpiersie, węzły</td></tr>
+<tr><td>Indukcja</td><td>„7+3” (cytarabina + antracyklina)</td><td>winkrystyna + sterydy + asparaginaza ± antracyklina</td></tr>
+<tr><td>OUN</td><td>rzadziej rutynowo</td><td><strong>profilaktyka dokanałowa obowiązkowa</strong></td></tr>
+</table>
+<div class="exam">
+<strong>Rokowanie cytogenetyczne AML:</strong><br>
+• korzystne: t(8;21), inv(16)/t(16;16), <strong>NPM1</strong> (bez FLT3-ITD wysokiego), biallelic CEBPA, <strong>APL t(15;17)</strong><br>
+• niekorzystne: <strong>złożony kariotyp</strong> (≥3 aberracje), niektóre monosomie, FLT3-ITD
+</div><div class="exam">
+<strong>APL (promielocytowa) — hit egzaminacyjny:</strong> t(15;17) → PML-RARA · blok różnicowania promielocytów · <strong>DIC</strong> jako typowe powikłanie · leczenie <strong>ATRA ± tritlenek arsenu (ATO)</strong> (± antracyklina w wysokim ryzyku) · ATRA odblokowuje różnicowanie · rokowanie bardzo dobre przy szybkim leczeniu.
+</div>
+<p><strong>Etapy leczenia ostrej białaczki:</strong> indukcja (remisja) → konsolidacja → (± intensyfikacja) → podtrzymanie (głównie ALL, lata). Wspomaganie: infekcje, KKP/KKCz, TLS, leukostaza przy WBC &gt;100 G/l.</p>
+<div class="note">
+<strong>Hiatus leukaemicus</strong> = przerwa białaczkowa (blasty + dojrzałe formy, bez pośrednich). <strong>Hiperleukocytoza</strong> zwykle WBC &gt;100 G/l.
+</div>
+
+<h3>Pytania z bazy — rozdział 2</h3>
+<div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Podaj kryteria diagnostyczne ostrej białaczki szpikowej. <em style="color:#78716c;font-size:.85rem">[Koclęga / wiele grup]</em></div>
+<div class="a">≥20% blastów w szpiku/krwi LUB mięsak mieloidalny LUB określone aberracje cytogenetyczne (np. t(8;21), t(15;17)).</div>
+<div class="why">WHO łączy morfologię z genetyką. Aberracje „defining” mogą wystarczyć nawet przy niższych blastach — ale na bazach najczęściej pada próg 20%.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Jaki % blastów nie pozwala rozpoznać ostrej białaczki? <em style="color:#78716c;font-size:.85rem">[Armatys]</em></div>
+<div class="a">19% (przy braku aberracji definiujących AML).</div>
+<div class="why">Typowa pułapka zamknięta/otwarta. 19% to jeszcze MDS z nadmiarem blastów (EB-2 = 10–19%), nie AML.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>APL: zmiana cytogenetyczna, powikłanie, leczenie, rokowanie. <em style="color:#78716c;font-size:.85rem">[Węglarz / Helbig / Matlak]</em></div>
+<div class="a">t(15;17) PML-RARA; powikłanie DIC; leczenie ATRA ± ATO (± antracyklina); rokowanie najlepsze wśród AML / wysoka szansa wyleczenia.</div>
+<div class="why">Łącz mechanizm: ATRA zmienia konformację PML-RARA → różnicowanie. Dopóki nie włączysz ATRA, chory może umrzeć z DIC mimo „dobrej biologii”.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Wymień 3 cechy MDS. Jedyne wyleczenie? <em style="color:#78716c;font-size:.85rem">[grupy / Koclęga]</em></div>
+<div class="a">Nieefektywna hematopoeza + cytopenie + bogatokomórkowy szpik (ryzyko AML). Wyleczenie: alloHSCT.</div>
+<div class="why">Hipometylujące i lenalidomid przedłużają życie/poprawiają cytopenie, ale nie „leczą przyczyny” jak allo.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Składowe IPSS w MDS. <em style="color:#78716c;font-size:.85rem">[Kata]</em></div>
+<div class="a">% blastów w szpiku · kariotyp · cytopenie.</div>
+<div class="why">Nie myl z IPS w chłoniaku Hodgkina.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>del(5q) — kto, co, czym leczyć? <em style="color:#78716c;font-size:.85rem">[Węglarz]</em></div>
+<div class="a">Częściej starsze kobiety; oporna makrocytarna niedokrwistość ± nadpłytkowość; niskie ryzyko transformacji; lek: lenalidomid.</div>
+<div class="why">Nie lecz del(5q) „jak AML” od razu.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Ile blastów w MDS-EB-2? <em style="color:#78716c;font-size:.85rem">[Wiśniewska-Piąty]</em></div>
+<div class="a">10–19%.</div>
+<div class="why">EB-1 zwykle 5–9%, EB-2 10–19%, ≥20% → AML.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Mutacje w AML — które rokują dobrze/źle? NPM1? <em style="color:#78716c;font-size:.85rem">[Węglarz / Zielińska]</em></div>
+<div class="a">Dobrze: NPM1, biallelic CEBPA, t(8;21)/inv(16). Źle: złożony kariotyp, FLT3-ITD. NPM1 = korzystny (przy braku złego FLT3).</div>
+<div class="why">Na ustnym wystarczą 2 dobre + 1 zła + APL osobno.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Etapy leczenia ostrej białaczki. Schemat indukcji AML. <em style="color:#78716c;font-size:.85rem">[Węglarz]</em></div>
+<div class="a">Indukcja → konsolidacja → (± intensyfikacja) → podtrzymanie. AML indukcja: 7+3 (7 dni cytarabiny + 3 dni antracykliny).</div>
+<div class="why">Podtrzymanie ma sens głównie w ALL/APL, nie w typowym AML.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>W jakich 2 chorobach punkcja lędźwiowa? Leki dokanałowo? Lokalizacje ryzyka OUN? <em style="color:#78716c;font-size:.85rem">[Węglarz ustne]</em></div>
+<div class="a">ALL i DLBCL (ryzyko OUN). Leki: metotreksat ± steryd (± cytarabina). Ryzyko: jądro, nerka, pierś (+ zatoki/szpik).</div>
+<div class="why">PL w ALL = profilaktyka/leczenie; w DLBCL selektywnie przy czynnikach ryzyka.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Co to mięsak mieloidalny? Hiatus? Hiperleukocytoza? <em style="color:#78716c;font-size:.85rem">[Kata / Węglarz]</em></div>
+<div class="a">Mięsak: guz z blastów pozaszpikowo (=AML). Hiatus: przerwa białaczkowa. Hiperleukocytoza: WBC &gt;100 G/l.</div>
+<div class="why">Mięsak może wyprzedzać białaczkę we krwi.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Rokowanie AML ze złożonym kariotypem. <em style="color:#78716c;font-size:.85rem">[Zielińska]</em></div>
+<div class="a">Niekorzystne: gorsza remisja, więcej nawrotów, krótsze przeżycie.</div>
+<div class="why">Złożony = ≥3 aberracje. Często kandydat do allo w CR1.</div>
+</div><div class="qa">
+<div class="q"><span class="tag low">🔥</span>Która białaczka częstsza u dzieci? <em style="color:#78716c;font-size:.85rem">[Węglarz / Spałek]</em></div>
+<div class="a">Ostra białaczka limfoblastyczna (ALL).</div>
+<div class="why">CML u dzieci jest rzadka; AML też mniej niż ALL.</div>
+</div>
+<h2 id="ch3">3. Nowotwory mieloproliferacyjne Ph+ (CML)</h2>
+<p class="navch">3.1 Przewlekła białaczka szpikowa · leczenie TKI</p>
+
+<h3>Notatki</h3>
+<p>CML powstaje z klonu z translokacją t(9;22) — chromosom <strong>Filadelfia</strong> (skrócony 22) — gen fuzyjny <strong>BCR-ABL1</strong> o aktywności kinazy tyrozynowej.</p>
+<div class="exam">
+<strong>Ph / BCR-ABL:</strong> CML (prawie zawsze) + część ALL (rzadziej). Lek 1. linii fazy przewlekłej: <strong>inhibitory kinazy tyrozynowej</strong> (imatynib; kolejne generacje przy oporności/nietolerancji). W ciąży bywa IFN-α.<br>
+<strong>Fazy:</strong> przewlekła (najczęstsza przy rozpoznaniu) → akceleracja → kryza blastyczna.<br>
+<strong>Obraz:</strong> hiperleukocytoza, przesunięcie w lewo całej linii neutrofilowej, bazofilia, ± splenomegalia; Hb często N; mogą być ↑PLT.
+</div>
+<p><strong>Diagnostyka:</strong> morfologia + rozmaz → aspirat/kariotyp + RT-PCR BCR-ABL. Skale rokownicze: Sokal, Hasford, EUTOS.</p>
+<p><strong>Rokowanie:</strong> przy trwałej odpowiedzi molekularnej na TKI długość życia zbliżona do populacji; odpowiedź na TKI = kluczowy czynnik. AlloHSCT: wybrane przypadki (oporność, zaawansowane fazy, wybrane wysokiego ryzyka) — nie 1. linia typowej fazy przewlekłej.</p>
+<div class="trap">
+Opis „WBC 150–200 + splenomegalia” to zwykle CML — ale przy leukoerytroblastozie + dakrocytach + starszym wieku myśl o <strong>PMF</strong>. W CML zwykle nie ma erytroblastów w rozmazie tak jak w PMF.
+</div>
+
+<h3>Pytania z bazy — rozdział 3</h3>
+<div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>W jakich białaczkach jest chromosom Filadelfia? Jak wygląda? <em style="color:#78716c;font-size:.85rem">[Węglarz / Kopińska / Spałek]</em></div>
+<div class="a">Przede wszystkim CML; także część ALL. Cytogenetycznie: t(9;22), skrócony chromosom 22. Molekularnie: BCR-ABL1.</div>
+<div class="why">Nie mów „tylko CML” jeśli pytanie brzmi „w jakich” — dopisz Ph+ ALL.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Leczenie 1. linii przewlekłej białaczki szpikowej. <em style="color:#78716c;font-size:.85rem">[Koclęga / Matlak / Helbig]</em></div>
+<div class="a">Inhibitory kinazy tyrozynowej BCR-ABL (np. imatynib). IFN-α u kobiet w ciąży (wybrane sytuacje).</div>
+<div class="why">Hydroksymocznik bywa mostkiem cytoredukcyjnym, ale „leczenie przyczynowe” = TKI.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>3 fazy CML i rola allotransplantacji. <em style="color:#78716c;font-size:.85rem">[Kata]</em></div>
+<div class="a">Przewlekła → akceleracji → przełom/kryza blastyczna. Allo: wybrane wysokiego ryzyka / niepowodzenie TKI / zaawansowane fazy (kryteria wiekowe i dawcy bywają w skrypcie).</div>
+<div class="why">Od ery TKI allo spadło z 1. linii do opcji ratunkowej/selektywnej.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Jak potwierdzić CML? Opis: WBC 150 tys + splenomegalia — co podejrzewasz? <em style="color:#78716c;font-size:.85rem">[grupy 25-26 / Spałek]</em></div>
+<div class="a">Potwierdzenie: kariotyp (Ph) + RT-PCR BCR-ABL. Opis klasyczny → CML (różnicuj PMF).</div>
+<div class="why">Sam leukocytoza ≠ CML; potrzebujesz genetyki.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Jakie jest rokowanie chorego z CML? <em style="color:#78716c;font-size:.85rem">[Zielińska testy]</em></div>
+<div class="a">Przy dobrej odpowiedzi na TKI rokowanie doskonałe — przeżycie zbliżone do populacji; najistotniejszy czynnik = odpowiedź na TKI.</div>
+<div class="why">Nie strasz „zawsze śmiertelna białaczka” — to odpowiedź z ery przed TKI.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Czynnik cytogenetyczny, molekularny i leczenie w fazie przewlekłej CML. <em style="color:#78716c;font-size:.85rem">[Matlak]</em></div>
+<div class="a">Cytogenetyczny: Ph; molekularny: BCR-ABL1; leczenie: imatynib/TKI.</div>
+<div class="why">Pytanie Matlaka „trzy w jednym” — odpowiadaj schematem.</div>
+</div>
+<h2 id="ch4">4. Nowotwory mieloproliferacyjne Ph−</h2>
+<p class="navch">PV · ET · PMF · CNL · CEL · MPN-U · mastocytoza</p>
+
+<h3>4.1. Czerwienica prawdziwa (PV)</h3>
+<div class="exam">
+<strong>PV:</strong> mutacja <strong>JAK2 V617F</strong> (najczęstsza; też ekson 12). Kryteria rzędu: Hb K &gt;16 / M &gt;16,5 g/dl lub Ht K &gt;48% / M &gt;49% + typowy bogatokomórkowy szpik + JAK2; EPO zwykle ↓.<br>
+<strong>Leczenie:</strong> upusty 300–450 ml do <strong>Ht &lt;45%</strong> + ASA ± cytoredukcja (hydroksykarbamid); IFN-α (m.in. ciąża).
+</div>
+<p><strong>Czerwienica wtórna:</strong> hipoksja (POChP, wysokość, wady serca P→L), guzy EPO (nerka…), androgeny. <strong>Rzekoma:</strong> odwodnienie (↓ objętości osocza).</p>
+
+<h3>4.2. Nadpłytkowość samoistna (ET)</h3>
+<div class="exam">
+<strong>ET:</strong> PLT <strong>&gt;450 G/l</strong> + typowy szpik (megakariocyty) + wykluczenie CML/PV/PMF/MDS + mutacja (JAK2/CALR/MPL) lub kryteria mniejsze.<br>
+Przy bardzo wysokich PLT może wystąpić <strong>nabyty zespół von Willebranda</strong>. Bezobjawowy młody często <strong>nie wymaga</strong> agresywnego leczenia.
+</div>
+
+<h3>4.3. Pierwotne włóknienie szpiku (PMF)</h3>
+<div class="exam">
+<strong>PMF — obraz „must”:</strong> masywna splenomegalia (± hepatomegalia), objawy B, anemia; w rozmazie <strong>leukoerytroblastoza</strong> + <strong>dakrocyty</strong>; aspirat często „suchy”; rozpoznanie na trepanobiopsji.<br>
+<strong>Jedyne wyleczenie:</strong> alloHSCT. PV/ET typowo <strong>nie</strong> są wskazaniem do allo.
+</div>
+<p><strong>Nadpłytkowość wtórna (reaktywna) — lista egzaminacyjna:</strong> zakażenia, stany zapalne, niedobór Fe, ostra hemoliza, uraz/operacja, splenektomia, nowotwory, GKS.</p>
+<p><strong>4 klasyczne MPN:</strong> CML, PV, ET, PMF. Mastocytoza — objawy C (hepato-/splenomegalia, cytopenie, zaburzenia wchłaniania).</p>
+
+<h3>Pytania z bazy — rozdział 4</h3>
+<div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Gdzie występuje mutacja JAK2 V617F? <em style="color:#78716c;font-size:.85rem">[Zielińska / Spałek / Helbig]</em></div>
+<div class="a">Najczęściej czerwienica prawdziwa; także część ET i PMF (MPN Ph−).</div>
+<div class="why">Szpiczak NIE ma JAK2 — pułapka na poprawach.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Jak leczymy czerwienicę prawdziwą? <em style="color:#78716c;font-size:.85rem">[Zielińska / Koclęga]</em></div>
+<div class="a">Upusty krwi (cel Ht &lt;45%) + ASA ± leki cytoredukcyjne (HU); IFN w wybranych (ciąża).</div>
+<div class="why">Sam ASA bez kontroli Ht nie wystarcza przy wysokim ryzyku zakrzepicy.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Wymień ≥4 przyczyny nadpłytkowości wtórnej. <em style="color:#78716c;font-size:.85rem">[Koclęga / Węglarz / Helbig]</em></div>
+<div class="a">Zakażenia, uraz/operacja, splenektomia, nowotwory, niedobór Fe, choroby zapalne, GKS, ostra hemoliza.</div>
+<div class="why">Zawsze najpierw wyklucz reaktywne zanim okrzykniesz ET.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>≥4 przyczyny nadkrwistości/czerwienicy wtórnej. <em style="color:#78716c;font-size:.85rem">[Koclęga / Matlak]</em></div>
+<div class="a">POChP/hipoksja, wysokość n.p.m., wady serca z przeciekiem P→L, guzy EPO (np. rak nerki), palenie/OBS, androgeny; rzekoma = odwodnienie.</div>
+<div class="why">Różnicuj z PV przez EPO, gazometrię, JAK2.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>PMF: objawy kliniczne i laboratoryjne; leukoerytroblastoza. <em style="color:#78716c;font-size:.85rem">[Spałek / Koclęga / Węglarz]</em></div>
+<div class="a">Klinika: splenomegalia, hepatomegalia, B-objawy, zmęczenie. Lab: anemia, leukoerytroblastoza, dakrocyty, ± ↑LDH/kwas moczowy; suchy szpik. Leukoerytroblastoza = niedojrzałe granulocyty + erytroblasty we krwi.</div>
+<div class="why">Opis 80-latka ze splenomegalią i leukoerytroblastozą bez niedoborów → PMF (Spałek).</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Kryterium PLT w ET. Czy leczysz bezobjawowego 40-latka? <em style="color:#78716c;font-size:.85rem">[grupy / Spałek poprawa]</em></div>
+<div class="a">PLT &gt;450 G/l. Bezobjawowy młody — zwykle nie (obserwacja/ASA wg ryzyka).</div>
+<div class="why">Nabyty vWD przy ekstremalnych PLT — paradoksalnie krwawienia.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Wymień 4 nowotwory mieloproliferacyjne. <em style="color:#78716c;font-size:.85rem">[Chromik / Matlak]</em></div>
+<div class="a">CML, czerwienica prawdziwa, nadpłytkowość samoistna, pierwotne włóknienie szpiku.</div>
+<div class="why">Czasem dopisują CNL/CEL/mastocytozę — ale „wielka czwórka” wystarcza.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Czy PV lub ET są wskazaniem do alloHSCT? Co leczy PMF przyczynowo? <em style="color:#78716c;font-size:.85rem">[Zielińska / Węglarz]</em></div>
+<div class="a">PV/ET — zwykle nie. PMF — alloHSCT jako jedyne potencjalne wyleczenie.</div>
+<div class="why">Nie myl „cytoredukcja” z „wyleczeniem”.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>3 stany z PLT rzędu 600 G/l. <em style="color:#78716c;font-size:.85rem">[Koclęga]</em></div>
+<div class="a">Nowotwory / ET lub inne MPN (PV, PMF) / reaktywne (Fe-niedobór, infekcja…).</div>
+<div class="why">Pytanie otwarte — podaj mieszankę pierwotnych i wtórnych.</div>
+</div><div class="qa">
+<div class="q"><span class="tag low">🔥</span>Objawy C mastocytozy; przyczyny eozynofilii. <em style="color:#78716c;font-size:.85rem">[Matlak / Koclęga]</em></div>
+<div class="a">C: hepatomegalia, splenomegalia, cytopenie, zaburzenia wchłaniania. Eozynofilia: alergia, pasożyty, leki, nowotwory, idiopatyczna/HES…</div>
+<div class="why">Rzadsze, ale pada u Matlaka/Koclęgi.</div>
+</div>
+<h2 id="ch5">5. Chłoniaki złośliwe</h2>
+<p class="navch">5.1 Chłoniak Hodgkina · 5.2 Chłoniaki nieziarnicze</p>
+
+<h3>Objawy B i Ann Arbor — wspólne</h3>
+<div class="exam">
+<strong>Objawy B:</strong> (1) gorączka &gt;38°C, (2) obfite nocne poty, (3) utrata masy ciała &gt;10% w 6 miesięcy.<br>
+<strong>NIE są objawem B:</strong> świąd, zmęczenie, osłabienie (choć klinicznie ważne).<br>
+<strong>Ann Arbor:</strong> I — jedna grupa węzłów · II — ≥2 grupy po tej samej stronie przepony · III — obie strony przepony / często ze śledzioną · IV — zajęcie pozawęzłowe (np. szpik).
+</div><div class="trap">
+„Zmęczenie” jako objaw B = klasyczna błędna odpowiedź (Armatys). Świąd bywa w HL, ale nie wchodzi w definicję B.
+</div>
+
+<h3>5.1. Chłoniak Hodgkina</h3>
+<p>Komórki <strong>Reed-Sternberga</strong> i komórki Hodgkina w nacieku zapalnym. Często EBV w etiopatogenezie. Start: niebolesne pakiety węzłów szyjnych/nadobojczykowych, często śródpiersie.</p>
+<div class="exam">
+Złoty standard stagingu/oceny: <strong>PET-TK</strong>. Najczęstszy typ histpat: postać <strong>klasyczna</strong> (w tym stwardnienie guzkowe). Objawy B ~40% ogólnie; częściej w III/IV.
+</div>
+
+<h3>5.2. NHL — indolentne vs agresywne</h3>
+<table class="grid">
+<tr><th>Indolentne</th><th>Pośrednie</th><th>Agresywne</th></tr>
+<tr class="hot"><td>grudkowy · strefy brzeżnej · z małych limf. B · Waldenström</td><td>z komórek płaszcza (MCL)</td><td><strong>DLBCL</strong> · Burkitt · wiele T-komórkowych (np. HSTCL)</td></tr>
+</table>
+<div class="exam">
+<strong>DLBCL</strong> = najczęstszy NHL u dorosłych · leczenie <strong>R-CHOP</strong> · spora część wyleczalna.<br>
+<strong>MCL:</strong> immuno-CHT + często <strong>autoHSCT w 1. remisji</strong> u młodych/fit.<br>
+<strong>Anty-CD20:</strong> rytuksymab, obinutuzumab, ofatumumab…<br>
+<strong>Diagnostyka chłoniaka:</strong> wycięcie węzła + histpat/IHC (FNA nie wystarcza do ostatecznego rozpoznania).
+</div>
+<p><strong>Transformacja Richtera:</strong> CLL/SLL → DLBCL; rokowanie złe; leczenie jak agresywny chłoniak (np. R-CHOP).</p>
+
+<h3>Pytania z bazy — rozdział 5</h3>
+<div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Wymień objawy B. Co NIE jest objawem B? <em style="color:#78716c;font-size:.85rem">[prawie każdy prowadzący]</em></div>
+<div class="a">Gorączka, poty nocne, ↓ masy ciała. Nie: zmęczenie, świąd.</div>
+<div class="why">Podawaj pełne progi jeśli pytają „wg Ann Arbor”.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Ann Arbor — węzły szyjne+pachowe jednostronnie; węzły obu stron + śledziona; węzły + szpik. <em style="color:#78716c;font-size:.85rem">[Kopińska / Matlak / Koclęga]</em></div>
+<div class="a">Jednostronne lokalne grupy: I lub II (zależnie ile regionów). Obie strony + śledziona: <strong>III</strong>. Szpik: <strong>IV</strong>.</div>
+<div class="why">Ćwicz 3 opisy — pada w kółko.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>3 cechy chłoniaka Hodgkina. Komórki? Obrazowanie? <em style="color:#78716c;font-size:.85rem">[Google Doc / Chromik / Spałek]</em></div>
+<div class="a">RS + komórki Hodgkina; niebolesne pakiety węzłów (szyja/nadobojcze); związek z EBV. Obrazowanie: PET-TK.</div>
+<div class="why">„3 cechy” można brać z kliniki+histpat+EBV.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Wymień chłoniaki indolentne i agresywne. <em style="color:#78716c;font-size:.85rem">[Koclęga / Matlak / Spałek]</em></div>
+<div class="a">Indolentne: grudkowy, strefy brzeżnej, małe limf. B, Waldenström. Agresywne: DLBCL, Burkitt, HSTCL (i inne T).</div>
+<div class="why">MCL = pośredni — nie wrzucaj go w indolentne.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Najczęstszy chłoniak u dorosłych? Leczenie DLBCL? <em style="color:#78716c;font-size:.85rem">[Spałek / Węglarz]</em></div>
+<div class="a">DLBCL. Standard: R-CHOP (3±RT we wczesnym; 6 w zaawansowanym — uproszczenie egzaminacyjne).</div>
+<div class="why">Rozwiń skrót: chłoniak rozlany z dużych komórek B.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>MCL — agresywność, 1. linia, auto po remisji? <em style="color:#78716c;font-size:.85rem">[Węglarz]</em></div>
+<div class="a">Pośredni/agresywny B-komórkowy; immuno-CHT (anty-CD20 + CHT); tak — autoHSCT często jako konsolidacja 1. remisji.</div>
+<div class="why">TP53 = gorsza odpowiedź na intensywne CHT.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Jak rozpoznajemy chłoniaka? Pacjent 40 lat z pakietami węzłów szyjno-pachowych jednostronnie? <em style="color:#78716c;font-size:.85rem">[Koclęga / Zielińska]</em></div>
+<div class="a">Histpat całego węzła (± PET-TK do stagingu). Klinika → podejrzewaj HL.</div>
+<div class="why">Nie lecz antybiotykiem tygodniami przy pakietach &gt;4 tyg. bez diagnostyki.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Transformacja Richtera — co to, rokowanie, leczenie. <em style="color:#78716c;font-size:.85rem">[Matlak]</em></div>
+<div class="a">CLL/SLL → DLBCL; złe rokowanie; np. R-CHOP.</div>
+<div class="why">Nagłe powiększenie węzłów + objawy B u CLL = myśl o Richterze.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Anty-CD20 — wymień. Rokowanie/częstość objawów B w HL. <em style="color:#78716c;font-size:.85rem">[Węglarz / Zielińska]</em></div>
+<div class="a">Rytuksymab, obinutuzumab, ofatumumab (± ocrelizumab poza hemato). B w HL: ~20% I/II, ~50% III/IV.</div>
+<div class="why"></div>
+</div><div class="qa">
+<div class="q"><span class="tag low">🔥</span>IPS w zaawansowanym HL; najczęstszy typ histpat HL. <em style="color:#78716c;font-size:.85rem">[grupa 10]</em></div>
+<div class="a">IPS = wskaźnik rokowniczy (zestaw czynników kliniczno-lab, ~7). Typ: klasyczny (często NS).</div>
+<div class="why">Nie mylić IPS(HL) z IPSS(MDS).</div>
+</div>
+<h2 id="ch6">6. Białaczki z dojrzałych limfocytów</h2>
+<p class="navch">CLL · HCL · PLL · LGL</p>
+
+<h3>CLL — notatki</h3>
+<div class="exam">
+<strong>CLL:</strong> limfocytoza <strong>≥5 G/l</strong> (5000/µl) małych dojrzałych limfocytów B o typowym immunofenotypie; w rozmazie <strong>cienie Gumprechta</strong>.<br>
+Często rozpoznanie przypadkowe u starszych → <strong>watch &amp; wait</strong>.<br>
+<strong>Wskazania do leczenia (umieć ≥4):</strong> objawy B · niedokrwistość · <strong>małopłytkowość</strong> · objawowa/duża splenomegalia · masywna limfadenopatia · szybkie podwojenie limfocytozy · zaawansowanie Rai III/IV.
+</div>
+<p>Skale: Rai, Binet. Powikłania: autoimmunohemoliza, ITP, infekcje, Richter. HCL/PLL/LGL — rzadziej na bazach; znać nazwy i że to osobne jednostki.</p>
+<div class="note">
+„Najczęstsza białaczka” — dopytaj: u dorosłych często CLL; u dzieci ALL; „na świecie” bywa różnie formułowane.
+</div>
+
+<h3>Pytania z bazy — rozdział 6</h3>
+<div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Co charakterystycznego jest w rozmazie w CLL? <em style="color:#78716c;font-size:.85rem">[Zielińska]</em></div>
+<div class="a">Limfocytoza małych dojrzałych limfocytów + cienie Gumprechta; mogą być anemia/małopłytkowość/neutropenia.</div>
+<div class="why">Gumprecht = „rozjechane” limfocyty na szkiełku — znak rozpoznawczy egzaminacyjny.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Wymień ≥4 wskazania do rozpoczęcia leczenia CLL. <em style="color:#78716c;font-size:.85rem">[Węglarz / Matlak / Koclęga]</em></div>
+<div class="a">Objawy B; Hb &lt;10 (anemia); małopłytkowość; objawowa splenomegalia; duże/postępujące węzły; szybkie podwojenie limfocytozy; Rai III/IV.</div>
+<div class="why">Matlak podkreślał małopłytkowość — nie zapomnij jej na liście.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>70-latek, WBC↑ tylko limfocytami, bezobjawowy — co robisz? <em style="color:#78716c;font-size:.85rem">[Kopińska]</em></div>
+<div class="a">Rozpoznanie w kierunku CLL; bez wskazań — obserwacja (nie lecz, nie „DILO na siłę”).</div>
+<div class="why">Leczenie bez wskazań szkodzi bardziej niż choroba indolentna.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Objawy przedmiotowe PBL/CLL. <em style="color:#78716c;font-size:.85rem">[Zielińska]</em></div>
+<div class="a">Limfadenopatia, splenomegalia (± hepatomegalia); czasem brak objawów.</div>
+<div class="why">Łącz z Rai.</div>
+</div>
+<h2 id="ch7">7. Dyskrazje plazmocytów</h2>
+<p class="navch">Szpiczak plazmocytowy · Makroglobulinemia Waldenströma</p>
+
+<h3>Szpiczak — notatki</h3>
+<div class="exam">
+<strong>CRAB:</strong> C — Ca &gt;2,75 mmol/l (lub &gt;0,25 powyżej normy) · R — krea &gt;2 mg/dl lub ClCr &lt;40 ml/min · A — anemia · B — zmiany kostne osteolityczne.<br>
+<strong>SLiM:</strong> S — ≥60% klonalnych plazmocytów · Li — ratio FLC ≥100 · M — &gt;1 zmiana ogniskowa ≥5 mm w MRI/PET.<br>
+Rozpoznanie MM objawowego: klonalne plazmocyty (≥10% w szpiku lub plasmocytoma) + ≥1 CRAB/SLiM.
+</div>
+<p>Spektrum: <strong>MGUS</strong> → szpiczak tlący (SMM) → MM objawowy. MGUS/SMM bez CRAB/SLiM = <strong>watch &amp; wait</strong>.</p>
+<div class="exam">
+Najczęstszy typ Ig: <strong>IgG</strong>. Szpiczak <strong>nieuleczalny</strong> standardową CHT (remisje tak). Konsolidacja u kwalifikujących: <strong>autoHSCT</strong>. Osteoliza/hiperkalcemia: nawodnienie, bisfosfoniany, GKS, kalcytonina, ± dializa. Ab: anty-CD38 (daratumumab), anty-SLAMF7 (elotuzumab). Markery: CD38, CD138.
+</div>
+<p>Waldenström (LPL, IgM) — chłoniak indolentny; hiperlepkość możliwa.</p>
+
+<h3>Pytania z bazy — rozdział 7</h3>
+<div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Rozwiń CRAB i SLiM. Co oznacza A / S? <em style="color:#78716c;font-size:.85rem">[Kata / Koclęga / wszyscy]</em></div>
+<div class="a">CRAB: Calcium, Renal, Anemia, Bone. SLiM: Sixty% plazmocytów, Light chains ratio, MRI/PET lesions. A=anemia; S=≥60% plazmocytów.</div>
+<div class="why">Bez progów liczbowych odpowiedź bywa „niedostateczna” u Helbiga/Kata.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Czy szpiczaka da się wyleczyć standardową chemioterapią? <em style="color:#78716c;font-size:.85rem">[Koclęga / grupy]</em></div>
+<div class="a">Nie (co najwyżej głębokie remisje; choroba uznawana za nieuleczalną typowym postępowaniem).</div>
+<div class="why">Auto poprawia rokowanie, ale nie jest synonimem „wyleczenia jak infekcja”.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Co poprzedza szpiczaka? Kiedy watch & wait? <em style="color:#78716c;font-size:.85rem">[Węglarz / Matlak]</em></div>
+<div class="a">MGUS (± SMM). Watch&wait gdy brak CRAB/SLiM (MGUS/SMM).</div>
+<div class="why">Przykład Matlaka: plazmocyty ~12%, CRAB/SLiM ujemne → tlący, nie lecz.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Najczęstszy typ szpiczaka. Diagnostyka podejrzenia. <em style="color:#78716c;font-size:.85rem">[Chromik / Węglarz]</em></div>
+<div class="a">IgG. Morfologia, białko M (surowica/mocz), FLC, biopsja szpiku, obrazowanie kości, Ca/krea.</div>
+<div class="why">Nie opieraj się wyłącznie na „elektroforezie jak kiedyś” — dziś klucz: klonalne plazmocyty + CRAB/SLiM (Chromik).</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Leczenie hiperkalcemii / osteolizy w szpiczaku. <em style="color:#78716c;font-size:.85rem">[Koclęga / Armatys / Węglarz]</em></div>
+<div class="a">Nawodnienie 0,9% NaCl, bisfosfoniany (zoledronian), GKS, kalcytonina krótko, ± dializa. Osteoliza: bisfosfoniany (± denosumab).</div>
+<div class="why">Unikaj „tylko furosemid” bez nawodnienia.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>CD i przeciwciała w szpiczaku. Kwalifikacja do autoHSCT? <em style="color:#78716c;font-size:.85rem">[Węglarz]</em></div>
+<div class="a">CD38, CD138 (± lekkie łańcuchy). Ab: daratumumab (CD38), elotuzumab (SLAMF7). Auto: tak, u kwalifikujących po odpowiedzi.</div>
+<div class="why">CD20 zwykle nieobecny — odróżnia od innych limfoproliferacji.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>2 najczęstsze zajęte narządy; białko M w moczu (wersja bazy). <em style="color:#78716c;font-size:.85rem">[Spałek / Armatys]</em></div>
+<div class="a">Kości i nerki. W bazie Armatys: białko monoklonalne w moczu &gt;500 mg/dobę (jako element kontekstu rozpoznania — ucz z CRAB/SLiM).</div>
+<div class="why"></div>
+</div>
+<h2 id="ch8">8. Zaburzenia hemostazy</h2>
+<p class="navch">Skazy · vWD · hemofilie · małopłytkowość/ITP · trombofilia · ŻChZZ · leczenie przeciwzakrzepowe</p>
+
+<h3>8.1. Podział skaz</h3>
+<table class="grid">
+<tr><th>Typ</th><th>Przykłady</th><th>Typowy obraz</th></tr>
+<tr><td>Naczyniowe</td><td>Rendu–Osler–Weber (HHT)</td><td>teleangiektazje, krwawienia z nosa/PP/płuc</td></tr>
+<tr class="hot"><td>Osoczowe</td><td>vWD, hemofilia A/B/C</td><td>krwiaki, krwawienia do stawów (hemofilia); śluzówkowe (vWD)</td></tr>
+<tr class="hot"><td>Płytkowe</td><td>małopłytkowość, trombocytopatie</td><td>petechie, wybroczyny, krwawienia śluzówkowe</td></tr>
+</table>
+<div class="exam">
+<strong>Najczęstsza wrodzona skaza krwotoczna:</strong> choroba von Willebranda.<br>
+<strong>Wit. K–zależne czynniki:</strong> II, VII, IX, X (+ białka C i S).
+</div>
+
+<h3>Algorytm czasów krzepnięcia (egzaminowy)</h3>
+<table class="grid">
+<tr><th>PT</th><th>APTT</th><th>Myśl o…</th></tr>
+<tr class="hot"><td>N</td><td>↑</td><td>hemofilia A/B/C, Hageman (XII), heparyna UFH, APS/antykoagulant toczniowy, vWD typ 3 (±1/2)</td></tr>
+<tr><td>↑</td><td>N</td><td>niedobór VII, wit. K wczesny, warfaryna (wczesna), wątroba</td></tr>
+<tr class="hot"><td>↑</td><td>↑</td><td>DIC, wątroba, wit. K, dawka VKA, niedobory wspólne</td></tr>
+</table>
+<div class="exam">
+<strong>Izolowane ↑APTT + brak krwawień + reszta OK:</strong> anomalia Hagemana (XII) → <strong>test korekcji</strong> (powinien skorygować) → oznacz aktywność XII → <strong>można operować</strong>, nie lecz jak hemofilii.<br>
+<strong>Test korekcji bez korekcji + zakrzepica:</strong> myśl o APS (inhibitor).
+</div><div class="trap">
+Krótki APTT poniżej normy przed operacją nosa — zwykle <strong>można operować</strong> (Kopińska). Nie panikuj przy „za krótkim” APTT.
+</div>
+
+<h3>DIC</h3>
+<div class="exam">
+<strong>DIC lab:</strong> ↓PLT · ↓fibrynogen · ↑D-dimery/FDP · ↑PT · ↑APTT · ↑TT · ↓AT III.<br>
+<strong>Wyzwalacze:</strong> sepsa, uraz, powikłania położnicze, nowotwory — zwłaszcza <strong>APL</strong>.
+</div>
+
+<h3>Hemofilie i vWD</h3>
+<table class="grid">
+<tr><th></th><th>Niedobór</th><th>Lab</th><th>Leczenie krwawienia</th></tr>
+<tr class="hot"><td>Hemofilia A</td><td>VIII</td><td>↑APTT; PT/TT/PLT/fibrynogen N</td><td>czynnik VIII; w łagodnej A: DDAVP</td></tr>
+<tr class="hot"><td>Hemofilia B</td><td>IX</td><td>jw.</td><td>czynnik IX</td></tr>
+<tr><td>Hemofilia C</td><td>XI</td><td>↑APTT</td><td>wg wskazań</td></tr>
+<tr class="hot"><td>vWD</td><td>vWF (± VIII)</td><td>typ 3 zawsze ↑APTT; 1/2 zmienne</td><td>DDAVP (wybrane), koncentraty vWF/VIII</td></tr>
+</table>
+<p><strong>2 funkcje vWF:</strong> adhezja płytek do śródbłonka + nośnik/stabilizacja VIII. Typ 1 najczęstszy; typ 3 najcięższy. Nabyta hemofilia A = inhibitory VIII; krwawienie: omijające (aPCC/rFVIIa); diagnostyka: test korekcji.</p>
+<p><strong>Nabyty vWD:</strong> m.in. przy ET z bardzo wysokimi PLT, niektóre choroby serca/nowotwory.</p>
+
+<h3>Małopłytkowość / ITP</h3>
+<div class="exam">
+<strong>Definicja małopłytkowości:</strong> najczęściej <strong>&lt;150 G/l</strong> (w części baz pada też &lt;100 — ucz obie, ale trzymaj się 150 jako standard).<br>
+<strong>KKP bez skazy krwotocznej:</strong> zwykle przy PLT <strong>&lt;10 G/l</strong>.<br>
+<strong>Neurochirurgia:</strong> zwykle PLT <strong>&gt;100 G/l</strong>.<br>
+<strong>ITP 1. linia:</strong> GKS (np. deksametazon 40 mg/d × 4 dni). Dalej: IVIG, TPO-RA (romiplostym…), rytuksymab, splenektomia.
+</div>
+<p><strong>Małopłytkowość rzekoma:</strong> agregaty w EDTA → powtórz na cytrynianie. Przyczyny wtórne: leki, infekcje, hypersplenizm, DIC, autoimmuno, ciąża, nacieczenie szpiku…</p>
+
+<h3>Trombofilia i antykoagulacja</h3>
+<p>Wrodzone (V Leiden — najczęstsza, protrombina G20210A, niedobory AT/prot. C/S) vs nabyte (APS!). Przed VKA: wyjściowe INR/PT, czasem morfologia/wątroba. Krwawienie na acenokumarolu (↑PT): wit. K ± PCC/osocze.</p>
+<div class="note">
+<strong>TTP:</strong> MAHA + małopłytkowość ± neuro → ADAMTS13; 1. linia plazmafereza. Nie mylić z ITP.
+</div>
+
+<h3>Pytania z bazy — rozdział 8</h3>
+<div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Pacjent przed operacją: APTT 60 s, reszta w normie, bez krwawień. Postępowanie? <em style="color:#78716c;font-size:.85rem">[Zielińska / Kopińska / Chromik / Matlak]</em></div>
+<div class="a">Test korekcji → oznaczenie cz. XII (anomalia Hagemana). Operować można; nie podawaj czynników „na zapas”.</div>
+<div class="why">XII nie jest potrzebny do hemostazy in vivo w takim samym stopniu — stąd brak krwawień mimo długiego APTT.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Markery laboratoryjne DIC. W jakich chorobach DIC? <em style="color:#78716c;font-size:.85rem">[Koclęga / Zielińska / Węglarz]</em></div>
+<div class="a">↓PLT, ↓fibrynogen, ↑D-dimery/FDP, ↑PT/APTT/TT, ↓AT III. Choroby: sepsa, uraz, położnictwo, nowotwory (APL!).</div>
+<div class="why">Jednocześnie zakrzepica mikrokrążenia i krwawienie — „zużycie”.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Hemofilia A vs B — czynnik, lab, co podać przy krwawieniu. <em style="color:#78716c;font-size:.85rem">[Koclęga / Chromik / Wiśniewska]</em></div>
+<div class="a">A=VIII, B=IX. Lab: ↑APTT, PT/TT/PLT/fibrynogen N. Krwawienie: VIII lub IX; łagodna A: DDAVP.</div>
+<div class="why">1 j. FVIII/kg ≈ ↑ aktywność o ~2% (fakt ze skryptu/baz — bywa pytany).</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Od jakiej wartości małopłytkowość? Kiedy przetaczamy KKP bez skazy? Próg do neurochirurgii? <em style="color:#78716c;font-size:.85rem">[Zielińska / Kopińska / Węglarz / grupa 3]</em></div>
+<div class="a">&lt;150 G/l (czasem w bazach &lt;100). KKP: &lt;10 G/l. Neurochirurgia: &gt;100 G/l.</div>
+<div class="why">Rozróżnij definicję vs próg transfuzji vs próg zabiegowy — trzy różne liczby.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>ITP — leczenie 1. linii; ≥3 metody. <em style="color:#78716c;font-size:.85rem">[Zielińska / Koclęga]</em></div>
+<div class="a">1. linia: GKS. Inne: IVIG, TPO-RA, rytuksymab/immunosupresja, splenektomia.</div>
+<div class="why">Przy PLT 15 G/l z ITP — start od sterydów (jeśli nie ma groźnego krwawienia wymagającego IVIG/KKP).</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>vWD — najczęstszy typ, typ 3 lab, 2 funkcje vWF, badania. <em style="color:#78716c;font-size:.85rem">[Chromik / Zielińska / Spałek]</em></div>
+<div class="a">Typ 1 najczęstszy; typ 3: ciężki, ↑APTT, ↓vWF i VIII, wydłużony czas krwawienia. Funkcje: adhezja płytek + nośnik VIII. Badania: vWF:Ag, vWF:RCo, FVIII, multimery/typowanie.</div>
+<div class="why">Najczęstsza wrodzona skaza = vWD (nie hemofilia).</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Wymień skazy krwotoczne i po przykładzie. <em style="color:#78716c;font-size:.85rem">[Spałek]</em></div>
+<div class="a">Naczyniowe: Rendu–Osler–Weber. Osoczowe: vWD/hemofilia A. Płytkowe: ITP/trombocytopenia.</div>
+<div class="why">Spałek lubi ten schemat.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Przyczyny wydłużonego APTT. Hemofilia nabyta — diagnostyka/leczenie krwawienia. <em style="color:#78716c;font-size:.85rem">[Zielińska / Spałek / Helbig]</em></div>
+<div class="a">Hageman, hemofilie A/B/C, nabyta A, UFH, APS. Nabyta: test korekcji (bez korekcji), leczenie krwawienia omijające (aPCC/rFVIIa) + immunosupresja inhibitora.</div>
+<div class="why">Przyczyny nabytej A: połóg, nowotwory, autoimmuno, starzy idiopatyczni.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>TTP — rozpoznanie i 1. linia. Małopłytkowość rzekoma. <em style="color:#78716c;font-size:.85rem">[Matlak / Kopińska]</em></div>
+<div class="a">TTP: MAHA+↓PLT → ADAMTS13; 1. linia plazmafereza. Rzekoma: agregaty EDTA → kontrola na cytrynianie.</div>
+<div class="why">Nie dawaj KKP „na oślep” w TTP jak w ITP.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Wit. K–zależne czynniki. Badania przed warfaryną. Krwawienie na acenokumarolu. <em style="color:#78716c;font-size:.85rem">[Helbig / Kopińska poprawa]</em></div>
+<div class="a">II, VII, IX, X (+C, S). Przed VKA: PT/INR wyjściowe (± morfologia, wątroba). Krwawienie: wit. K ± PCC/osocze.</div>
+<div class="why">PT↑ przy APTT N sugeruje problem wit.K/VII/VKA.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Najczęstsza trombofilia. APS vs Hageman. MTHFR. <em style="color:#78716c;font-size:.85rem">[Kopińska / Matlak]</em></div>
+<div class="a">Najczęstsza wrodzona: czynnik V Leiden. APS: zakrzepica + niekorygujący się APTT/antykoagulant. MTHFR sam zwykle nie = trombofilia do leczenia.</div>
+<div class="why">Matlak ostrzegał przed nadrozpoznaniem MTHFR.</div>
+</div><div class="qa">
+<div class="q"><span class="tag low">🔥</span>Rendu–Osler — kryteria; końcowe białko kaskady. <em style="color:#78716c;font-size:.85rem">[Matlak / Chromik]</em></div>
+<div class="a">Curaçao: krwawienia z nosa, teleangiektazje, zmiany trzewne (PP/płuca), wywiad rodzinny. Końcowe białko: fibryna.</div>
+<div class="why"></div>
+</div><div class="qa">
+<div class="q"><span class="tag low">🔥</span>Nabyty vWD — gdzie? Hemofilia C a APTT. <em style="color:#78716c;font-size:.85rem">[Helbig / grupy]</em></div>
+<div class="a">ET (wysokie PLT), inne. Hemofilia C (XI): ↑APTT.</div>
+<div class="why">Helbig pytał o wtórny vWD.</div>
+</div>
+<h2 id="ch9">9. Układ zgodności tkankowej i dobór dawcy</h2>
+<p class="navch">HLA · dobór dawcy rodzinnego i niespokrewnionego</p>
+
+<h3>Notatki</h3>
+<p>Układ <strong>HLA</strong> (MHC) decyduje o zgodności immunologicznej biorcy i dawcy w transplantacji allogenicznej. Im lepsza zgodność alleli HLA, tym mniejsze ryzyko odrzucenia i <strong>GvHD</strong>.</p>
+<div class="exam">
+<strong>Hierarchia dawcy allo (uproszczenie):</strong> bliźnię jednojajowe (syngeniczny, rzadko) → rodzeństwo w pełni zgodne HLA → dawca niespokrewniony wysoko zgodny → (alternatywy: haploidentyczny, krwi pępowinowej — wiedza orientacyjna).<br>
+Dobór obejmuje też grupy krwi ABO, CMV, wiek/płeć dawcy, dostępność.
+</div>
+<p>Na zaliczeniu rzadko pada osobny „egzamin z HLA”; najczęściej łączone z pytaniami o alloHSCT i GvHD.</p>
+
+<h3>Pytania z bazy — rozdział 9</h3>
+<div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Jak dobieramy dawcę do alloHSCT? Rola HLA? <em style="color:#78716c;font-size:.85rem">[łączone z rozdz. 10]</em></div>
+<div class="a">Typowanie HLA — maksymalna zgodność; preferowany dawca rodzinny w pełni zgodny, inaczej niespokrewniony z rejestru.</div>
+<div class="why">Zła zgodność HLA ↑ GvHD i niepowodzenie przeszczepu.</div>
+</div><div class="qa">
+<div class="q"><span class="tag low">🔥</span>Dawca spokrewniony vs niespokrewniony — co ważniejsze? <em style="color:#78716c;font-size:.85rem">[skrypt/seminaria]</em></div>
+<div class="a">Zgodność HLA ważniejsza niż samo „pokrewieństwo”; pokrewieństwo pomaga, gdy HLA jest zgodne.</div>
+<div class="why"></div>
+</div>
+<h2 id="ch10">10. Przeszczepienie macierzystych komórek krwiotwórczych</h2>
+<p class="navch">Auto · allo · powikłania (mukositis, VOD/SOS, HC, GvHD, infekcje…)</p>
+
+<h3>Auto vs allo</h3>
+<table class="grid">
+<tr><th></th><th>AutoHSCT</th><th>AlloHSCT</th></tr>
+<tr class="hot"><td>Źródło</td><td>własne komórki chorego</td><td>dawca (HLA-dobrany)</td></tr>
+<tr class="hot"><td>Najczęstsze wskazania</td><td><strong>szpiczak</strong>, HL, agresywne NHL (też MCL w CR1)</td><td>AML/ALL wysokiego ryzyka, <strong>MDS</strong>, ciężka aplazja, <strong>PMF</strong>, CML po niepowodzeniu TKI</td></tr>
+<tr><td>GvHD</td><td>nie</td><td><strong>tak</strong> — ryzyko kluczowe</td></tr>
+<tr><td>Efekt GvL</td><td>nie</td><td>tak (graft-versus-leukemia)</td></tr>
+</table>
+<div class="exam">
+<strong>Pytanie „w jakiej chorobie najczęściej przeszczep”:</strong> auto — szpiczak; allo — ostre białaczki (AML). Doprecyzuj typ przeszczepu.<br>
+<strong>GvHD — narządy klasyczne:</strong> skóra, wątroba, przewód pokarmowy.<br>
+Śmiertelność okołoprzeszczepowa allo — rząd wielkości ~10% (bywało pytane).
+</div>
+<p><strong>Powikłania wczesne:</strong> nudności, mukositis, infekcje w neutropenii, powikłania cewnika, krwotoczne zapalenie pęcherza, VOD/SOS (wątroba), CLS. <strong>Późne:</strong> GvHD przewlekły, infekcje oportunistyczne, wtórne nowotwory, niepłodność.</p>
+<div class="note">
+Po splenektomii szczepienia: pneumokoki, meningokoki, Hib. Profilaktyka <em>Pneumocystis</em>: kotrimoksazol.
+</div>
+
+<h3>Pytania z bazy — rozdział 10</h3>
+<div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Najczęstsze wskazania do autoHSCT. <em style="color:#78716c;font-size:.85rem">[Zielińska]</em></div>
+<div class="a">Szpiczak plazmocytowy, chłoniak Hodgkina, chłoniaki nieziarnicze złośliwe (± autoimmuno rzadko).</div>
+<div class="why">To pytanie Zielińskiej „z testu” — wymień minimum 3.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>Najczęstsze wskazania do alloHSCT. <em style="color:#78716c;font-size:.85rem">[Zielińska / Koclęga]</em></div>
+<div class="a">Ostre białaczki wysokiego ryzyka, MDS, ciężka aplazja, wybrane MPN (PMF), CML oporne na TKI.</div>
+<div class="why">Allo = jedyne wyleczenie MDS/PMF/ciężkiej AA u wielu chorych.</div>
+</div><div class="qa">
+<div class="q"><span class="tag">🔥🔥🔥</span>W jakiej chorobie najczęściej przetaczanie/przeszczep komórek macierzystych? <em style="color:#78716c;font-size:.85rem">[Google Doc / Helbig]</em></div>
+<div class="a">Zależnie od typu: <strong>auto — szpiczak</strong>; <strong>allo — AML</strong> (najczęstsze konteksty).</div>
+<div class="why">Google Doc rozróżnia auto vs allo — nie dawaj jednej odpowiedzi bez typu.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Czy auto po 1. remisji MCL? Czy MM kwalifikujemy do auto? <em style="color:#78716c;font-size:.85rem">[Węglarz]</em></div>
+<div class="a">Tak i tak (u chorych fit po uzyskaniu odpowiedzi).</div>
+<div class="why">Konsolidacja, nie „zamiast indukcji”.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>GvHD — jakie narządy? Śmiertelność allo? <em style="color:#78716c;font-size:.85rem">[Spałek / Helbig]</em></div>
+<div class="a">Skóra, wątroba, GI. Śmiertelność okołoprzeszczepowa — ok. 10% (orientacyjnie, zależy od kondycji/dawcy).</div>
+<div class="why">Spałek pytał o śmiertelność — nie zaniżaj do zera.</div>
+</div><div class="qa">
+<div class="q"><span class="tag med">🔥🔥</span>Czy PV/ET → allo? PMF/MDS → allo? <em style="color:#78716c;font-size:.85rem">[Zielińska / Węglarz]</em></div>
+<div class="a">PV/ET: nie jako standard. PMF i MDS: allo jako opcja wyleczenia.</div>
+<div class="why"></div>
+</div><div class="qa">
+<div class="q"><span class="tag low">🔥</span>Szczepienia po splenektomii. Lek na Pneumocystis. <em style="color:#78716c;font-size:.85rem">[Matlak / Spałek]</em></div>
+<div class="a">Pneumokoki, meningokoki, Hib. Pneumocystis: kotrimoksazol.</div>
+<div class="why"></div>
+</div><div class="qa">
+<div class="q"><span class="tag low">🔥</span>Późne powikłania chemioterapii / HSCT — 3 przykłady. <em style="color:#78716c;font-size:.85rem">[Spałek]</em></div>
+<div class="a">Wtórne nowotwory, niepłodność, kardiotoksyczność, neuropatia, GvHD przewlekły, infekcje.</div>
+<div class="why"></div>
+</div>
+<h2 id="prowadzacy">Mapa prowadzących</h2>
+<table class="grid">
+<tr><th>Prowadzący</th><th>Na co kładą nacisk</th></tr>
+<tr><td>Zielińska</td><td>Dużo krótkich pytań z całej bazy; DIC, vWD, HSCT, HL, hemoliza, ITP, aplazja</td></tr>
+<tr><td>Koclęga</td><td>CRAB, AML, CML/TKI, nadpłytkowość wtórna, indolentne, Hageman</td></tr>
+<tr><td>Kopińska</td><td>Opisy przypadków, Ann Arbor, Hageman, IDA, CLL watch&amp;wait, KKP&lt;10</td></tr>
+<tr><td>Węglarz</td><td>IDA Fe, hemoliza, CLL wskazania, APL, PMF allo, MCL/DLBCL, hiatus</td></tr>
+<tr><td>Kata</td><td>CRAB, fazy CML, IPSS, leki ALL</td></tr>
+<tr><td>Spałek</td><td>Skazy, PMF/leukoerytroblastoza, indolentne, JAK2, precyzja nazw</td></tr>
+<tr><td>Armatys</td><td>Co nie jest B, blasty 19%, szpiczak, TKI=CML, ET opis</td></tr>
+<tr><td>Chromik</td><td>Hemostaza, vWD, HL typy, szpiczak IgG, PET</td></tr>
+<tr><td>Matlak</td><td>Pancytopenia, CLL leczenie, Richter, TTP, APS, SMM</td></tr>
+<tr><td>Helbig (poprawy)</td><td>Cała hemato; liczby i nazwy muszą być dokładne</td></tr>
+</table>
+
+<h2>Checklista ostatniej nocy</h2>
+<ul class="compact">
+<li>□ Objawy B + 3 opisy Ann Arbor</li>
+<li>□ CRAB + SLiM z progami</li>
+<li>□ Hageman vs hemofilia vs APS (test korekcji)</li>
+<li>□ DIC + APL (t(15;17), ATRA/ATO)</li>
+<li>□ Tabelka IDA vs ACD vs hemoliza</li>
+<li>□ AML ≥20% / mutacje dobre–złe</li>
+<li>□ CML: Ph, TKI, fazy</li>
+<li>□ PV / ET / PMF w 6 zdaniach</li>
+<li>□ Indolentne vs agresywne + R-CHOP</li>
+<li>□ CLL: Gumprecht + kiedy leczyć</li>
+<li>□ ITP 1. linia + progi płytek (150 / 10 / 100)</li>
+<li>□ Auto vs allo — wskazania</li>
+</ul>
+
+<div class="footer">
+<p><a href="pytania-poprawy.html">Dodatek: pytania z poprawek →</a> · <a href="../../">← Strony Jasia</a></p>
+<p><strong>Uwaga prawna:</strong> ten plik jest prywatnym, oryginalnym opracowaniem do nauki (synteza + bazy pytań studentów). <em>Nie jest kopią ani rekonstrukcją</em> oficjalnego podręcznika „Hematologia. Podręcznik dla studentów” (SUM). Oficjalny skrypt zostaje źródłem pełnej treści — tu masz mapę egzaminacyjną z odpowiedziami.</p>
+<p>Powodzenia, Jan. 💪</p>
+</div>
+</body></html>
