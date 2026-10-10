@@ -29,12 +29,10 @@ body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"He
 .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
 .chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:6px 14px;border-radius:20px;font-size:13px;backdrop-filter:blur(4px)}
 
-.wrap{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:0;max-width:none;width:100%;margin:0;padding:0;align-items:start}
-.wrap > .sidebar{order:2}
-.wrap > main{order:1}
+.wrap{display:grid;grid-template-columns:300px minmax(0,1fr);gap:24px;max-width:none;width:100%;margin:0;padding:24px 32px 80px;align-items:start}
 @media (max-width:1100px){
-  .wrap{grid-template-columns:1fr;padding:12px 12px 0}
-  .sidebar{position:static;height:auto;max-height:none;border-left:none;border:1px solid var(--soft-border);border-radius:12px;box-shadow:0 2px 12px rgba(22,66,91,.08);order:unset}
+  .wrap{grid-template-columns:1fr;padding:16px;gap:16px}
+  .sidebar{position:static;max-height:none;border-radius:12px}
 
   /* Collapsible TOC on mobile/tablet */
   .sidebar.is-collapsible h3{
@@ -59,16 +57,16 @@ body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"He
   .sidebar.is-collapsible.is-open > ol{display:block}
 }
 
-.sidebar{position:sticky;top:0;align-self:start;height:100vh;max-height:100vh;overflow-y:auto;background:var(--card);border:none;border-left:1px solid var(--soft-border);border-radius:0;padding:20px 16px 40px;box-shadow:none;z-index:5}
+.sidebar{position:sticky;top:16px;align-self:start;max-height:calc(100vh - 32px);overflow-y:auto;background:var(--card);border:1px solid var(--soft-border);border-radius:14px;padding:18px 16px;box-shadow:0 2px 12px rgba(22,66,91,.08);z-index:5}
 .sidebar h3{margin:0 0 12px;color:var(--primary-dark);font-size:13px;text-transform:uppercase;letter-spacing:1.2px;border-bottom:2px solid var(--light);padding-bottom:8px}
 .sidebar ol{list-style:none;padding:0;margin:0}
 .sidebar li{font-size:13.5px;margin:2px 0}
-.sidebar a{color:var(--muted);text-decoration:none;display:block;padding:5px 8px;border-radius:6px;border-right:3px solid transparent;transition:all .15s}
-.sidebar a:hover{background:var(--lighter);color:var(--primary);border-right-color:var(--primary)}
+.sidebar a{color:var(--muted);text-decoration:none;display:block;padding:5px 8px;border-radius:6px;border-left:3px solid transparent;transition:all .15s}
+.sidebar a:hover{background:var(--lighter);color:var(--primary);border-left-color:var(--primary)}
 .sidebar .group-title{font-weight:700;color:var(--navy);font-size:11.5px;text-transform:uppercase;letter-spacing:1px;margin:14px 0 4px 8px;padding-top:8px;border-top:1px dashed var(--border)}
 .sidebar .group-title:first-of-type{border-top:none;padding-top:0}
 
-main{min-width:0;padding:24px 36px 80px}
+main{min-width:0;padding:0}
 .bloque-banner{background:linear-gradient(120deg,var(--primary-dark),var(--primary));color:#fff;padding:24px 28px;border-radius:14px;margin:32px 0 24px;box-shadow:0 4px 18px rgba(47,102,144,.28)}
 .bloque-banner h2{margin:0;font-size:26px;font-weight:700}
 .bloque-banner .b-sub{opacity:.9;font-size:14px;margin-top:4px}
@@ -206,8 +204,10 @@ details.qa.qbank .answer strong{color:var(--primary-dark)}
 @keyframes flash{0%{background:#fef3c7}100%{background:transparent}}
 
 
-/* full-bleed layout */
+/* full-width with floating left TOC bubble */
 @media (min-width:1101px){
   .hero{padding-left:40px;padding-right:40px}
+  .wrap{padding:24px 40px 96px}
+}
   main{padding:28px 40px 96px}
 }
