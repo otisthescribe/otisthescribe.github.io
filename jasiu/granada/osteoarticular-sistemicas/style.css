@@ -72,17 +72,10 @@ body{
 }
 
 /* ===== LAYOUT ===== */
-.wrap{
-  display:grid;
-  grid-template-columns:280px 1fr;
-  gap:24px;
-  max-width:1400px;
-  margin:0 auto;
-  padding:24px 32px 80px;
-}
+.wrap{display:grid;grid-template-columns:300px minmax(0,1fr);gap:0;max-width:none;width:100%;margin:0;padding:0;align-items:start}
 @media (max-width:1100px){
-  .wrap{grid-template-columns:1fr;padding:16px}
-  .sidebar{position:static;max-height:none}
+  .wrap{grid-template-columns:1fr;padding:12px 12px 0}
+  .sidebar{position:static;height:auto;max-height:none;border-right:none;border:1px solid var(--soft-border);border-radius:12px;box-shadow:0 2px 12px rgba(22,66,91,.08)}
 
   /* Collapsible TOC on mobile/tablet */
   .sidebar.is-collapsible h3{
@@ -108,18 +101,7 @@ body{
 }
 
 /* ===== SIDEBAR ===== */
-.sidebar{
-  position:sticky;
-  top:16px;
-  align-self:start;
-  max-height:calc(100vh - 32px);
-  overflow-y:auto;
-  background:var(--card);
-  border:1px solid var(--soft-border);
-  border-radius:14px;
-  padding:18px 16px;
-  box-shadow:0 2px 12px rgba(0,45,82,.08);
-}
+.sidebar{position:sticky;top:0;align-self:start;height:100vh;max-height:100vh;overflow-y:auto;background:var(--card);border:none;border-right:1px solid var(--soft-border);border-radius:0;padding:20px 16px 40px;box-shadow:none;z-index:5}
 .sidebar h3{
   margin:0 0 12px;
   color:var(--primary-dark);
@@ -166,7 +148,7 @@ body{
 .sidebar .group-title:first-of-type{border-top:none;padding-top:0}
 
 /* ===== MAIN ===== */
-main{min-width:0}
+main{min-width:0;padding:24px 36px 80px}
 
 /* ===== BLOQUE BANNER ===== */
 .bloque-banner{
@@ -587,4 +569,11 @@ details.qa.qbank .answer strong{
 @keyframes flash{
   0%{background:#fef3c7}
   100%{background:transparent}
+}
+
+
+/* full-bleed layout */
+@media (min-width:1101px){
+  .hero{padding-left:40px;padding-right:40px}
+  main{padding:28px 40px 96px}
 }
