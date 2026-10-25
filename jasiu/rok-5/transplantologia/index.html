@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skrypt — Transplantologia (SUM)</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <h1>🫀 Transplantologia</h1>
+  <div class="subtitle">Skrypt do bloku · HSCT + nerka · 5. rok · SUM Katowice · tydzień 26–30.10.2026</div>
+  <div class="hero-meta">
+    <span class="chip">🎓 Dla: Jan Fedak</span>
+    <span class="chip">🇵🇱 ROK 5 · grupa 5</span>
+    <span class="chip">📅 Pon + Śr + Pt</span>
+    <span class="chip">✅ Zaliczenie: piątek 30.10</span>
+    <a class="chip chip-link" href="../hematologia/">← Hematologia</a>
+    <a class="chip chip-link" href="../../">← Strony Jasia</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="sidebar" id="toc">
+<h3>Indeks</h3>
+<div class="toc-search"><input id="tocSearch" type="text" placeholder="Szukaj w indeksie..." aria-label="Szukaj w indeksie"></div>
+<ol id="tocList">
+<li class="group-title">Start</li>
+<li><a href="#plan">📅 Plan tygodnia</a></li>
+<li><a href="#skroty">🔤 Skróty</a></li>
+<li><a href="#top">⭐ TOP ściąga</a></li>
+<li class="group-title">HSCT (hematologia)</li>
+<li><a href="#ch1">1. Komórka macierzysta</a></li>
+<li><a href="#ch2">2. Auto vs allo</a></li>
+<li><a href="#ch3">3. HLA i dawca</a></li>
+<li><a href="#ch4">4. Powikłania + GvHD</a></li>
+<li class="group-title">Nefrologia</li>
+<li><a href="#ch5">5. Przeszczep nerki</a></li>
+<li class="group-title">Powtórka</li>
+<li><a href="#qa">❓ Q&amp;A egzaminacyjne</a></li>
+<li><a href="#checklista">✅ Checklista</a></li>
+<li><a href="#zrodla">📚 Źródła</a></li>
+</ol>
+</nav>
+
+<main>
+
+<section class="card" id="intro">
+<h2 class="section-title"><span class="num">ℹ</span>Jak korzystać</h2>
+<p class="lead">Blok V rok / grupa 5: <strong>poniedziałek i piątek na katedrze hematologii</strong> (HSCT), <strong>środa na nefrologii</strong> (nerka). Piątek = zaliczenie bloku. To synteza egzaminacyjna — nie kopia skryptu. Żółte = high-yield; czerwone = pułapki; Q&amp;A rozwijane.</p>
+<div class="box box-clave">
+<div class="box-title"><span class="icon">📖</span>Legenda</div>
+<ul>
+<li><strong>🔥 EGZAMIN</strong> — wkuwaj na pamięć</li>
+<li><span class="tag danger">🔥🔥🔥</span> pada bardzo często · <span class="tag warn">🔥🔥</span> często · <span class="tag">🔥</span> rzadziej</li>
+<li>Skróty zawsze rozwijaj za pierwszym razem</li>
+</ul>
+</div>
+<div class="box box-warning">
+<div class="box-title"><span class="icon">⚠</span>Bazy PDF</div>
+<p style="margin:0">Pliki <code>Zaliczenie.pdf</code>, <code>Transplantologia cykl A/B</code>, <code>TRANSPLANTOLOGIAIV</code> nie były dostępne w Downloads w momencie budowy. Skrypt stoi na skrypcie hematologii SUM (rozdz. HLA/HSCT) + <strong>mp.pl Interna</strong>. Jak wrzucisz PDF-y ponownie — dopiszę Q&amp;A 1:1 z baz.</p>
+</div>
+<div class="action-row">
+  <a class="btn-soft" href="../hematologia/#ch10">HSCT w skrypcie hematologii →</a>
+  <a class="btn-soft" href="../../">← Strony Jasia</a>
+</div>
+</section>
+
+
+<section class="card" id="plan">
+<h2 class="section-title"><span class="num">📅</span>Plan tygodnia 26–30.10.2026</h2>
+<p class="source-ref"><strong>Źródło planu:</strong> oficjalny plan zajęć SUM (screen) · nefrologia środa — wg Twojego harmonogramu katedry (nie na tym samym PDF hematologii).</p>
+
+<div class="table-wrap"><table>
+<tr><th>Dzień</th><th>Gdzie</th><th>Temat prelekcji</th><th>Prowadzący</th><th>Co ogarnąć przed zajęciami</th></tr>
+<tr>
+  <td><strong>Pon 26.10</strong><br>08:00–13:15<br>s. dyd. II p.</td>
+  <td>Hematologia<br>V/5 transplantologia</td>
+  <td><em>Macierzysta komórka krwiotwórcza w medycynie i możliwości zastosowania w transplantologii</em></td>
+  <td>dr Noster (+ ćw.: Noster, Zielińska, Matlak, Spałek)</td>
+  <td>CD34+, źródła (szpik / PBSC / cord), auto vs allo, wskazania</td>
+</tr>
+<tr>
+  <td><strong>Śr 28.10</strong></td>
+  <td>Nefrologia</td>
+  <td>Przeszczepienie nerki (blok nefrologiczny)</td>
+  <td>katedra nefrologii</td>
+  <td>KTx: wskazania, ABO/PRA/DSA, immunosupresja Tak+MMF+GKS, ostre odrzucanie vs CMV/BK</td>
+</tr>
+<tr>
+  <td><strong>Pt 30.10</strong><br>08:00–14:00<br>s. dyd. II p.</td>
+  <td>Hematologia<br>V/5 transplantologia</td>
+  <td><em>Powikłania po transplantacji macierzystych komórek krwiotwórczych oraz ich leczenie</em> + <strong>zaliczenie</strong></td>
+  <td>dr Zielińska (+ ćw.: Matlak, Zielińska, Wiśniewska-Piąty, Noster)</td>
+  <td>Wczesne powikłania, SOS/VOD, GvHD, infekcje, wskazania auto/allo</td>
+</tr>
+</table></div>
+
+<div class="box box-mnemo">
+<div class="box-title"><span class="icon">🔥</span>Kolejność nauki (krótki tydzień)</div>
+<ol>
+<li><strong>Dziś–pon:</strong> komórka macierzysta + auto/allo + HLA (§1–3)</li>
+<li><strong>Wt–śr:</strong> nerka (§5) przed nefrologią</li>
+<li><strong>Czw–pt rano:</strong> powikłania + GvHD (§4) + TOP + checklista</li>
+</ol>
+</div>
+</section>
+
+
+<section class="card" id="skroty">
+<h2 class="section-title"><span class="num">🔤</span>Słownik skrótów</h2>
+<p class="lead">Na zaliczeniu skrót bez rozwinięcia bywa niepełną odpowiedzią.</p>
+<div class="table-wrap"><table>
+<tr><th>Skrót</th><th>Rozwinięcie</th><th>Jednym zdaniem</th></tr>
+<tr><td><strong>HSCT / HCT</strong></td><td>przeszczepienie (macierzystych) komórek krwiotwórczych</td><td>Auto = własne; allo = od dawcy.</td></tr>
+<tr><td><strong>CD34+</strong></td><td>marker powierzchniowy HSC</td><td>Frakcja „komórek macierzystych” liczona w graftcie.</td></tr>
+<tr><td><strong>PBSC / PBSCT</strong></td><td>komórki z krwi obwodowej (po mobilizacji G-CSF)</td><td>Szybszy engraftment; więcej limf. T → więcej GvHD.</td></tr>
+<tr><td><strong>BMT</strong></td><td>przeszczep szpiku kostnego</td><td>Historyczna nazwa; dziś część HSCT.</td></tr>
+<tr><td><strong>UCBT</strong></td><td>krew pępowinowa</td><td>Mniej komórek, większa tolerancja HLA.</td></tr>
+<tr><td><strong>HLA / MHC</strong></td><td>ludzkie antygeny leukocytarne / główny układ zgodności tkankowej</td><td>Chromosom 6p; zgodność = mniej GvHD/odrzucenia.</td></tr>
+<tr><td><strong>GvHD</strong></td><td>choroba przeszczep-przeciw-gospodarzowi</td><td>Tylko po allo: skóra, wątroba, jelito.</td></tr>
+<tr><td><strong>GvL</strong></td><td>graft-versus-leukemia</td><td>Efekt leczniczy allo w białaczkach.</td></tr>
+<tr><td><strong>HvG</strong></td><td>host-versus-graft</td><td>Odrzucenie graftu przez biorcę.</td></tr>
+<tr><td><strong>TBI</strong></td><td>napromienianie całego ciała</td><td>Element kondycjonowania mieloablacyjnego.</td></tr>
+<tr><td><strong>RIC</strong></td><td>reduced intensity conditioning</td><td>Kondycjonowanie o zredukowanej intensywności (starsi/fit-).</td></tr>
+<tr><td><strong>ATG</strong></td><td>globulina antytymocytarna</td><td>Profilaktyka GvHD (zwłaszcza MUD / PBSC).</td></tr>
+<tr><td><strong>PTCy</strong></td><td>cyklofosfamid potransplantacyjny (D+3/+4)</td><td>Standard haplo; też alternatywa do ATG.</td></tr>
+<tr><td><strong>CNI</strong></td><td>inhibitory kalcyneuryny (CsA, Tak)</td><td>Rdzeń immunosupresji po allo i po nerce.</td></tr>
+<tr><td><strong>SOS / VOD</strong></td><td>zespół niedrożności zatok wątroby / choroba wenookluzyjna</td><td>Bilirubina ↑, hepatomegalia, przyrost masy; defibrotyd.</td></tr>
+<tr><td><strong>DLI</strong></td><td>wlew limfocytów dawcy</td><td>Wzmacnia GvL przy MRD / spadku chimeryzmu.</td></tr>
+<tr><td><strong>KTx</strong></td><td>przeszczepienie nerki</td><td>Leczenie z wyboru w PChN G5.</td></tr>
+<tr><td><strong>PRA / DSA</strong></td><td>panel reactive Ab / donor-specific Ab</td><td>Ocena immunizacji biorcy nerki.</td></tr>
+<tr><td><strong>ABMR</strong></td><td>odrzucanie zależne od przeciwciał</td><td>Główna przyczyna późnej utraty nerki.</td></tr>
+<tr><td><strong>MMF / MPA</strong></td><td>mykofenolan mofetylu / kwas mykofenolowy</td><td>Antyproliferacyjny w trójce po KTx.</td></tr>
+</table></div>
+</section>
+
+
+<section class="card" id="top">
+<h2 class="section-title"><span class="num">⭐</span>TOP ściąga na zaliczenie</h2>
+<div class="box box-mnemo">
+<div class="box-title"><span class="icon">🔥</span>15 faktów, które muszą siedzieć</div>
+<ol>
+<li><strong>CD34+</strong> = marker HSC; engraftment szybszy przy ≥3–4×10<sup>6</sup> CD34+/kg (PBSC min. ~2×10<sup>6</sup>/kg).</li>
+<li><strong>Źródła:</strong> szpik · krew obwodowa (G-CSF ± CHT) · krew pępowinowa.</li>
+<li><strong>AutoHSCT:</strong> MM, HL, agresywne NHL (BEAM / melfalan). <strong>Bez GvHD.</strong></li>
+<li><strong>AlloHSCT:</strong> AML/ALL wysokiego ryzyka, MDS, SAA, PMF. Efekt = kondycjonowanie + <strong>GvL</strong>.</li>
+<li><strong>HLA:</strong> pełna zgodność w HSCT ≈ A, B, C, DRB1, DQB1 (10/10). Szansa rodzeństwo 1:4.</li>
+<li><strong>GvHD narządy:</strong> skóra · wątroba (cholestaza) · GI (biegunka). Profilaktyka: CNI + MTX (± ATG / PTCy).</li>
+<li><strong>Leczenie aGvHD ≥II°:</strong> metylprednizolon ~2 mg/kg; steroidooporność → <strong>ruksolitynib</strong>.</li>
+<li><strong>Engraftment:</strong> neutrofile ≥500/µl po aplazji.</li>
+<li><strong>SOS/VOD:</strong> bilirubina &gt;2 mg/dl + hepatomegalia/ból + przyrost masy / wodobrzusze; leczenie: <strong>defibrotyd</strong>.</li>
+<li><strong>Hemorrhagic cystitis:</strong> CYP/IFO → mesna + nawodnienie; później BK/adeno/CMV.</li>
+<li><strong>Infekcje allo:</strong> neutropenia = bakterie; potem CMV (letermowir), PJP (kotrimoksazol), aspergiloza przy GvHD.</li>
+<li><strong>KTx:</strong> ABO zgodne + ujemny crossmatch; schemat &gt;80%: <strong>Tak + MMF + GKS</strong>.</li>
+<li><strong>Ostre odrzucanie nerki:</strong> kreatynina ↑ 10–25%/1–2 dni → biopsja Banff; start: pulse GKS.</li>
+<li><strong>CMV po nerce:</strong> D+/R− profilaktyka valgancyklowir 6 mies.; leczenie: gancyklowir.</li>
+<li><strong>BK nefropatia:</strong> redukcja immunosupresji (jedyna skuteczna strategia).</li>
+</ol>
+</div>
+</section>
+
+
+<!-- ========== CH1 ========== -->
+<section class="card" id="ch1">
+<div class="bloque-banner">
+  <h2>1. Komórka macierzysta</h2>
+  <div class="b-sub">Prelekcja poniedziałek · dr Noster</div>
+</div>
+<p class="lead"><strong>Hematopoietic stem cell (HSC)</strong> — komórka CD34+ o ogromnym potencjale proliferacyjnym, zdolna do zagnieżdżenia w szpiku po podaniu i.v. i do bezpiecznej krioprezerwacji. Przeszczepienie niewielkiej frakcji regeneruje cały układ krwiotwórczy.</p>
+<p class="source-ref"><strong>Weryfikacja:</strong> skrypt SUM rozdz. 10 · <a href="https://www.mp.pl/interna/chapter/B01.VI.K.3." target="_blank" rel="noopener">mp.pl — Przeszczepianie komórek krwiotwórczych</a></p>
+
+<h3>Trzy źródła graftu</h3>
+<div class="table-wrap"><table>
+<tr><th>Źródło</th><th>Jak pobieramy</th><th>CD34+ / uwagi</th><th>Klinicznie</th></tr>
+<tr>
+  <td><strong>Szpik (BM)</strong></td>
+  <td>Aspiracja z talerza biodrowego, znieczulenie ogólne/lędźwiowe; ~10–15 ml/kg biorcy</td>
+  <td>Cel ~3–4×10<sup>6</sup> CD34+/kg</td>
+  <td>Mniej limf. T niż PBSC → mniej cGvHD</td>
+</tr>
+<tr>
+  <td><strong>Krew obwodowa (PBSC)</strong></td>
+  <td>Mobilizacja G-CSF (± CHT w auto) → leukafereza</td>
+  <td>Min. ~2×10<sup>6</sup>/kg; opt. 4–5×10<sup>6</sup>/kg (nie &gt;8)</td>
+  <td>Szybszy engraftment; ~10× więcej limf. T → ↑ GvHD</td>
+</tr>
+<tr>
+  <td><strong>Krew pępowinowa</strong></td>
+  <td>Pobranie z łożyska po przecięciu pępowiny; bank</td>
+  <td>~1×10<sup>5</sup> CD34+/kg wystarczy (większy potencjał); u dorosłych często 2 jednostki</td>
+  <td>Szybki dostęp; toleruje 1–2 mismatch HLA; wolniejszy engraftment</td>
+</tr>
+</table></div>
+
+<div class="box box-clave">
+<div class="box-title"><span class="icon">💡</span>Dlaczego „HSCT”, nie tylko „BMT”</div>
+<p style="margin:0">Przeszczepiamy nie tylko „macierzyste”, ale też limfocyty/monocyty — skład zależy od źródła. Stąd nazwa HCT/HSCT zamiast samego BMT.</p>
+</div>
+
+<details class="qa">
+<summary><span class="tag danger">🔥🔥🔥</span> Marker powierzchniowy komórek macierzystych krwiotwórczych?</summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> CD34+</div>
+<p><em>Wyjaśnienie:</em> Frakcja CD34+ to praktyczna miara „dawkowania” graftu.</p>
+</div>
+</details>
+<details class="qa">
+<summary><span class="tag warn">🔥🔥</span> Trzy źródła komórek do HSCT?</summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Szpik kostny, krew obwodowa (po mobilizacji), krew pępowinowa.</div>
+</div>
+</details>
+</section>
+
+
+<!-- ========== CH2 ========== -->
+<section class="card" id="ch2">
+<div class="bloque-banner">
+  <h2>2. Auto vs allo — wskazania i kondycjonowanie</h2>
+  <div class="b-sub">Rdzeń zaliczenia · Zielińska / Noster</div>
+</div>
+
+<div class="compare">
+<div>
+<h4>AutoHSCT</h4>
+<ul>
+<li>Własne komórki (krioprezerwacja)</li>
+<li>Efekt = <strong>HDCT</strong> (melfalan 200 w MM; BEAM w chłoniakach)</li>
+<li><strong>Brak GvHD / GvL</strong></li>
+<li>Wskazania: <strong>MM, HL, agresywne NHL</strong></li>
+<li>Ryzyko: kontaminacja nowotworem w graftcie</li>
+</ul>
+</div>
+<div>
+<h4>AlloHSCT</h4>
+<ul>
+<li>Komórki od dawcy (sib / MUD / haplo / cord)</li>
+<li>Efekt = kondycjonowanie + <strong>GvL</strong></li>
+<li><strong>GvHD</strong> — cena sukcesu</li>
+<li>Wskazania: AML/ALL HR, MDS, SAA, PMF (± CML po niepowodzeniu TKI)</li>
+<li>Cel: 100% chimeryzm dawcy</li>
+</ul>
+</div>
+</div>
+
+<div class="box box-warning">
+<div class="box-title"><span class="icon">⚠</span>Pułapka egzaminacyjna</div>
+<p style="margin:0">Pytanie „w jakiej chorobie najczęściej przeszczep komórek macierzystych?” — doprecyzuj: <strong>auto → szpiczak</strong>; <strong>allo → ostre białaczki (AML)</strong>.</p>
+</div>
+
+<h3>Kondycjonowanie</h3>
+<ul>
+<li><strong>Mieloablacyjne (MAC):</strong> TBI 12 Gy + CYP / busulfan+CYP — trwałe zniszczenie szpiku biorcy.</li>
+<li><strong>Niemieloablacyjne / RIC:</strong> silna immunoablacja (często fludarabina ± TBI ≤2 Gy) — sukces opiera się na GvL; u starszych / HCT-CI wysokim.</li>
+<li><strong>Haplo:</strong> zwykle <strong>PTCy D+3 i D+4</strong> (zabija aktywowane limf. T dawcy), potem CNI.</li>
+</ul>
+
+<h3>Przyjęcie przeszczepu (engraftment)</h3>
+<p>Definicja: <strong>neutrofile ≥500/µl</strong> po pancytopenii. BM ~do 22. dnia; PBSC kilka dni wcześniej; MTX w profilaktyce GvHD opóźnia o kilka dni. Hospitalizacja: auto ~19 dni, allo ~31 dni (mp.pl).</p>
+
+<details class="qa">
+<summary><span class="tag danger">🔥🔥🔥</span> Najczęstsze wskazania do autoHSCT? <em style="color:#78716c;font-size:.85rem">[Zielińska]</em></summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Szpiczak plazmocytowy, chłoniak Hodgkina, agresywne chłoniaki nieziarnicze.</div>
+</div>
+</details>
+<details class="qa">
+<summary><span class="tag danger">🔥🔥🔥</span> Najczęstsze wskazania do alloHSCT? <em style="color:#78716c;font-size:.85rem">[Zielińska]</em></summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Ostre białaczki wysokiego ryzyka (AML/ALL), MDS, ciężka aplazja (SAA), włóknienie szpiku (PMF); CML — po niepowodzeniu TKI.</div>
+</div>
+</details>
+<details class="qa">
+<summary><span class="tag warn">🔥🔥</span> Co to GvL i dlaczego allo leczy białaczki lepiej niż samo kondycjonowanie?</summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Graft-versus-leukemia — alloreaktywne limfocyty T/NK dawcy eliminują resztkowe blasty; można wzmocnić DLI.</div>
+</div>
+</details>
+</section>
+
+
+<!-- ========== CH3 ========== -->
+<section class="card" id="ch3">
+<div class="bloque-banner">
+  <h2>3. HLA i dobór dawcy</h2>
+  <div class="b-sub">Skrypt SUM rozdz. 9 · mp.pl</div>
+</div>
+<p class="lead"><strong>HLA</strong> (MHC) — glikoproteiny na komórkach jądrzastych (klasa I: A,B,C niemal wszędzie; klasa II: DR,DQ,DP na APC). Geny na <strong>6p</strong>. W allo limfocyty T rozpoznają obce HLA → GvHD / odrzucenie.</p>
+
+<div class="kv-grid">
+<div class="kv"><span class="k">Pełna zgodność HSCT</span><span class="v">A, B, C, DRB1, DQB1 → <strong>10/10</strong></span></div>
+<div class="kv"><span class="k">Rodzeństwo zgodne</span><span class="v">szansa <strong>1:4</strong> na sib; wzór 1−(0,75)<sup>n</sup></span></div>
+<div class="kv"><span class="k">MUD</span><span class="v">rejestr światowy; ~1:10&nbsp;000 dla rare haplotype</span></div>
+<div class="kv"><span class="k">Haplo</span><span class="v">1 wspólny haplotyp (rodzic/dziecko/sib); ratunek + PTCy</span></div>
+</div>
+
+<div class="box box-clave">
+<div class="box-title"><span class="icon">🧬</span>Minor HA</div>
+<p style="margin:0">Nawet przy 10/10 HLA limfocyty mogą reagować na <strong>mniejsze antygeny zgodności tkankowej (mHA)</strong> — stąd GvHD mimo „idealnego” dawcy. Extra ryzyko: dawczyni → biorca mężczyzna (antygeny Y).</p>
+</div>
+
+<details class="qa">
+<summary><span class="tag warn">🔥🔥</span> Gdzie leży MHC/HLA u człowieka? Klasy I vs II?</summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Krótkie ramię chr. 6. Klasa I: A,B,C (wszystkie jądrzaste). Klasa II: DR,DQ,DP (APC: B, aktywowane T, makrofagi, DC).</div>
+</div>
+</details>
+<details class="qa">
+<summary><span class="tag">🔥</span> Syngeniczny vs haploidentyczny?</summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Syngeniczny = bliźniak jednojajowy (identyczny HLA). Haplo = połowicznie zgodny (1 haplotyp).</div>
+</div>
+</details>
+</section>
+
+
+<!-- ========== CH4 ========== -->
+<section class="card" id="ch4">
+<div class="bloque-banner">
+  <h2>4. Powikłania po HSCT</h2>
+  <div class="b-sub">Prelekcja piątek · dr Zielińska · zaliczenie</div>
+</div>
+<p class="source-ref"><strong>Weryfikacja:</strong> skrypt SUM 10.3 · <a href="https://www.mp.pl/interna/chapter/B01.VI.K.3." target="_blank" rel="noopener">mp.pl HCT — powikłania</a> · EBMT GvHD (ruksolitynib 2. linia)</p>
+
+<h3>Wczesne (toksyczność kondycjonowania + aplazja)</h3>
+<div class="table-wrap"><table>
+<tr><th>Powikłanie</th><th>Klucz</th><th>Postępowanie</th></tr>
+<tr><td>Nudności/wymioty</td><td>Emetogenna CHT/TBI</td><td>5-HT3 + deksametazon ± aprepitant / palonosetron</td></tr>
+<tr><td>Mukositis</td><td>~D+5–7; bariera → sepsis</td><td>Higiena jamy, opioid, żywienie pozajelitowe</td></tr>
+<tr><td>Cewnik centralny</td><td>Infekcja, zakrzep, odma przy założeniu</td><td>Aseptyka, usunięcie przy podejrzeniu zakażenia linii</td></tr>
+<tr><td><strong>Krwotoczne zap. pęcherza</strong></td><td>Wcześnie: akroleina (CYP/IFO); później: BK, adeno, CMV</td><td>Mesna + nawodnienie; PLT; płukanie pęcherza</td></tr>
+<tr><td><strong>SOS / VOD</strong></td><td>Bili &gt;2 mg/dl + hepatomegalia/ból + ↑ masy / ascites (Seattle/Baltimore)</td><td>UDCA profilaktyka; <strong>defibrotyd</strong>; restrykcja płynów</td></tr>
+<tr><td>Capillary leak</td><td>↑ masy &gt;3%/24h, obrzęki; ryzyko G-CSF</td><td>Wstrzymać G-CSF</td></tr>
+<tr><td>TA-TMA</td><td>NT, LDH↑, małopłytkowość, schistocyty</td><td>Wsparcie; rozważyć odstawienie CNI; ± ekulizumab</td></tr>
+</table></div>
+
+<div class="box box-mnemo">
+<div class="box-title"><span class="icon">🔥</span>SOS/VOD — zapamiętaj triadę</div>
+<p style="margin:0"><strong>Hiperbilirubinemia + ból/hepatomegalia + przyrost masy/wodobrzusze</strong> we wczesnym okresie po HCT. Lek: <strong>defibrotyd</strong>. Ryzyko: choroba wątroby przed Tx, busulfan p.o., TBI, gemtuzumab/inotuzumab, kolejny allo.</p>
+</div>
+
+<h3>GvHD — choroba przeszczep-przeciw-gospodarzowi</h3>
+<p><strong>Tylko po allo.</strong> Warunki Billinghama: immunokompetentne komórki w graftcie + biorca nie odrzuca + biorca ma antygeny obce dawcy. Klasycznie ostra vs przewlekła ~D+100, dziś ważniejszy <strong>fenotyp</strong> (MAGIC).</p>
+
+<div class="table-wrap"><table>
+<tr><th>Narząd aGvHD</th><th>Obraz</th><th>Staging (idea)</th></tr>
+<tr><td>Skóra</td><td>Osutka plamisto-grudkowa (dłonie, twarz, dekolt) → erytrodermia, pęcherze</td><td>% BSA; st. 4 = pęcherze/złuszczanie</td></tr>
+<tr><td>Wątroba</td><td>Cholestaza: bili ↑, GGTP/ALP; zwykle bez dużej ALT</td><td>Bilirubina µmol/l lub mg/dl</td></tr>
+<tr><td>Jelito</td><td>Wodnista (± krwista) biegunka, ból; górny GI: nudności/anoreksja</td><td>Objętość stolca / doba</td></tr>
+</table></div>
+
+<ul>
+<li><strong>Profilaktyka:</strong> CNI (CsA/Tak) + krótki MTX (± MMF); MUD/PBSC → +ATG; haplo → PTCy D+3/+4.</li>
+<li><strong>Leczenie aGvHD I°:</strong> miejscowe GKS (bez systemowego).</li>
+<li><strong>II–IV°:</strong> metylprednizolon <strong>~2 mg/kg</strong> (przy izolowanej skórze/górnym GI bywa 0,5–1 mg/kg).</li>
+<li><strong>Steroidooporność:</strong> <strong>ruksolitynib</strong> (EBMT/mp.pl — standard 2. linii).</li>
+<li><strong>cGvHD:</strong> skóra twardzinopodobna, zespół suchego oka/ust, BOOP/BO, fasciitis; 1. linia prednizon ± CNI; 2. linia ruksolitynib / belumosudil / ibrutynib.</li>
+</ul>
+
+<div class="box box-warning">
+<div class="box-title"><span class="icon">⚠</span>GvHD ≠ odrzucenie nerki</div>
+<p style="margin:0">Po allo-HSCT immunosupresja chroni przed <strong>GvHD</strong> (graft atakuje gospodarza). Po KTx chroni przed <strong>odrzuceniem</strong> (gospodarz atakuje nerkę). To dwa różne wektory immunologiczne — nie myl na ustnym.</p>
+</div>
+
+<h3>Infekcje — oś czasu</h3>
+<ol>
+<li><strong>Faza aplazji:</strong> bakterie; fluorochinolon; przy gorączce → empiryczna antybiotykoterapia.</li>
+<li><strong>Po engraftmencie (allo):</strong> CMV (letermowir do ≥D+100 u R+), HSV/VZV (acyklowir), PJP (kotrimoksazol), aspergiloza przy GvHD (wory-/pozakonazol).</li>
+<li><strong>PTLD (EBV):</strong> monitorowanie wiremii; rytuksymab + redukcja IS.</li>
+</ol>
+
+<details class="qa">
+<summary><span class="tag danger">🔥🔥🔥</span> Klasyczne narządy ostrej GvHD?</summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Skóra, wątroba, przewód pokarmowy.</div>
+</div>
+</details>
+<details class="qa">
+<summary><span class="tag danger">🔥🔥🔥</span> Pierwsza linia leczenia umiarkowanej/ciężkiej aGvHD?</summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Glikokortykosteroidy systemowe — metylprednizolon ok. 2 mg/kg/d.</div>
+</div>
+</details>
+<details class="qa">
+<summary><span class="tag warn">🔥🔥</span> Kryteria / leczenie SOS (VOD)?</summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Hiperbilirubinemia + hepatomegalia/ból + przyrost masy/wodobrzusze we wczesnym okresie po HCT. Leczenie z wyboru: defibrotyd; profilaktyka UDCA.</div>
+</div>
+</details>
+<details class="qa">
+<summary><span class="tag warn">🔥🔥</span> Profilaktyka krwotocznego zapalenia pęcherza przy CYP?</summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Intensywne nawodnienie + mesna (wiąże akroleinę).</div>
+</div>
+</details>
+<details class="qa">
+<summary><span class="tag">🔥</span> Czy po autoHSCT jest klasyczna GvHD?</summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Nie (brak obcych limf. T). Opisywano rzadkie zespoły „GvHD-like” — nie myl z allo.</div>
+</div>
+</details>
+</section>
+
+
+<!-- ========== CH5 ========== -->
+<section class="card" id="ch5">
+<div class="bloque-banner">
+  <h2>5. Przeszczepienie nerki (KTx)</h2>
+  <div class="b-sub">Środa · katedra nefrologii</div>
+</div>
+<p class="source-ref"><strong>Weryfikacja:</strong> <a href="https://www.mp.pl/interna/chapter/B01.V.19.3." target="_blank" rel="noopener">mp.pl — Przeszczepienie nerki</a> (Interna)</p>
+<p class="lead">KTx = metoda z wyboru w <strong>PChN G5</strong> (lepsze przeżycie i jakość życia niż dializa). Możliwy Tx wyprzedzający (przed dializą). W PL 2024: ~1246 nerek (w tym żywy dawca + nerka+trzustka).</p>
+
+<h3>Dobór immunologiczny</h3>
+<ul>
+<li><strong>Zgodność ABO</strong> (Rh bez znaczenia) + <strong>ujemny crossmatch</strong> limfocytów dawcy vs surowica biorcy.</li>
+<li><strong>PRA</strong> (0–100%) — stopień immunizacji; czulsze: swoistość anty-HLA + <strong>MFI</strong>.</li>
+<li>Wirtualny crossmatch: DSA &gt;5000 MFI → zwykle wykluczenie z finalnego crossmatch (↑ ryzyko wczesnego ABMR).</li>
+<li>Technika: nerka zaotrzewnowo nad talerzem biodrowym; naczynia biodrowe; moczowód → pęcherz.</li>
+</ul>
+
+<h3>Immunosupresja</h3>
+<div class="box box-clave">
+<div class="box-title"><span class="icon">💊</span>Schemat &gt;80% biorców</div>
+<p style="margin:0"><strong>Takrolimus + MMF + GKS</strong>. Tak silniejszy od CsA w zapobieganiu ostrym odrzucaniu (1. rok). CNI <strong>nie odstawiać</strong> rutynowo (ryzyko ABMR). Indukcja (ATG / bazyliksymab) przy wysokim ryzyku immunologicznym. IS do końca funkcji graftu.</p>
+</div>
+
+<div class="table-wrap"><table>
+<tr><th>Grupa</th><th>Przykłady</th><th>Rola</th></tr>
+<tr><td>Indukcja</td><td>ATG / ALG; bazyliksymab (anty-IL-2R)</td><td>Wysokie ryzyko immunologiczne</td></tr>
+<tr><td>CNI</td><td>Tak, CsA</td><td>Rdzeń; Tak preferowany</td></tr>
+<tr><td>Antyproliferacyjne</td><td>MMF/MPS &gt; Aza</td><td>Trójka z CNI+GKS</td></tr>
+<tr><td>mTOR</td><td>Sirolimus, ewerolimus</td><td>Alternatywa / nowotwory / BK (ew.)</td></tr>
+</table></div>
+
+<h3>Pogorszenie czynności graftu — różnicowanie</h3>
+<p>Każdy ↑ kreatyniny ≥0,3 mg/dl od baseline = alarm. Wyklucz: hipowolemię, zwężenie/zakrzep naczyniowy, obturację moczowodu, toksyczność CNI/NSLPZ, zakażenie, <strong>odrzucanie</strong>, nefropatię BK, nawrót choroby podstawowej. <strong>Rozstrzyga biopsja (Banff).</strong></p>
+
+<div class="box box-mnemo">
+<div class="box-title"><span class="icon">🔥</span>Ostre odrzucanie — obraz</div>
+<ul>
+<li>Ryzyko największe do 3. mies.</li>
+<li>Kreatynina ↑ 10–25% w 1–2 dni ± oliguria, ból graftu, podgorączkowość, NT</li>
+<li>USG-Doppler: ↑ RI/PI, obrzęk piramid</li>
+<li>Start leczenia: <strong>3–5 pulsów metylprednizolonu 250–1000 mg</strong></li>
+<li>T-cell refractory → ATG; ABMR → plazmaferezy + IVIG ± rytuksymab/bortezomib (± ekulizumab)</li>
+</ul>
+</div>
+
+<h3>Infekcje po KTx (oś czasu mp.pl)</h3>
+<ol>
+<li><strong>1. mies.:</strong> bakterie okołozabiegowe (~85%)</li>
+<li><strong>1–4 mies.:</strong> oportunistyczne — CMV, HSV/VZV, EBV, PJP, Candida/Aspergillus…</li>
+<li><strong>&gt;6 mies.:</strong> jak w populacji + przewlekłe wirusy onkogenne</li>
+</ol>
+<ul>
+<li><strong>CMV:</strong> D+/R− → valgancyklowir <strong>6 mies.</strong>; R+ → 3 mies.; leczenie: gancyklowir. Diagnostyka: PCR DNA CMV.</li>
+<li><strong>BK:</strong> wiruria częsta; nefropatia 5–8% → utrata graftu jeśli nieleczona. <strong>Jedyna skuteczna strategia = redukcja IS</strong> (± IVIG; ew. zamiana na mTOR).</li>
+</ul>
+
+<details class="qa">
+<summary><span class="tag danger">🔥🔥🔥</span> Standardowa immunosupresja podtrzymująca po KTx?</summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Takrolimus + mykofenolan + glikokortykosteroid.</div>
+</div>
+</details>
+<details class="qa">
+<summary><span class="tag warn">🔥🔥</span> Pierwszy krok przy podejrzeniu ostrego odrzucania nerki?</summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Wykluczyć przyczyny naczyniowe/odpływowe/toksyczne → biopsja; empirycznie pulse GKS.</div>
+</div>
+</details>
+<details class="qa">
+<summary><span class="tag warn">🔥🔥</span> Najważniejsze postępowanie w nefropatii BK?</summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Redukcja intensywności immunosupresji (brak swoistego leku antywirusowego o udowodnionej skuteczności).</div>
+</div>
+</details>
+<details class="qa">
+<summary><span class="tag">🔥</span> Czy Rh musi być zgodne przy KTx?</summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Nie — liczy się ABO + crossmatch/HLA; Rh bez znaczenia dla doboru nerki.</div>
+</div>
+</details>
+</section>
+
+
+<!-- ========== QA ========== -->
+<section class="card" id="qa">
+<h2 class="section-title"><span class="num">❓</span>Szybka powtórka Q&amp;A</h2>
+<p class="lead">Mix pytań w stylu Zielińskiej / ustnego — kliknij po odpowiedzi.</p>
+
+<details class="qa">
+<summary><span class="tag danger">🔥🔥🔥</span> Auto vs allo — jedna tabela w głowie</summary>
+<div class="qa-body">
+<div class="answer"><strong>Auto:</strong> własne komórki, HDCT, MM/HL/NHL, bez GvHD. <strong>Allo:</strong> dawca, GvL+GvHD, AML/ALL/MDS/SAA/PMF.</div>
+</div>
+</details>
+<details class="qa">
+<summary><span class="tag danger">🔥🔥🔥</span> Definicja przyjęcia przeszczepu?</summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Neutrofile ≥500/µl po okresie pancytopenii.</div>
+</div>
+</details>
+<details class="qa">
+<summary><span class="tag warn">🔥🔥</span> Profilaktyka GvHD po typowym allo?</summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Inhibitor kalcyneuryny + krótki kurs MTX (± ATG u MUD/PBSC; PTCy u haplo).</div>
+</div>
+</details>
+<details class="qa">
+<summary><span class="tag warn">🔥🔥</span> Co podajesz w D+3 i D+4 po haplo?</summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Wysokie dawki cyklofosfamidu (PTCy) — eliminacja aktywowanych limf. T dawcy.</div>
+</div>
+</details>
+<details class="qa">
+<summary><span class="tag warn">🔥🔥</span> GvHD vs GvL — związek?</summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Ten sam mechanizm alloreaktywności T; GvL pożądany w białaczkach, GvHD to jego toksyczna „cena”.</div>
+</div>
+</details>
+<details class="qa">
+<summary><span class="tag">🔥</span> Kiedy planować KTx względem GFR?</summary>
+<div class="qa-body">
+<div class="answer"><strong>Odpowiedź:</strong> Zwykle gdy GFR &lt;15 (cukrzyca &lt;20); możliwy Tx wyprzedzający przed dializą.</div>
+</div>
+</details>
+</section>
+
+
+<section class="card" id="checklista">
+<h2 class="section-title"><span class="num">✅</span>Checklista przed piątkiem</h2>
+<ul>
+<li>☐ CD34+, 3 źródła, liczby CD34+/kg</li>
+<li>☐ Auto vs allo — wskazania „z pamięci”</li>
+<li>☐ HLA 10/10, szansa sib 1:4, haplo+PTCy</li>
+<li>☐ Engraftment = ANC ≥500</li>
+<li>☐ GvHD: 3 narządy, profilaktyka CNI+MTX, Rx MP 2 mg/kg → ruksolitynib</li>
+<li>☐ SOS: triada + defibrotyd; cystitis: mesna</li>
+<li>☐ Infekcje: neutropenia vs CMV/PJP/aspergillus</li>
+<li>☐ KTx: Tak+MMF+GKS, ostre odrzucanie, CMV, BK</li>
+<li>☐ Umieć jednym zdaniem odróżnić GvHD od odrzucenia narządu</li>
+</ul>
+</section>
+
+
+<section class="card" id="zrodla">
+<h2 class="section-title"><span class="num">📚</span>Źródła (zweryfikowane)</h2>
+<ul>
+<li>Skrypt katedry hematologii SUM — rozdz. 9 (HLA) i 10 (HSCT) — synteza, bez kopii tekstu</li>
+<li><a href="https://www.mp.pl/interna/chapter/B01.VI.K.3." target="_blank" rel="noopener">mp.pl Interna — Przeszczepianie komórek krwiotwórczych</a></li>
+<li><a href="https://www.mp.pl/interna/chapter/B01.V.19.3." target="_blank" rel="noopener">mp.pl Interna — Przeszczepienie nerki</a></li>
+<li>EBMT: updated GvHD prophylaxis/management (ruksolitynib 2. linia aGvHD/cGvHD)</li>
+<li>Plan zajęć SUM 26–30.10.2026 (V rok, grupa 5 — transplantologia)</li>
+</ul>
+<p class="source-ref">Gdy pojawią się PDF-y baz pytań (cykl A/B, Zaliczenie, TRANSPLANTOLOGIAIV) — dopiszemy bank Q&amp;A jak w hematologii/Kopińskiej.</p>
+</section>
+
+</main>
+</div>
+
+<footer>
+  Skrypt egzaminacyjny · Jan Fedak · ROK 5 SUM · nie zastępuje skryptu katedry ani mp.pl
+  <div class="action-row action-row-center">
+    <a class="btn-soft" href="../hematologia/">← Hematologia</a>
+    <a class="btn-soft" href="../../">Strony Jasia</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
