@@ -253,10 +253,14 @@ details.qa.qbank .answer strong{color:var(--primary-dark)}
 .plan-row.is-dim{opacity:.38}
 
 /* Inline figures in chapters */
-.figure-band{margin:0 0 18px;border-radius:12px;overflow:hidden;border:1px solid var(--soft-border);background:#fff}
-.figure-band img{display:block;width:100%;height:auto;max-height:320px;object-fit:cover}
-.figure-band .caption{padding:10px 14px;font-size:13px;color:var(--muted);background:var(--lighter)}
-.figure-band .caption strong{display:block;color:var(--primary-dark);margin-bottom:2px}
+.figure-band{margin:0 0 18px;border-radius:12px;overflow:hidden;border:1px solid var(--soft-border);background:var(--lighter)}
+.figure-band img{
+  display:block;width:100%;height:auto;max-height:420px;
+  object-fit:contain;object-position:center;margin:0 auto;
+  background:#fff;
+}
+.figure-band .caption{padding:10px 14px;font-size:13px;color:var(--muted);background:var(--lighter);line-height:1.45}
+.figure-band .caption strong{display:inline;color:var(--primary-dark);margin-right:.25em}
 
 /* Answer justification blocks */
 .qa-body .why{

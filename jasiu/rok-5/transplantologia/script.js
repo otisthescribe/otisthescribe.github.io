@@ -80,32 +80,3 @@
     });
   });
 })();
-
-// Section entrance motion
-(function () {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.querySelectorAll('.reveal-part, .card, details.qa').forEach(function (el) {
-      el.classList.add('is-in');
-    });
-    return;
-  }
-  var nodes = [];
-  document.querySelectorAll('.card > *:not(.bloque-banner), .figure-band, details.qa, .bloque-banner').forEach(function (el, i) {
-    el.classList.add('reveal-part');
-    el.style.transitionDelay = (Math.min(i % 4, 3) * 70) + 'ms';
-    nodes.push(el);
-  });
-  if (!('IntersectionObserver' in window)) {
-    nodes.forEach(function (el) { el.classList.add('is-in'); });
-    return;
-  }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-in');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-  nodes.forEach(function (el) { io.observe(el); });
-})();
